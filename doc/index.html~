@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>A Cyber-Physical Topology Language (CPTL)</title>
+    <link type="text/css" rel="stylesheet" href="css/episteme.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="navigation">
+	<a href="index.html">Home</a> 
+	| <a href="catalog.html">Catalog</a>
+	| <a href="queries.html">Queries</a>
+      </div>
+      
+      <h1>Introduction</h1>
+      <p>We are interested in reasoning about how the topology
+      (connectivity) of assets within the electrical power grid
+      affects physical, economic, and security measurements.  We
+      therefore introduce a domain-specific language whose intent is
+      to allow us to analyze thse different aspects of power systems.
+      When applied to the power grid, this language will allow us to
+      analytically evaluate the design and ongoing state of
+      generation, substation, and distribution networks relative to
+      architectural, physical, and security tradeoffs.</p>
+
+      <p>Within the course of this small tutorial, we will demonstrate
+      how this language may be used immediately for a variety of tasks
+      including (1) dependency analysis, (2) network inventory
+      generation, and (3) network diagramming.</p>
+
+      <h2>Requirements</h2>
+      <p>This module has the following requirements:</p>
+      <ul>
+	<li><b>xsltproc</b>:  We use XSLT to transform various views
+	of the cyber-physical system.</li>
+	<li><b>yEd</b>:  We
+	use <a href="http://www.yworks.com/en/products_yed_about.html">yEd</a>
+	to create schematics for cyber-physical constructs.</li>
+	<li><b>Neo4j</b>:  We
+	use <a href="http://www.neo4j.org">Neo4j</a> to query
+	different cyber-physical constructs.</li>
+      </ul>
+      
+      <h2>Our Approach</h2>
+      <p>Practitioners have a wide variety of views of a transmission
+      substation, each of which encode a wide variety of relations at
+      a variety of different levels of granularity.  For example, a
+      transmission substation may have a one-line diagram
+      (<em>physical</em> relations) and a network diagram associated
+      with it (<em>cyber</em> relations).</p>
+
+      <p>We interpret each of these diagrams as a visual
+      representation of a database of relations that may be queried
+      and used in reasoning about the state of the cyber-physical
+      systems within the power grid.  One can compose these relations
+      in a large variety of ways and in this sense, the language is
+      extensible.  On the other hand
+      certain <em>constructs</eM>---subgraphs of assets and relations
+      among those assets---are more common than others within power
+      system design and we can represent these as a construct.
+      Moreover, the relations within a graph may yield certain
+      behavioral properties that we may capture within a set of
+      functions.</p>
+
+      <h3>Our Focus for This Release</h3>
+      <p>The image below shows our focus for this release: the ability
+      to create schematics of cyber-physical constructs and operate
+      upon those constructs within a graph database.  This release
+      shows initial results with a small example that enables
+      practitioners to <a href="catalog.html">diagram cyber-physical
+      networks for industrial control systems</a>,
+      and <a href="queries.html">perform basic analyses by querying a
+      graph database</a> of these constructs.</p>
+      
+      <div class="figure">
+	<p><img src="images/pipeline.png"/></p>
+	<p>Our focus for this release:  the ability to create
+	<a href="catalog.html">schematics of cyber-physical
+	constructs</a> and <a href="queries.html">query
+	constructs</a> within a graph database.</p>
+      </div>
+
+      <p>Specifically, we create visual representations of
+      cyber-physical constructs using GraphML (via yEd) and then
+      translate those constructs into the analogue of an <em>abstract
+      syntax tree</em> for a visual language (via the schematic2astl
+      <a href="../Makefile">Makefile target</a>).  We then translate each of these <em>syntax
+      tree</em> data structures into a Neo4j Cypher <em>CREATE</em>
+      statement (via the astl2neo4j Makefile target).  Once in the
+      database, we can generate network inventories and perform basic
+      dependency analyses.</p>
+
+      <div id="footer">
+	<p>Page last modified:  March 19, 2014</p>
+	<p>
+	  <em class="title">CPTL:  always work in progress</em>
+	  packaged on March 19, 2014.  Edited by and copyright
+	  2013-2014 Gabriel A. Weaver except where otherwise noted.</p>
+
+	<a rel="license"
+	   href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative
+	   Commons License" style="border-width:0"
+	   src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+	   /></a><br /><span xmlns:dct="http://purl.org/dc/terms/"
+	   property="dct:title">CPTL Power</span> is licensed under a
+
+	<a rel="license"
+	   href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+	  Commons Attribution-NonCommercial-ShareAlike 4.0 International
+	  License</a>  (With that said, we are amenable to commercialization).
+
+        <p>This site includes material that has not been reviewed or
+        approved by anyone at University of Illinois at Urbana-Champaign.</p>
+     </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

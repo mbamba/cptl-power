@@ -1,0 +1,7 @@
+CREATE (vt_n0:RTU:Template {ns:'cptl:substation', class:'RTU'}),
+ (v_n0__n0:Variable {ns:'astl', class:'Variable'}),
+ (vn_n0__n0:VariableName {ns:'astl', value:'id', class:'VariableName'}),
+ (vt_n0__n0:VariableType {ns:'xsd', class:'String'}),
+ (vt_n0)-[:hasVariable {ns:'astl'}]->(v_n0__n0),
+(v_n0__n0)-[:hasName {ns:'astl'}]->(vn_n0__n0),
+(v_n0__n0)-[:hasType {ns:'astl'}]->(vt_n0__n0)

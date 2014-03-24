@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <title>CPTL Catalog</title>
+    <link rel="stylesheet" type="text/css" href="css/episteme.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="navigation"> 
+	<a href="index.html">Home</a>
+	| <a href="catalog.html">Catalog</a>
+	| <a href="queries.html">Queries</a>
+      </div>
+      
+      <h1>CPTL API - Catalog</h1>
+      <p>We now describe the components from which CPTL is constructed.  Each of these constructs 
+	  consists of classes and relations described within our CPTL ontology (to be released).  In this release,
+          we focus on the following CPTL namespaces:</p>
+      <ul>
+	<li><a href="#cptl:power">CPTL Power</a></li>
+	<li><a href="#cptl:substation">CPTL Substation</a></li>
+      </ul>
+
+
+      <a name="cptl:power"></a>
+      <h2>cptl:power</h2>
+      <p>This is a very basic set of primitives to construct power
+      grids.  We now show the current model for each of our primitives.</p>
+      <ul>
+	<li><a href="#cptl:power:Line">cptl:power:Line</a></li>
+	<li><a href="#cptl:power:Node">cptl:power:Node</a></li>
+	<li><a href="#cptl:power:Breaker">cptl:power:Breaker</a></li>
+	<li><a href="#cptl:power:BreakerInstallation">cptl:power:BreakerInstallation</a></li>
+	<li><a href="#cptl:power:BreakerControl">cptl:power:BreakerControl</a></li>
+	<li><a href="#cptl:power:BreakerControlInstallation">cptl:power:BreakerControlInstallation</a></li>
+	<li><a href="#cptl:power:CurrentTransformer">cptl:power:CurrentTransformer</a></li>
+	<li><a href="#cptl:power:PotentialTransformer">cptl:power:PotentialTransformer</a></li>
+	<li><a href="#cptl:power:RTUToBreakerInstallation">cptl:power:RTUToBreakerInstallation</a></li>
+	<li><a href="#cptl:power:RTUBreakerControlInstallation">cptl:power:RTUBreakerControlInstallation</a></li>
+      </ul>
+
+      <a name="cptl:power:Line"></a>
+      <h4>Line</h4>
+      <p>Currently, this may either be a single or three-phase line.</p>
+      <div class="figure">
+	<p><img src="images/schematic/Line.png"/></p>
+	<p>High-level view of a Line.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/Line.detail.png"/></p>
+	<p>More detailed view of the Line data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/Line.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:Node"></a>
+      <h4>Node</h4>
+      <div class="figure">
+	<p><img src="images/schematic/Node.png"/></p>
+	<p>High-level view of a Node.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/Node.detail.png"/></p>
+	<p>More detailed view of the Node data model.</p>
+      </div>
+
+      <p>(<a href="../data/graphs/constructions/schematic/Node.graphml">GraphML Schematic</a> )</p>
+      
+      <a name="cptl:power:Breaker"></a>
+      <h4>Breaker</h4>
+      <div class="figure">
+	<p><img src="images/schematic/Breaker.png"/></p>
+	<p>High-level view of a Breaker.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/Breaker.detail.png"/></p>
+	<p>More detailed view of the Breaker data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/Breaker.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:BreakerInstallation"></a>
+      <h4>Breaker Installation</h4>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerInstallation.png"/></p>
+	<p>High-level view of a Breaker installation.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerInstallation.detail.png"/></p>
+	<p>More detailed view of the Breaker installation data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/BreakerInstallation.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:BreakerControl"></a>
+      <h4>Breaker Control</h4>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerControl.png"/></p>
+	<p>High-level view of a Breaker Control.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerControl.detail.png"/></p>
+	<p>More detailed view of the Breaker Control data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/BreakerControl.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:BreakerControlInstallation"></a>
+      <h4>BreakerControlInstallation</h4>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerControlInstallation.png"/></p>
+	<p>High-level view of a Breaker Control Installation.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerControlInstallation.detail.png"/></p>
+	<p>More detailed view of the Breaker Control Installation data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/BreakerControlInstallation.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:CurrentTransformer"></a>
+      <h4>Current Transformer</h4>
+      <div class="figure">
+	<p><img src="images/schematic/CurrentTransformer.png"/></p>
+	<p>High-level view of a Current Transformer.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/CurrentTransformer.detail.png"/></p>
+	<p>More detailed view of the Current Transformer data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/CurrentTransformer.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:PotentialTransformer"></a>
+      <h4>Potential Transformer</h4>
+      <div class="figure">
+	<p><img src="images/schematic/PotentialTransformer.png"/></p>
+	<p>High-level view of a Potential Transformer.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/PotentialTransformer.detail.png"/></p>
+	<p>More detailed view of the Potential Transformer data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/PotentialTransformer.graphml">GraphML Schematic</a> )</p>
+      
+
+      <a name="cptl:power:RTUToBreakerInstallation"></a>      
+      <h4>RTU To Breaker</h4>
+      <div class="figure">
+	<p><img src="images/schematic/RTUToBreakerInstallation.png"/></p>
+	<p>High-level view of an RTU to Breaker installation.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/RTUToBreakerInstallation.detail.png"/></p>
+	<p>More detailed view of the RTU to Breaker installation.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/RTUToBreakerInstallation.graphml">GraphML Schematic</a> )</p>
+
+      <a name="cptl:power:BreakerControlInstallation"></a>      
+      <h4>Breaker Control to Breaker</h4>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerControlInstallation.png"/></p>
+	<p>High-level view of a Breaker Control installation.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/BreakerControlInstallation.detail.png"/></p>
+	<p>More detailed view of a Breaker Control installation.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/RTUToBreakerInstallation.graphml">GraphML Schematic</a> ) </p>
+
+      <a name="cptl:power:RTUBreakerControlInstallation"></a>      
+      <h4>RTU to Breaker Control to Breaker</h4>
+      <div class="figure">
+	<p><img src="images/schematic/RTUBreakerControlInstallation.png"/></p>
+	<p>High-level view of a Breaker Control with RTU connected.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/RTUBreakerControlInstallation.detail.png"/></p>
+	<p>More detailed view of a Breaker Control with RTU connected.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/RTUBreakerControlInstallation.graphml">GraphML Schematic</a> ) </p>
+
+
+      <a name="cptl:substation"></a>
+      <h2>cptl:substation</h2>
+      <p>This is a very basic set of primitives to describe substation
+      networks.  We now show the current model for each of our
+      primitives.</p>
+      <ul>
+	<li><a href="#cptl:substation:RTU">cptl:substation:RTU</a></li>
+      </ul>
+
+      <a name="cptl:substation:RTU"></a>
+      <h4>RTU</h4>
+      <div class="figure">
+	<p><img src="images/schematic/RTU.png"/></p>
+	<p>High-level view of a RTU.</p>
+      </div>
+      <div class="figure">
+	<p><img src="images/schematic/RTU.detail.png"/></p>
+	<p>More detailed view of the RTU data model.</p>
+      </div>
+
+      <p>( <a href="../data/graphs/constructions/schematic/RTU.graphml">GraphML Schematic</a> )</p>
+
+      <div id="footer">
+	<p>Page last modified:  March 19, 2014</p>
+	<p>
+	  <em class="title">CPTL:  always work in progress</em>
+	  packaged on March 19, 2014.  Edited by and copyright
+	  2013-2014 Gabriel A. Weaver except where otherwise noted.</p>
+
+	<a rel="license"
+	   href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative
+	   Commons License" style="border-width:0"
+	   src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+	   /></a><br /><span xmlns:dct="http://purl.org/dc/terms/"
+	   property="dct:title">CPTL Power</span> is licensed under a
+
+	<a rel="license"
+	   href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+	  Commons Attribution-NonCommercial-ShareAlike 4.0 International
+	  License</a>  (With that said, we are amenable to commercialization).
+
+        <p>This site includes material that has not been reviewed or
+        approved by anyone at University of Illinois at Urbana-Champaign.</p>
+     </div>
+      
+   </div>
+  </body>
+</html>
