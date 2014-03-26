@@ -45,7 +45,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
   <graph edgedefault="directed" id="G">
     <data key="d9"/>
     <node id="n0">
-      <data key="d4"><![CDATA[astl]]></data>
+      <data key="d4"><![CDATA[asl]]></data>
       <data key="d5"><![CDATA[Variable]]></data>
       <data key="d7"/>
       <data key="d8">
@@ -65,7 +65,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </node>
     <node id="n1">
-      <data key="d4"><![CDATA[astl]]></data>
+      <data key="d4"><![CDATA[asl]]></data>
       <data key="d5"><![CDATA[Variable]]></data>
       <data key="d7"/>
       <data key="d8">
@@ -165,7 +165,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </node>
     <edge id="e0" source="n6" target="n0">
-      <data key="d10"><![CDATA[astl]]></data>
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -185,7 +185,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </edge>
     <edge id="e1" source="n6" target="n1">
-      <data key="d10"><![CDATA[astl]]></data>
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -205,7 +205,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </edge>
     <edge id="e2" source="n0" target="n2">
-      <data key="d10"><![CDATA[astl]]></data>
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -225,7 +225,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </edge>
     <edge id="e3" source="n0" target="n3">
-      <data key="d10"><![CDATA[astl]]></data>
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -245,7 +245,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </edge>
     <edge id="e4" source="n1" target="n4">
-      <data key="d10"><![CDATA[astl]]></data>
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -265,7 +265,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       </data>
     </edge>
     <edge id="e5" source="n1" target="n5">
-      <data key="d10"><![CDATA[astl]]></data>
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>

@@ -16,18 +16,18 @@
       constructs defined within our <a href="catalog.html">CPTL
       catalog</a>.  Currently, this is a two-step transformation
       process.  First, we convert the GraphML schematic into an
-      intermediate <em>Abstract Syntax Tree Language (ASTL)</em> that
+      intermediate <em>Abstract Syntax Language (ASL)</em> that
       captures relations that are implicit in the schematic.  (We note
       that although some of the representations aren't really trees if
       we include the CPTL relations such as<em>hasLink</em>, they are
-      trees when we only look at ASTL relations such
+      trees when we only look at ASL relations such
       as <em>hasVariable</em>, <em>hasType</em>,
-      and <em>hasName</em>).  Second, we convert the ASTL construct
+      and <em>hasName</em>).  Second, we convert the ASL construct
       into a Neo4j Cypher CREATE statement.  We now discuss both
       components of this process.</p>
 
 
-      <h2>Converting Schematics into ASTL</h2>
+      <h2>Converting Schematics into ASL</h2>
       <p>The schematics from our catalog encode implicit relations
       that we may want to query.  Consider, for example, the breaker
       installation schematic shown below.</p>
@@ -41,33 +41,33 @@
       Installation construct consists of a Breaker attached to two
       lines, there is an implicit relation, denoted by containment
       that a Breaker installation has three variables: Line L1, Line
-      L2, and Breaker B.  Our ASTL captures these implicit relations
+      L2, and Breaker B.  Our ASL captures these implicit relations
       within the schematic that are encoded by containment.
-      Consider, for example, the corresponding ASTL representation
+      Consider, for example, the corresponding ASL representation
       for the Breaker installation shown above.</p> 
 
       <div class="figure">
-	<p><img src="images/astl/BreakerInstallation.png"/></p>
-	<p>The ASTL representation of the Breaker installation data model.</p>
+	<p><img src="images/asl/BreakerInstallation.png"/></p>
+	<p>The ASL representation of the Breaker installation data model.</p>
       </div>
 
       <p>Specifically, we see that the breaker installation (shown at
       the far left) has three variables which have the names L1, B,
       and L2 and types of Line, Breaker, and Line respectively.
       Furthermore, the CPTL relation <em>hasLink</em> is also encoded
-      within the ASTL representation of the construction.</p>
+      within the ASL representation of the construction.</p>
 
       <p>Practically, we can convert the
       construct <a href="../data/graphs/constructions/schematic">schematics</a>
       into their
-      corresponding <a href="../data/graphs/constructions/astl">ASTL
-      representations</a> by using the <em>schematic2astl</em>
+      corresponding <a href="../data/graphs/constructions/asl">ASL
+      representations</a> by using the <em>schematic2asl</em>
       Makefile task.
 
       <h2>Loading Constructs into the GraphDB</h2>
-      <p>After we have the ASTL GraphML representation of the
+      <p>After we have the ASL GraphML representation of the
       constructs, we can convert them into a Neo4j Cypher CREATE
-      query.  For example, we convert the ASTL above into the
+      query.  For example, we convert the ASL above into the
       following <a href="../data/graphs/constructions/cypher/BreakerInstallation.db">Neo4j
       Cypher CREATE statement for a Breaker Installation</a>.  The
       figure below shows what this structure looks like in the Neo4j
@@ -80,10 +80,10 @@
       </div>
       
       <p>Practically, we can convert
-      the <a href="../data/graphs/constructions/astl">ASTL
+      the <a href="../data/graphs/constructions/asl">ASL
       constructs</a> into their
       corresponding <a href="../data/graphs/constructions/cypher">Cypher
-      CREATE statements</a> via the <em>astl2neo4j</em> Makefile task.
+      CREATE statements</a> via the <em>asl2neo4j</em> Makefile task.
       Once we have done this, we can copy each of these statements
       into
       the <a href="http://blog.neo4j.org/2013/10/neo4j-200-m06-introducing-neo4js-browser.html">Neo4j
@@ -122,7 +122,7 @@
       <div width="70%" class="figure">
 	<p><img src="images/cypher/breaker_control_paths.queries.png"/></p>
 	<p>Return all paths of length at most 10 hops from a breaker
-	control to a line within the ASTL.  We see that the
+	control to a line within the ASL.  We see that the
 	BreakerControlInstallation and RTUBreakerControlInstallation
 	templates contain such paths.</p>
       </div>
@@ -139,7 +139,7 @@
 	   Commons License" style="border-width:0"
 	   src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
 	   /></a><br /><span xmlns:dct="http://purl.org/dc/terms/"
-	   property="dct:title">CPTL Power</span> is licensed under a
+	   property="dct:title">CPTL Power Documentation</span> is licensed under a
 
 	<a rel="license"
 	   href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative

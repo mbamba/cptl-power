@@ -45,21 +45,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
   <graph edgedefault="directed" id="G">
     <data key="d9"/>
     <node id="n0">
-      <data key="d4"><![CDATA[cptl:power]]></data>
-      <data key="d5"><![CDATA[Breaker]]></data>
-      <data key="d7"/>
-      <data key="d8">
-        <y:ImageNode>
-          <y:Geometry height="50.0" width="48.0" x="219.0" y="276.0"/>
-          <y:Fill color="#CCCCFF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="sandwich" modelPosition="s" textColor="#000000" visible="true" width="4.0" x="22.0" y="54.0"/>
-          <y:Image alphaImage="true" refid="1"/>
-        </y:ImageNode>
-      </data>
-    </node>
-    <node id="n1">
-      <data key="d4"><![CDATA[astl]]></data>
+      <data key="d4"><![CDATA[asl]]></data>
       <data key="d5"><![CDATA[Variable]]></data>
       <data key="d7"/>
       <data key="d8">
@@ -78,8 +64,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n2">
-      <data key="d4"><![CDATA[astl]]></data>
+    <node id="n1">
+      <data key="d4"><![CDATA[asl]]></data>
       <data key="d5"><![CDATA[Variable]]></data>
       <data key="d7"/>
       <data key="d8">
@@ -98,7 +84,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n3">
+    <node id="n2">
       <data key="d4"><![CDATA[cptl:power]]></data>
       <data key="d5"><![CDATA[Node]]></data>
       <data key="d7"/>
@@ -108,11 +94,11 @@ along with this program.  If not, see http://www.gnu.org/licenses/
           <y:Fill color="#CCCCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="sandwich" modelPosition="s" textColor="#000000" visible="true" width="4.0" x="22.0" y="54.0"/>
-          <y:Image alphaImage="true" refid="2"/>
+          <y:Image alphaImage="true" refid="1"/>
         </y:ImageNode>
       </data>
     </node>
-    <node id="n4">
+    <node id="n3">
       <data key="d4"><![CDATA[xsd]]></data>
       <data key="d5"><![CDATA[string]]></data>
       <data key="d7"/>
@@ -121,7 +107,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
           <y:Geometry height="30.0" width="30.0" x="649.0" y="238.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" textColor="#000000" visible="true" width="16.076171875" x="6.9619140625" y="5.93359375">t1<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" textColor="#000000" visible="true" width="32.62890625" x="-1.314453125" y="5.93359375">front<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -132,7 +118,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n5">
+    <node id="n4">
       <data key="d7"/>
       <data key="d8">
         <y:ImageNode>
@@ -140,11 +126,11 @@ along with this program.  If not, see http://www.gnu.org/licenses/
           <y:Fill color="#CCCCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="sandwich" modelPosition="s" textColor="#000000" visible="true" width="4.0" x="22.0" y="54.0"/>
-          <y:Image alphaImage="true" refid="2"/>
+          <y:Image alphaImage="true" refid="1"/>
         </y:ImageNode>
       </data>
     </node>
-    <node id="n6">
+    <node id="n5">
       <data key="d4"><![CDATA[xsd]]></data>
       <data key="d5"><![CDATA[string]]></data>
       <data key="d7"/>
@@ -153,7 +139,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
           <y:Geometry height="30.0" width="30.0" x="649.0" y="437.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" textColor="#000000" visible="true" width="16.076171875" x="6.9619140625" y="5.93359375">t2<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" textColor="#000000" visible="true" width="31.33984375" x="-0.669921875" y="5.93359375">back<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -164,15 +150,29 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:ShapeNode>
       </data>
     </node>
-    <edge id="e0" source="n0" target="n1">
-      <data key="d10"><![CDATA[astl]]></data>
+    <node id="n6">
+      <data key="d4"><![CDATA[cptl:power]]></data>
+      <data key="d5"><![CDATA[PotentialTransformer]]></data>
+      <data key="d7"/>
+      <data key="d8">
+        <y:ImageNode>
+          <y:Geometry height="30.0" width="74.0" x="179.0" y="276.0"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="sandwich" modelPosition="s" textColor="#000000" visible="true" width="4.0" x="35.0" y="34.0"/>
+          <y:Image alphaImage="true" refid="2"/>
+        </y:ImageNode>
+      </data>
+    </node>
+    <edge id="e0" source="n6" target="n0">
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="37.03594544444232" sy="-13.745657957822857" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#FF6600" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" height="18.1328125" lineColor="#FF6600" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.376953125" x="64.8173828125" y="-48.43120117187499">hasVariable<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" height="18.1328125" lineColor="#FF6600" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.376953125" x="71.77557373046875" y="-41.89681748659336">hasVariable<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -184,15 +184,15 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n0" target="n2">
-      <data key="d10"><![CDATA[astl]]></data>
+    <edge id="e1" source="n6" target="n1">
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="36.973257428412495" sy="11.14496360296829" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#FF6600" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" height="18.1328125" lineColor="#FF6600" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.376953125" x="64.8173828125" y="23.597998046874977">hasVariable<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" height="18.1328125" lineColor="#FF6600" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.376953125" x="71.8101806640625" y="26.85033403745274">hasVariable<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -204,8 +204,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n1" target="n3">
-      <data key="d10"><![CDATA[astl]]></data>
+    <edge id="e2" source="n0" target="n2">
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -224,8 +224,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n1" target="n4">
-      <data key="d10"><![CDATA[astl]]></data>
+    <edge id="e3" source="n0" target="n3">
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -244,8 +244,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n2" target="n5">
-      <data key="d10"><![CDATA[astl]]></data>
+    <edge id="e4" source="n1" target="n4">
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -264,8 +264,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n2" target="n6">
-      <data key="d10"><![CDATA[astl]]></data>
+    <edge id="e5" source="n1" target="n5">
+      <data key="d10"><![CDATA[asl]]></data>
       <data key="d12"/>
       <data key="d13">
         <y:PolyLineEdge>
@@ -287,12 +287,25 @@ along with this program.  If not, see http://www.gnu.org/licenses/
   </graph>
   <data key="d0">
     <y:Resources>
-      <y:Resource id="1" type="java.awt.image.BufferedImage">iVBORw0KGgoAAAANSUhEUgAAADAAAAAyCAYAAAAayliMAAAAUklEQVR42u3YsQkAMAwDQe2UKjN7&#13;
-yGSDdDYETvADXKuczxcAAAAAAAAAgCFAkpFaAbVXawAAAAAAAAAAAAAAAAAAAAAAAJ455y4AAAAA&#13;
-AADAexcNObh0TuFmawAAAABJRU5ErkJggg==</y:Resource>
-      <y:Resource id="2" type="java.awt.image.BufferedImage">iVBORw0KGgoAAAANSUhEUgAAADAAAAAyCAYAAAAayliMAAAASklEQVR42u3YwQkAMAwDsdt/6fad&#13;
+      <y:Resource id="1" type="java.awt.image.BufferedImage">iVBORw0KGgoAAAANSUhEUgAAADAAAAAyCAYAAAAayliMAAAASklEQVR42u3YwQkAMAwDsdt/6fad&#13;
 BQItOvAA+rrzeAEAAAAAAAAALAGqlQEAAAAAAAAAAAAAAAAAAAAAAAB8BXDuAgAAAAAAAMwuzUUq&#13;
 bkbbbvIAAAAASUVORK5CYII=</y:Resource>
+      <y:Resource id="2" type="java.awt.image.BufferedImage">iVBORw0KGgoAAAANSUhEUgAAAJUAAAAuCAYAAAAhr1v5AAADSklEQVR42u2cv0tyURjHLSsIt7Al&#13;
+Ird0McFwaCkwqEE0tYaiQYwEF/tBREP0A2kQRdE/wBTXqCloaLUlamxramtJiIgw63l5Duj7vryv&#13;
+SN7TNa/fL3xRuJxzzznPh8v58dyrIwiSLB2GAAJUEKCCABUEASoIUEGA6rdeX19pd3eX3t7eMGqQ&#13;
+cqgeHx9pfHycdDodra2tYdTaXG63m0ZHRymbzbYGqlKpRDabTQDV3d1NsVgMUWlzWa1WEc9EIqE+&#13;
+VB8fHzQ9PS0aoNfr6eTkBBEBVMqgOjo6EjdnHx8fIxodANXt7S0VCgW6vLyUD9X9/T319fWJm6+u&#13;
+riISHQLV9va2uOZ0OuVDtbCwICofGhqil5cXRAJQKYOKn1JdXV2i8lwuhygAKuVQbW1t1Z5S7+/v&#13;
+iAKgUg6VyWQSFe/t7SECgEo5VHd3d7UV383NjbSOFItF0WD4X6dSqbaAamNjg3p6esjj8XwNKt5l&#13;
+5UoHBgbo8/NTSieurq5odna2Biv8t3ms1dyyaRaqSCQirrlcrq9Btbm5KQpOTU1J60S1MXB9GwwG&#13;
+7ULl8/lEwVAoBKgAlRyouDIuODIyIv7L8PDwMMBpYD5XlTXejcwAqwrVxMQEgtwhVg2qmZkZUZBT&#13;
+XWStbux2O4LYwL29vaqtNo1Go7pQLS4uioLLy8uYU2FOJQeqw8NDUZBzqGRpf3+f+vv7AU8d85GY&#13;
+2WzWLlRnZ2e1x/Hz87O0jmQyGQBUx2NjY22x+dk0VE9PTyIhjwufnp5K6wgn/JXL5R/hamr0wcHB&#13;
+j2iP2uerzULFOVac+dsoWfO/Z3+Tk5OiYr/fr8mzL4fDIfoXjUZx9qfWgXI+n6+lED88PAAqQKUc&#13;
+Kn4Na3BwUFQeDAYBFaBSDtWfE2ve6b2+vgZUgEo5VDyB5GUu34DfEdNSSjGgqg9VPB4X8Q4EAvKh&#13;
+YvETircWuAFer5cqlQqg0jhUMtTwZdJkMlnbT1lZWdEEWICqxVCx+FX3Kljz8/OAClAph4ozQNfX&#13;
+10VD0uk0oGpz7ezs0NLSEp2fn7cOqqouLi40Nafi33A4DEt2R36firdLLBYLzh2/y9Sh4gXI3Nwc&#13;
+/A3Gl/Sg1s6pIAhQQYAKAlQQBKggdfQLXZRFvAKqtqUAAAAASUVORK5CYII=</y:Resource>
     </y:Resources>
   </data>
 </graphml>

@@ -31,29 +31,29 @@ along with this program.  If not, see http://www.gnu.org/licenses/
   <xsl:output method="xml" indent="yes"/>
 
   <!-- Set up some consts -->
-  <xsl:variable name="VARIABLE_LABEL">astl:Variable</xsl:variable>
+  <xsl:variable name="VARIABLE_LABEL">asl:Variable</xsl:variable>
 
   <!-- Set up the data keys in the Schematic source -->
   <xsl:variable name="schematicResourcesKey"><xsl:value-of select="/graphml:graphml/graphml:key[./@yfiles.type='resources']/@id"/></xsl:variable>
   <xsl:variable name="schematicNodeGraphicsKey"><xsl:value-of select="/graphml:graphml/graphml:key[./@yfiles.type='nodegraphics' and ./@for='node']/@id"/></xsl:variable>
   <xsl:variable name="schematicEdgeGraphicsKey"><xsl:value-of select="/graphml:graphml/graphml:key[./@yfiles.type='edgegraphics' and ./@for='edge']/@id"/></xsl:variable>
 
-  <!-- Set up the data keys in the ASTL Target -->
-  <xsl:variable name="astlResourcesKey">d0</xsl:variable>
-  <xsl:variable name="astlPortGraphicsKey">d1</xsl:variable>
-  <xsl:variable name="astlPortGeometryKey">d2</xsl:variable>
-  <xsl:variable name="astlPortUserDataKey">d3</xsl:variable>
-  <xsl:variable name="astlNodeNamespaceKey">d4</xsl:variable>
-  <xsl:variable name="astlNodeClassKey">d5</xsl:variable>
-  <xsl:variable name="astlNodeURLKey">d6</xsl:variable>
-  <xsl:variable name="astlNodeDescriptionKey">d7</xsl:variable>
-  <xsl:variable name="astlNodeGraphicsKey">d8</xsl:variable>
-  <xsl:variable name="astlGraphDescriptionKey">d9</xsl:variable>
-  <xsl:variable name="astlEdgeNamespaceKey">d10</xsl:variable>
-  <xsl:variable name="astlEdgeURLKey">d11</xsl:variable>
-  <xsl:variable name="astlEdgeDescriptionKey">d12</xsl:variable>
-  <xsl:variable name="astlEdgeRelationKey">d13</xsl:variable>
-  <xsl:variable name="astlEdgeGraphicsKey">d14</xsl:variable>
+  <!-- Set up the data keys in the ASL Target -->
+  <xsl:variable name="aslResourcesKey">d0</xsl:variable>
+  <xsl:variable name="aslPortGraphicsKey">d1</xsl:variable>
+  <xsl:variable name="aslPortGeometryKey">d2</xsl:variable>
+  <xsl:variable name="aslPortUserDataKey">d3</xsl:variable>
+  <xsl:variable name="aslNodeNamespaceKey">d4</xsl:variable>
+  <xsl:variable name="aslNodeClassKey">d5</xsl:variable>
+  <xsl:variable name="aslNodeURLKey">d6</xsl:variable>
+  <xsl:variable name="aslNodeDescriptionKey">d7</xsl:variable>
+  <xsl:variable name="aslNodeGraphicsKey">d8</xsl:variable>
+  <xsl:variable name="aslGraphDescriptionKey">d9</xsl:variable>
+  <xsl:variable name="aslEdgeNamespaceKey">d10</xsl:variable>
+  <xsl:variable name="aslEdgeURLKey">d11</xsl:variable>
+  <xsl:variable name="aslEdgeDescriptionKey">d12</xsl:variable>
+  <xsl:variable name="aslEdgeRelationKey">d13</xsl:variable>
+  <xsl:variable name="aslEdgeGraphicsKey">d14</xsl:variable>
   
 
   <!-- Graphml -->
@@ -64,21 +64,21 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       <xsl:attribute name="xmlns:y" value="http://www.yworks.com/xml/graphml"/>
       <xsl:attribute name="xmlns:yed" value="http://www.yworks.com/xml/yed/3"/>-->
       
-      <graphml:key for="graphml" id="{$astlResourcesKey}" yfiles.type="resources"/>
-      <graphml:key for="port" id="{$astlPortGraphicsKey}" yfiles.type="portgraphics"/>
-      <graphml:key for="port" id="{$astlPortGeometryKey}" yfiles.type="portgeometry"/>
-      <graphml:key for="port" id="{$astlPortUserDataKey}" yfiles.type="portuserdata"/>
-      <graphml:key attr.name="namespace" attr.type="string" for="node" id="{$astlNodeNamespaceKey}"/>
-      <graphml:key attr.name="class" attr.type="string" for="node" id="{$astlNodeClassKey}"/>
-      <graphml:key attr.name="url" attr.type="string" for="node" id="{$astlNodeURLKey}"/>
-      <graphml:key attr.name="description" attr.type="string" for="node" id="{$astlNodeDescriptionKey}"/>
-      <graphml:key for="node" id="{$astlNodeGraphicsKey}" yfiles.type="nodegraphics"/>
-      <graphml:key attr.name="Description" attr.type="string" for="graph" id="{$astlGraphDescriptionKey}"/>
-      <graphml:key attr.name="namespace" attr.type="string" for="edge" id="{$astlEdgeNamespaceKey}"/>
-      <graphml:key attr.name="url" attr.type="string" for="edge" id="{$astlEdgeURLKey}"/>
-      <graphml:key attr.name="description" attr.type="string" for="edge" id="${astlEdgeDescriptionKey}"/>
-      <graphml:key attr.name="relation" attr.type="string" for="edge" id="{$astlEdgeRelationKey}"/>
-      <graphml:key for="edge" id="{$astlEdgeGraphicsKey}" yfiles.type="edgegraphics"/>
+      <graphml:key for="graphml" id="{$aslResourcesKey}" yfiles.type="resources"/>
+      <graphml:key for="port" id="{$aslPortGraphicsKey}" yfiles.type="portgraphics"/>
+      <graphml:key for="port" id="{$aslPortGeometryKey}" yfiles.type="portgeometry"/>
+      <graphml:key for="port" id="{$aslPortUserDataKey}" yfiles.type="portuserdata"/>
+      <graphml:key attr.name="namespace" attr.type="string" for="node" id="{$aslNodeNamespaceKey}"/>
+      <graphml:key attr.name="class" attr.type="string" for="node" id="{$aslNodeClassKey}"/>
+      <graphml:key attr.name="url" attr.type="string" for="node" id="{$aslNodeURLKey}"/>
+      <graphml:key attr.name="description" attr.type="string" for="node" id="{$aslNodeDescriptionKey}"/>
+      <graphml:key for="node" id="{$aslNodeGraphicsKey}" yfiles.type="nodegraphics"/>
+      <graphml:key attr.name="Description" attr.type="string" for="graph" id="{$aslGraphDescriptionKey}"/>
+      <graphml:key attr.name="namespace" attr.type="string" for="edge" id="{$aslEdgeNamespaceKey}"/>
+      <graphml:key attr.name="url" attr.type="string" for="edge" id="{$aslEdgeURLKey}"/>
+      <graphml:key attr.name="description" attr.type="string" for="edge" id="${aslEdgeDescriptionKey}"/>
+      <graphml:key attr.name="relation" attr.type="string" for="edge" id="{$aslEdgeRelationKey}"/>
+      <graphml:key for="edge" id="{$aslEdgeGraphicsKey}" yfiles.type="edgegraphics"/>
       
       <xsl:element name="graph" namespace="http://graphml.graphdrawing.org/xmlns">
 	<xsl:apply-templates select="child::graphml:graph/graphml:node"/>
@@ -94,7 +94,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
     <!-- CREATE THE NODE OF THE CONTAINER -->
     <xsl:element name="node" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="id">astl:VariableType::<xsl:value-of select="normalize-space(./@id)"/></xsl:attribute>
+      <xsl:attribute name="id">asl:VariableType::<xsl:value-of select="normalize-space(./@id)"/></xsl:attribute>
 
       <xsl:variable name="nodeLabel">
 	<xsl:choose>
@@ -114,12 +114,12 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
     <!-- FOR EACH CHILD NODE IN THE CONTAINER -->
     <xsl:if test="./@yfiles.foldertype='folder' or ./@yfiles.foldertype='group'">
-      <xsl:variable name="parentNodeId">astl:VariableType::<xsl:value-of select="normalize-space(./@id)"/></xsl:variable>
+      <xsl:variable name="parentNodeId">asl:VariableType::<xsl:value-of select="normalize-space(./@id)"/></xsl:variable>
 
       <!-- CREATE A VARIABLE NODE AND EDGE FOR EACH SUBGRAPH CHILD -->
       <xsl:for-each select="child::graphml:graph/graphml:node">
-	  <xsl:variable name="variable_node_id"><xsl:value-of select="concat(concat('astl:Variable', '::'), normalize-space(./@id))"/></xsl:variable>
-	  <xsl:variable name="variable_name_node_id"><xsl:value-of select="concat(concat('astl:VariableName', '::'), normalize-space(./@id))"/></xsl:variable>
+	  <xsl:variable name="variable_node_id"><xsl:value-of select="concat(concat('asl:Variable', '::'), normalize-space(./@id))"/></xsl:variable>
+	  <xsl:variable name="variable_name_node_id"><xsl:value-of select="concat(concat('asl:VariableName', '::'), normalize-space(./@id))"/></xsl:variable>
 
 	  <xsl:variable name="variable_name_node_label">
 	  <xsl:choose>
@@ -143,16 +143,16 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 		<xsl:attribute name="id"><xsl:value-of select="$variable_node_id"/></xsl:attribute>
 	      </xsl:otherwise>
 	    </xsl:choose>
-	    <xsl:call-template name="getNodeClass"><xsl:with-param name="nodeLabel">astl:Variable</xsl:with-param></xsl:call-template>
-	    <xsl:call-template name="getNodeNamespace"><xsl:with-param name="nodeLabel">astl:Variable</xsl:with-param></xsl:call-template>
-	    <xsl:call-template name="getImageNode"><xsl:with-param name="nodeLabel">astl:Variable</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getNodeClass"><xsl:with-param name="nodeLabel">asl:Variable</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getNodeNamespace"><xsl:with-param name="nodeLabel">asl:Variable</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getImageNode"><xsl:with-param name="nodeLabel">asl:Variable</xsl:with-param></xsl:call-template>
 	  </xsl:element>
 
 	  <!-- Variable Name Node -->
 	  <xsl:element name="node" namespace="http://graphml.graphdrawing.org/xmlns">
 	    <xsl:attribute name="id"><xsl:value-of select="$variable_name_node_id"/></xsl:attribute>
 	    <xsl:value-of select="$variable_name_node_label"/>
-	    <xsl:call-template name="getNodeNamespace"><xsl:with-param name="nodeLabel">astl:VariableName</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getNodeNamespace"><xsl:with-param name="nodeLabel">asl:VariableName</xsl:with-param></xsl:call-template>
 	    <xsl:call-template name="getNodeName"><xsl:with-param name="variable_name"><xsl:value-of select="$variable_name"/></xsl:with-param></xsl:call-template>
 	    <xsl:call-template name="getImageNode"><xsl:with-param name="nodeLabel"><xsl:value-of select="$variable_name_node_label"/></xsl:with-param></xsl:call-template>
 	  </xsl:element>
@@ -170,15 +170,15 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 	    <xsl:attribute name="source"><xsl:value-of select="$parentNodeId"/></xsl:attribute>
 	    <xsl:attribute name="target"><xsl:value-of select="$variable_node_id"/></xsl:attribute>
 
-	    <xsl:call-template name="getEdgeRelation"><xsl:with-param name="edgeLabel">astl:hasVariable</xsl:with-param></xsl:call-template>
-	    <xsl:call-template name="getEdgeNamespace"><xsl:with-param name="edgeLabel">astl:hasVariable</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getEdgeRelation"><xsl:with-param name="edgeLabel">asl:hasVariable</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getEdgeNamespace"><xsl:with-param name="edgeLabel">asl:hasVariable</xsl:with-param></xsl:call-template>
 	  </xsl:element>
 
 	  <xsl:element name="edge" namespace="http://graphml.graphdrawing.org/xmlns">
 	    <xsl:attribute name="source"><xsl:value-of select="$variable_node_id"/></xsl:attribute>
 	    <xsl:attribute name="target"><xsl:value-of select="$variable_name_node_id"/></xsl:attribute>
-	    <xsl:call-template name="getEdgeRelation"><xsl:with-param name="edgeLabel">astl:hasName</xsl:with-param></xsl:call-template>
-	    <xsl:call-template name="getEdgeNamespace"><xsl:with-param name="edgeLabel">astl:hasName</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getEdgeRelation"><xsl:with-param name="edgeLabel">asl:hasName</xsl:with-param></xsl:call-template>
+	    <xsl:call-template name="getEdgeNamespace"><xsl:with-param name="edgeLabel">asl:hasName</xsl:with-param></xsl:call-template>
 	  </xsl:element>
       </xsl:for-each>
 
@@ -188,9 +188,9 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:if test="../../@yfiles.foldertype='folder' or ../../@yfiles.foldertype='group'">
       <xsl:element name="edge" namespace="http://graphml.graphdrawing.org/xmlns">
 	<xsl:attribute name="source"><xsl:value-of select="concat(concat($VARIABLE_LABEL, '::'), ./@id)"/></xsl:attribute>
-	<xsl:attribute name="target">astl:VariableType::<xsl:value-of select="./@id"/></xsl:attribute>
-	<xsl:call-template name="getEdgeRelation"><xsl:with-param name="edgeLabel">astl:hasType</xsl:with-param></xsl:call-template>
-	<xsl:call-template name="getEdgeNamespace"><xsl:with-param name="edgeLabel">astl:hasType</xsl:with-param></xsl:call-template>      
+	<xsl:attribute name="target">asl:VariableType::<xsl:value-of select="./@id"/></xsl:attribute>
+	<xsl:call-template name="getEdgeRelation"><xsl:with-param name="edgeLabel">asl:hasType</xsl:with-param></xsl:call-template>
+	<xsl:call-template name="getEdgeNamespace"><xsl:with-param name="edgeLabel">asl:hasType</xsl:with-param></xsl:call-template>      
       </xsl:element>
     </xsl:if>
 
@@ -237,7 +237,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:text>:</xsl:text>
     <xsl:call-template name="getNodeClassHelper"><xsl:with-param name="nodeLabel"><xsl:value-of select="$nodeLabel"/></xsl:with-param></xsl:call-template>
     <xsl:text>::</xsl:text>-->
-    <xsl:text>astl:Variable::</xsl:text><xsl:value-of select="$base_id"/>
+    <xsl:text>asl:Variable::</xsl:text><xsl:value-of select="$base_id"/>
 
   </xsl:template>
 
@@ -245,7 +245,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:param name="nodeLabel"></xsl:param>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="graphml:key"><xsl:value-of select="$astlNodeGraphicsKey"/></xsl:attribute>
+      <xsl:attribute name="graphml:key"><xsl:value-of select="$aslNodeGraphicsKey"/></xsl:attribute>
 
       <xsl:choose>
 	<xsl:when test="contains($nodeLabel, 'cptl:power:') or contains($nodeLabel, 'cptl:substation')">
@@ -267,7 +267,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 	  </y:ImageNode>	
 	</xsl:when>
 	
-	<xsl:when test="contains($nodeLabel, 'astl:Variable')">
+	<xsl:when test="contains($nodeLabel, 'asl:Variable')">
           <y:ShapeNode>
             <y:Geometry height="30.0" width="30.0"/>
             <y:Fill color="#FF6600" transparent="false"/>
@@ -291,7 +291,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:param name="nodeLabel"></xsl:param>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="key"><xsl:value-of select="$astlNodeClassKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslNodeClassKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:call-template name="getNodeClassHelper"><xsl:with-param name="nodeLabel"><xsl:value-of select="$nodeLabel"/></xsl:with-param></xsl:call-template>
       <xsl:text disable-output-escaping="yes">]]&gt;</xsl:text>
@@ -327,12 +327,12 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 	  </xsl:otherwise>
 	</xsl:choose>
 	</xsl:when>
-      <xsl:when test="contains($nodeLabel, 'astl:VariableName')">
-	<xsl:variable name="class"><xsl:value-of select="substring-after($nodeLabel, 'astl:')"/></xsl:variable>
+      <xsl:when test="contains($nodeLabel, 'asl:VariableName')">
+	<xsl:variable name="class"><xsl:value-of select="substring-after($nodeLabel, 'asl:')"/></xsl:variable>
 	<xsl:value-of select="$class"/>
       </xsl:when>
-      <xsl:when test="contains($nodeLabel, 'astl:Variable')">
-	<xsl:variable name="class"><xsl:value-of select="substring-after($nodeLabel, 'astl:')"/></xsl:variable>
+      <xsl:when test="contains($nodeLabel, 'asl:Variable')">
+	<xsl:variable name="class"><xsl:value-of select="substring-after($nodeLabel, 'asl:')"/></xsl:variable>
 	<xsl:value-of select="$class"/>
       </xsl:when>
     </xsl:choose>
@@ -342,7 +342,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:param name="variable_name"></xsl:param>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="key"><xsl:value-of select="$astlNodeClassKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslNodeClassKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:value-of select="$variable_name"/>
       <xsl:text disable-output-escaping="yes">]]&gt;</xsl:text>
@@ -353,7 +353,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:param name="nodeLabel"></xsl:param>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">    
-      <xsl:attribute name="key"><xsl:value-of select="$astlNodeNamespaceKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslNodeNamespaceKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:call-template name="getNodeNamespaceHelper"><xsl:with-param name="nodeLabel"><xsl:value-of select="$nodeLabel"/></xsl:with-param></xsl:call-template>
       <xsl:text disable-output-escaping="yes">]]&gt;</xsl:text>
@@ -372,8 +372,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       <xsl:when test="contains($nodeLabel, 'cptl:substation')">
 	<xsl:text>cptl:substation</xsl:text>
       </xsl:when>
-      <xsl:when test="contains($nodeLabel, 'astl:Variable') or contains($nodeLabel, 'astl:Variable')">
-	<xsl:text>astl</xsl:text>
+      <xsl:when test="contains($nodeLabel, 'asl:Variable') or contains($nodeLabel, 'asl:Variable')">
+	<xsl:text>asl</xsl:text>
       </xsl:when>
     </xsl:choose>
   </xsl:template>
@@ -382,11 +382,11 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:param name="edgeLabel"></xsl:param>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="key"><xsl:value-of select="$astlEdgeRelationKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslEdgeRelationKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:choose>      
-	<xsl:when test="contains($edgeLabel, 'astl:')">
-	  <xsl:variable name="relation"><xsl:value-of select="substring-after($edgeLabel, 'astl:')"/></xsl:variable>
+	<xsl:when test="contains($edgeLabel, 'asl:')">
+	  <xsl:variable name="relation"><xsl:value-of select="substring-after($edgeLabel, 'asl:')"/></xsl:variable>
 	  <xsl:value-of select="$relation"/>
 	</xsl:when>
       </xsl:choose>
@@ -398,7 +398,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:param name="edgeLabel"></xsl:param>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">    
-      <xsl:attribute name="key"><xsl:value-of select="$astlEdgeNamespaceKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslEdgeNamespaceKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:choose>
 	<xsl:when test="contains($edgeLabel, 'String')">
@@ -410,8 +410,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 	<xsl:when test="contains($edgeLabel, 'cptl:substation')">
 	  <xsl:text>cptl:substation</xsl:text>
 	</xsl:when>
-	<xsl:when test="contains($edgeLabel, 'astl:')">
-	  <xsl:text>astl</xsl:text>
+	<xsl:when test="contains($edgeLabel, 'asl:')">
+	  <xsl:text>asl</xsl:text>
 	</xsl:when>
       </xsl:choose>
       <xsl:text disable-output-escaping="yes">]]&gt;</xsl:text>
@@ -422,7 +422,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:variable name="relation"><xsl:value-of select="normalize-space(child::graphml:data[./@key=$schematicEdgeGraphicsKey]/y:PolyLineEdge/y:EdgeLabel)"/></xsl:variable>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="key"><xsl:value-of select="$astlEdgeRelationKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslEdgeRelationKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:value-of select="substring-after($relation,':')"/>
       <xsl:text disable-output-escaping="yes">]]&gt;</xsl:text>
@@ -433,7 +433,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
     <xsl:variable name="relation"><xsl:value-of select="normalize-space(child::graphml:data[./@key=$schematicEdgeGraphicsKey]/y:PolyLineEdge/y:EdgeLabel)"/></xsl:variable>
 
     <xsl:element name="data" namespace="http://graphml.graphdrawing.org/xmlns">
-      <xsl:attribute name="key"><xsl:value-of select="$astlEdgeNamespaceKey"/></xsl:attribute>
+      <xsl:attribute name="key"><xsl:value-of select="$aslEdgeNamespaceKey"/></xsl:attribute>
       <xsl:text disable-output-escaping="yes">&lt;![CDATA[</xsl:text>
       <xsl:value-of select="substring-before($relation,':')"/>
       <xsl:text disable-output-escaping="yes">]]&gt;</xsl:text>

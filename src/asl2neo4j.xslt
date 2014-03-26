@@ -28,22 +28,22 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 	version="1.0">
   <xsl:output method="text"/>
   
-  <!-- Set up the data keys in the ASTL Target -->
-  <xsl:variable name="astlResourcesKey">d0</xsl:variable>
-  <xsl:variable name="astlPortGraphicsKey">d1</xsl:variable>
-  <xsl:variable name="astlPortGeometryKey">d2</xsl:variable>
-  <xsl:variable name="astlPortUserDataKey">d3</xsl:variable>
-  <xsl:variable name="astlNodeNamespaceKey">d4</xsl:variable>
-  <xsl:variable name="astlNodeClassKey">d5</xsl:variable>
-  <xsl:variable name="astlNodeURLKey">d6</xsl:variable>
-  <xsl:variable name="astlNodeDescriptionKey">d7</xsl:variable>
-  <xsl:variable name="astlNodeGraphicsKey">d8</xsl:variable>
-  <xsl:variable name="astlGraphDescriptionKey">d9</xsl:variable>
-  <xsl:variable name="astlEdgeNamespaceKey">d10</xsl:variable>
-  <xsl:variable name="astlEdgeURLKey">d11</xsl:variable>
-  <xsl:variable name="astlEdgeDescriptionKey">d12</xsl:variable>
-  <xsl:variable name="astlEdgeRelationKey">d13</xsl:variable>
-  <xsl:variable name="astlEdgeGraphicsKey">d14</xsl:variable>
+  <!-- Set up the data keys in the ASL Target -->
+  <xsl:variable name="aslResourcesKey">d0</xsl:variable>
+  <xsl:variable name="aslPortGraphicsKey">d1</xsl:variable>
+  <xsl:variable name="aslPortGeometryKey">d2</xsl:variable>
+  <xsl:variable name="aslPortUserDataKey">d3</xsl:variable>
+  <xsl:variable name="aslNodeNamespaceKey">d4</xsl:variable>
+  <xsl:variable name="aslNodeClassKey">d5</xsl:variable>
+  <xsl:variable name="aslNodeURLKey">d6</xsl:variable>
+  <xsl:variable name="aslNodeDescriptionKey">d7</xsl:variable>
+  <xsl:variable name="aslNodeGraphicsKey">d8</xsl:variable>
+  <xsl:variable name="aslGraphDescriptionKey">d9</xsl:variable>
+  <xsl:variable name="aslEdgeNamespaceKey">d10</xsl:variable>
+  <xsl:variable name="aslEdgeURLKey">d11</xsl:variable>
+  <xsl:variable name="aslEdgeDescriptionKey">d12</xsl:variable>
+  <xsl:variable name="aslEdgeRelationKey">d13</xsl:variable>
+  <xsl:variable name="aslEdgeGraphicsKey">d14</xsl:variable>
 
   <xsl:template match="graphml:graphml">
     <xsl:text>CREATE </xsl:text>
@@ -56,8 +56,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
   </xsl:template>
 
   <xsl:template name="output_node">
-    <xsl:variable name="class"><xsl:value-of select="child::graphml:data[./@key=$astlNodeClassKey]"/></xsl:variable>
-    <xsl:variable name="ns"><xsl:value-of select="child::graphml:data[./@key=$astlNodeNamespaceKey]"/></xsl:variable>
+    <xsl:variable name="class"><xsl:value-of select="child::graphml:data[./@key=$aslNodeClassKey]"/></xsl:variable>
+    <xsl:variable name="ns"><xsl:value-of select="child::graphml:data[./@key=$aslNodeNamespaceKey]"/></xsl:variable>
     <xsl:text>(</xsl:text>
       <xsl:call-template name="output_node_var_and_labels">
 	<xsl:with-param name="id"><xsl:value-of select="./@id"/></xsl:with-param>
@@ -112,8 +112,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
       <xsl:call-template name="output_node_var_and_labels"><xsl:with-param name="id"><xsl:value-of select="./@source"/></xsl:with-param></xsl:call-template>
     </xsl:variable>
 
-    <xsl:variable name="relation_name"><xsl:value-of select="child::graphml:data[./@key=$astlEdgeRelationKey]"/></xsl:variable>
-    <xsl:variable name="relation_namespace"><xsl:value-of select="child::graphml:data[./@key=$astlEdgeNamespaceKey]"/></xsl:variable>
+    <xsl:variable name="relation_name"><xsl:value-of select="child::graphml:data[./@key=$aslEdgeRelationKey]"/></xsl:variable>
+    <xsl:variable name="relation_namespace"><xsl:value-of select="child::graphml:data[./@key=$aslEdgeNamespaceKey]"/></xsl:variable>
     <xsl:variable name="relation">
       <xsl:text>-[:</xsl:text>
       <xsl:value-of select="$relation_name"/>
