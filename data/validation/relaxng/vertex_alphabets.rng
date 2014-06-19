@@ -1,0 +1,78 @@
+<!-- 
+copyright (c) 2014, Gabriel A. Weaver, Coordinated Science Laboratory 
+at the University of Illinois at Urbana-Champaign.
+
+This file is part of the Cyber-Physical Topology Language (CPTL):
+Electrical Power distribution.
+
+The code is free software:   you can redistribute 
+it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either version
+3 of the License, or (at your option) any later version.
+
+The Cyber-Physical Topology Language (CPTL): Electrical Power
+is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with this program.  If not, see http://www.gnu.org/licenses/
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+
+  <start>
+    <choice> 
+      <ref name="control_center-network.vertex_alphabet"/>
+      <ref name="substation-node_breaker.vertex_alphabet"/>
+      <ref name="substation-network.vertex_alphabet"/>
+      <ref name="substation-sel_network.vertex_alphabet"/>
+    </choice>   
+  </start>
+
+  <define name="control_center-network.vertex_alphabet">
+    <choice>
+      <value>ccn:Firewall</value>
+      <value>ccn:Host</value>
+      <value>ccn:Network</value>
+      <value>ccn:Switch</value>
+    </choice>
+  </define>
+
+  <define name="substation-node_breaker.vertex_alphabet">
+    <choice>
+      <value>ssnb:Generator</value>
+      <value>ssnb:Node</value>
+      <value>ssnb:Breaker</value>
+      <value>ssnb:Bus</value>
+      <value>ssnb:Transformer</value>
+    </choice>
+  </define>
+
+  <define name="substation-network.vertex_alphabet">
+    <choice>
+      <value>ssn:RTU</value>
+      <value>ssn:BreakerControl</value>
+      <value>ssn:Modem</value>
+      <value>ssn:OvercurrentRelay</value>
+      <value>ssn:DistanceRelay</value>
+    </choice>
+  </define>
+
+  <define name="substation-sel_network.vertex_alphabet">
+    <choice>
+      <value>selss:ICON</value>
+      <value>selss:3620</value>
+      <value>selss:2730</value>
+      <value>selss:3354</value>
+      <value>selss:3530</value>
+      <value>selss:311L</value>
+      <value>selss:411L</value>
+      <value>selss:487E</value>
+      <value>selss:2100</value>
+      <value>selss:451</value>
+      <value>selss:421</value>
+    </choice>
+  </define>
+
+</grammar>
