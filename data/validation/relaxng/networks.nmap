@@ -1,0 +1,475 @@
+<!-- 
+copyright (c) 2014, Gabriel A. Weaver, Coordinated Science Laboratory 
+at the University of Illinois at Urbana-Champaign.
+
+This file is part of the Cyber-Physical Topology Language (CPTL):
+Electrical Power distribution.
+
+The code is free software:   you can redistribute 
+it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either version
+3 of the License, or (at your option) any later version.
+
+The Cyber-Physical Topology Language (CPTL): Electrical Power
+is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with this program.  If not, see http://www.gnu.org/licenses/
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <ref name="keys"/>
+    <ref name="graph"/>
+  </start>
+
+  <define name="keys">
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">address</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">address</attribute>
+      <attribute name="attr.type">xml</attribute>
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">hostnames</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">hostnames</attribute>
+      <attribute name="attr.type">xml</attribute>
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">label</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">label</attribute>
+      <attribute name="attr.type">string</attribute>
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">os</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">os</attribute>
+      <attribute name="attr.type">xml</attribute>
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">ports</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">ports</attribute>
+      <attribute name="attr.type">xml</attribute>
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">status</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">status</attribute>
+      <attribute name="attr.type">xml</attribute>
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id">type</attribute>
+      <attribute name="for">node</attribute>
+      <attribute name="attr.name">type</attribute>
+      <attribute name="attr.type">string</attribute> 
+    </element>
+
+  </define>
+  
+  <define name="graph">
+    <element name="graph" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><text/></attribute>
+      <attribute name="edgedefault">undirected</attribute>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">timestr</attribute>
+	<text/>
+      </element>
+      
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">summary</attribute>
+	<text/>
+      </element>
+
+      <zeroOrMore>
+	<ref name="node"/>
+      </zeroOrMore>
+      <oneOrMore>
+	<ref name="edge"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="node">
+    <element name="node" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><text/></attribute>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">type</attribute>
+	<ref name="networks.nmap.node_types"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">status</attribute>
+	<ref name="networks.nmap.schemas-status"/>
+      </element>
+      
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">address</attribute>
+	<ref name="networks.nmap.schemas-address"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">hostnames</attribute>
+	<ref name="networks.nmap.schemas-hostnames"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">ports</attribute>
+	<ref name="networks.nmap.schemas-ports"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key">os</attribute>
+	<ref name="networks.nmap.schemas-os"/>
+      </element>
+    </element>
+  </define>
+
+  <define name="edge">
+
+  </define>
+
+  <!-- Node Data -->
+  <define name="networks.nmap.node_types">
+    <choice>
+      <value>network:Host</value>
+    </choice>
+  </define>
+
+  <!-- RelaxNG ruleset based on nmap XML dtd at http://www.nmap.org/docs/nmap.dtd -->
+  <!-- networks.nmap.entities -->
+  <define name="networks.nmap.schema.entities-attr_alpha"><text/></define>
+
+  <define name="networks.nmap.schema.entities-attr_numeric"><text/></define>
+
+  <define name="networks.nmap.schema.entities-attr_ipaddr"><text/></define>
+
+  <define name="networks.nmap.schema.entities-attr_percent"><text/></define>
+
+  <define name="networks.nmap.schema.entities-attr_type">
+    <choice>
+      <value>ipv4</value>
+      <value>ipv6</value>
+      <value>mac</value>
+    </choice>
+  </define>
+
+  <define name="networks.nmap.schema.entities-host_states">
+    <choice>
+      <value>up</value>
+      <value>down</value>
+      <value>unknown</value>
+      <value>skipped</value>
+    </choice>
+  </define>
+
+  <define name="networks.nmap.schema.entities-port_states"><text/></define>
+
+  <define name="networks.nmap.schema.entities-hostname_types">
+    <choice>
+      <value>user</value>
+      <value>PTR</value>
+    </choice>
+  </define>
+
+  <define name="networks.nmap.schema.entities-scan_types">
+    <choice>
+      <value>syn</value>
+      <value>ack</value>
+      <value>bounce</value>
+      <value>connect</value>
+      <value>null</value>
+      <value>xmas</value>
+      <value>window</value>
+      <value>maimon</value>
+      <value>fin</value>
+      <value>udp</value>
+      <value>sctpinit</value>
+      <value>sctpcookieecho</value>
+      <value>ipproto</value>
+    </choice>
+  </define>
+
+  <define name="networks.nmap.schema.entities-port_protocols">
+    <choice>
+      <value>ip</value>
+      <value>tcp</value>
+      <value>udp</value>
+      <value>sctp</value>
+    </choice>
+  </define>
+
+  <define name="networks.nmap.schema.entities-service_confs">
+    <choice>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>4</value>
+      <value>5</value>
+      <value>6</value>
+      <value>7</value>
+      <value>8</value>
+      <value>9</value>
+      <value>10</value>
+    </choice>
+  </define>
+
+  <!-- <define name="networks.nmap.schema.elements-nmaprun" -->
+  <!-- <define name="networks.nmap.schema.elements-scaninfo" -->
+  <!-- <define name="networks.nmap.schema.elements-verbose" -->
+  <!-- <define name="networks.nmap.schema.elements-debugging" -->
+  <!-- <define name="networks.nmap.schema.elements-target" -->
+  <!-- <define name="networks.nmap.schema.elements-taskbegin -->
+  <!-- <define name="networks.nmap.schema.elements-taskprogress -->
+  <!-- <define name="networks.nmap.schema.elements-taskend -->
+  
+  <!-- host -->
+  <define name="networks.nmap.elements-host">
+    <ref name="networks.nmap.schema.attributes-host"/>
+    <ref name="networks.nmap.schema.elements-status"/>
+    <ref name="networks.nmap.schema.elements-address"/>
+    <zeroOrMore>
+      <ref name="networks.nmap.schema.elements-address"/>
+      <ref name="networks.nmap.schema.elements-hostnames"/>
+      <ref name="networks.nmap.schema.elements-smurf"/>
+      <ref name="networks.nmap.schema.elements-ports"/>
+      <ref name="networks.nmap.schema.elements-os"/>
+      <ref name="networks.nmap.schema.elements-distance"/>
+      <ref name="networks.nmap.schema.elements-uptime"/>
+      <ref name="networks.nmap.schema.elements-tcpsequence"/>
+      <ref name="networks.nmap.schema.elements-ipidsequence"/>
+      <ref name="networks.nmap.schema.elements-tcpsequence"/>
+      <ref name="networks.nmap.schema.elements-hostscript"/>
+      <ref name="networks.nmap.schema.elements-trace"/>
+    </zeroOrMore>
+    <optional><ref name="networks.nmap.schema.elements-times"/></optional>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-host">
+    <optional><attribute name="starttime"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="endtime"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="comment"><text/></attribute></optional>
+  </define>
+  
+  <!-- status -->
+  <define name="networks.nmap.schema.elements-status">
+    <element name="status" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-status"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-status">
+    <attribute name="state"><ref name="networks.nmap.schema.entities.host_states"/></attribute>
+    <attribute name="reason"><text/></attribute>
+    <attribute name="reason_ttl"><text/></attribute>
+  </define>
+
+  <!-- address -->
+  <define name="networks.nmap.schema.elements-address">
+    <element name="address" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-address"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-address">
+    <attribute name="addr"><ref name="networks.nmap.schema.entities-attr_ipaddr"/></attribute>
+    <attribute name="addrtype"><ref name="networks.nmap.schema.entities-attr_type"/></attribute>
+    <optional><attribute name="vendor"><text/></attribute></optional>
+  </define>
+
+  <!-- hostnames -->
+  <define name="networks.nmap.schema.elements-hostnames">
+    <zeroOrMore>
+      <ref name="networks.nmap.schema.elements-hostname"/>
+    </zeroOrMore>
+  </define>
+
+  <!-- hostname -->
+  <define name="networks.nmap.schema.elements-hostname">
+    <element name="hostname" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-hostname"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-hostname">
+    <optional><attribute name="name"><text/></attribute></optional>
+    <optional><attribute name="type"><ref name="networks.nmap.entities-hostname_types"/></attribute></optional>
+  </define>
+
+  <!-- smurf -->
+  <define name="networks.nmap.schema.elements-smurf">
+    <element name="smurf" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-smurf"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-smurf">
+    <attribute name="responses"><ref name="networks.nmap.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- ports -->
+  <define name="networks.nmap.schema.elements-ports">
+    <element name="ports" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <zeroOrMore>
+	<ref name="networks.nmap.schema.elements-extraports"/>
+      </zeroOrMore>
+      <zeroOrMore>
+	<ref name="networks.nmap.schema.elements.port"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <!-- extraports -->
+  <define name="networks.nmap.schema.elements-extraports">
+    <element name="extraports" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <attribute name="networks.nmap.schema.attributes-extraports">
+      <zeroOrMore><ref name="networks.nmap.schema.elements-extrareasons"/></zeroOrMore>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-extraports">
+    <attribute name="state"><ref name="networks.nmap.schema.entities-port_states"/></attribute>
+    <attribute name="count"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- extrareasons -->
+  <define name="networks.nmap.schema.elements-extrareasons">
+    <element name="extrareasons" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-extrareasons"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-extrareasons">
+    <attribute name="reason"><text/></attribute>
+    <attribute name="count"><text/></attribute>
+  </define>
+
+  <!-- port -->
+  <define name="networks.nmap.schema.elements-port">
+    <element name="port" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-port"/>
+      <ref name="networks.nmap.schema.elements-state"/>
+      <zeroOrOne><ref name="networks.nmap.schema.elements-owner"/></zeroOrOne>
+      <zeroOrOne><ref name="networks.nmap.schema.elements-service"/></zeroOrOne>
+      <zeroOrMore><ref name="networks.nmap.schema.elements-script"/></zeroOrMore>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-port">
+    <attribute name="protocol"><ref name="networks.nmap.schema.entities-port_protocols"/></attribute>
+    <attribute name="portid"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- state -->
+  <define name="networks.nmap.schema.elements-state">
+    <element name="state" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-state"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-state">
+    <attribute name="state"><ref name="networks.nmap.schema.entities-port_states"/></attribute>
+    <attribute name="reason"><text/></attribute>
+    <attribute name="reason_ttl"><text/></attribute>
+    <optional><attribute name="reason_ip"><text/></attribute></optional>
+  </define>
+
+  <!-- owner -->
+  <define name="networks.nmap.schema.elements-owner">
+    <element name="owner" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-owner"/>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-owner">
+    <attribute name="name"><text/></attribute>
+  </define>
+
+  <!-- service -->
+  <define name="networks.nmap.schema.elements-service">
+    <element name="service" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-service"/>
+      <zeroOrMore>
+	<ref name="networks.nmap.schema.elements-cpe"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-service">
+    <attribute name="name"><text/></attribute>
+    <attribute name="conf"><ref name="networks.nmap.schema.entities-service_confs"/></attribute>
+    <attribute name="method">
+      <choice>
+	<value>table</value>
+	<value>probed</value>
+      </choice>
+    </attribute>
+    <optional><attribute name="version"><text/></attribute></optional>
+    <optional><attribute name="product"><text/></attribute></optional>
+    <optional><attribute name="extrainfo"><text/></attribute></optional>
+    <optional><attribute name="tunnel">ssl</attribute></optional>
+    <optional><attribute name="proto">rpc</attribute></optional>
+    <optional><attribute name="rpcnum"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="lowver"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="highver"><ref name="networks.nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="hostname"><text/></attribute></optional>
+    <optional><attribute name="ostype"><text/></attribute></optional>
+    <optional><attribute name="devicetype"><text/></attribute></optional>
+    <optional><attribute name="servicefp"><text/></attribute></optional>
+  </define>
+
+  <!-- cpe -->
+  <define name="networks.nmap.schema.elements-cpe">
+    <element name="cpe" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <text/>
+    </element>
+  </define>
+
+  <!-- script -->
+  <define name="networks.nmap.schema.elements-script">
+    <element name="script" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="networks.nmap.schema.attributes-script"/>
+      <zeroOrMore>
+	<choice>
+	  <value><ref name="networks.nmap.schema.elements-table"/></value>
+	  <value><ref name="networks.nmap.schema.elements-elem"/></value>
+	</choice>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="networks.nmap.schema.attributes-script">
+    <attribute name="id"><text/></attribute>
+    <attribute name="output"><text/></attribute>
+  </define>
+
+  <!-- table -->
+  START HERE
+
+  <define name="networks.nmap.schemas-state">
+    <element name="state" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <attribute name="state"><ref name="networks.nmap.entities-host_states"/></attribute>
+      <attribute name="reason"><text/></attribute>
+      <attribute name="reason_ttl"><text/></attribute>
+      <optional>
+	<attribute name="reason_ip"><text/></attribute>
+      </optional>
+    </element>
+  </define>  
+
+
+</grammar>
