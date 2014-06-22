@@ -12,7 +12,7 @@ To add a new data source named SRC_NAME (e.g. nmap):
 2.  Add sample I/O in data/test/SRC_NAME
 3.  Modify the Makefile to have the 'test-SRC_NAME' task
     a.  Validate your I/O against the sample data (data/test directory)
-    b.  Run the unit tests for your setters/getters
+    b.  Run the unit tests for your setters/getters (e.g. src/test/NMapDAOTest.py)
 
 L I C E N S I N G 
 Our software is 100 percent GPL., and if your software is also 100
