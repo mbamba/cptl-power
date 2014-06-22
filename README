@@ -1,6 +1,21 @@
 G E T T I N G  S T A R T E D
-Please see doc/index.html to get started.
 
-L I C E N S I N G
-Our software is 100 percent GPL, and if your software is also 100 percent GPL, then
-you never have to pay us for the licenses.  In all other instances, you are better served by our commercial license.
+d a t a   s o u r c e s 
+make test-nmap
+a.  Validate the sample XML Input against the nmap DTD
+b.  Validate the CPTL Output agains the CPTL schema
+
+
+a d d i n g   d a t a   s o u r c e s 
+To add a new data source named SRC_NAME (e.g. nmap):
+1.  Add schema in data/validation/SRC_NAME
+2.  Add sample I/O in data/test/SRC_NAME
+3.  Modify the Makefile to have the 'test-SRC_NAME' task
+    a.  Validate your I/O against the sample data (data/test directory)
+    ... to be continued...
+
+L I C E N S I N G 
+Our software is 100 percent GPL., and if your software is also 100
+percent GPL, then you never have to pay us for the licenses.  In all
+other instances, you are better served by our commercial license.
+
