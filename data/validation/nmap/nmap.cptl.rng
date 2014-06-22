@@ -1,0 +1,157 @@
+<!-- 
+copyright (c) 2014, Gabriel A. Weaver, Coordinated Science Laboratory 
+at the University of Illinois at Urbana-Champaign.
+
+This file is part of the Cyber-Physical Topology Language (CPTL):
+Electrical Power distribution.
+
+The code is free software:   you can redistribute 
+it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either version
+3 of the License, or (at your option) any later version.
+
+The Cyber-Physical Topology Language (CPTL): Electrical Power
+is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with this program.  If not, see http://www.gnu.org/licenses/
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <include href="nmap.rng"/>
+
+  <start>
+    <element name="graphml" ns="http://graphml.graphdrawing.org/xmlns">    
+      <ref name="keys"/>
+      <ref name="graph"/>
+    </element>
+  </start>
+
+  <define name="keys">
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>address</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>address</value></attribute>
+      <!--<attribute name="attr.type"><value>xml</value></attribute>-->
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>hostnames</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>hostnames</value></attribute>
+      <!--<attribute name="attr.type"><value>xml</value></attribute>-->
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>label</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>label</value></attribute>
+      <!--<attribute name="attr.type"><value>string</value></attribute>-->
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>os</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>os</value></attribute>
+      <!--<attribute name="attr.type"><value>xml</value></attribute>-->
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>ports</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>ports</value></attribute>
+      <!--<attribute name="attr.type"><value>xml</value></attribute>-->
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>status</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>status</value></attribute>
+      <!--<attribute name="attr.type"><value>xml</value></attribute>-->
+    </element>
+
+    <element name="key" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><value>type</value></attribute>
+      <attribute name="for"><value>node</value></attribute>
+      <attribute name="attr.name"><value>type</value></attribute>
+      <!--<attribute name="attr.type"><value>string</value></attribute> -->
+    </element>
+
+  </define>
+  
+  <define name="graph">
+    <element name="graph" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><text/></attribute>
+      <attribute name="edgedefault"><value>undirected</value></attribute>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>timestr</value></attribute>
+	<text/>
+      </element>
+      
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>summary</value></attribute>
+	<text/>
+      </element>
+
+      <zeroOrMore>
+	<ref name="node"/>
+      </zeroOrMore>
+      <oneOrMore>
+	<ref name="edge"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="node">
+    <element name="node" ns="http://graphml.graphdrawing.org/xmlns">
+      <attribute name="id"><text/></attribute>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>type</value></attribute>
+	<value>network:Host</value>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>status</value></attribute>
+	<ref name="nmap.schema.elements-status"/>
+      </element>
+      
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>address</value></attribute>
+	<ref name="nmap.schema.elements-address"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>hostnames</value></attribute>
+	<ref name="nmap.schema.elements-hostnames"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>ports</value></attribute>
+	<ref name="nmap.schema.elements-ports"/>
+      </element>
+
+      <element name="data" ns="http://graphml.graphdrawing.org/xmlns">
+	<attribute name="key"><value>os</value></attribute>
+	<ref name="nmap.schema.elements-os"/>
+      </element>
+    </element>
+  </define>
+
+  <define name="edge">
+    <text/>
+  </define>
+
+  <!-- Node Data -->
+  <define name="networks.nmap.node_types">
+    <choice>
+      <value>network:Host</value>
+    </choice>
+  </define>
+
+</grammar>
+

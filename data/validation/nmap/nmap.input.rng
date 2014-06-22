@@ -1,0 +1,717 @@
+<!-- 
+copyright (c) 2014, Gabriel A. Weaver, Coordinated Science Laboratory 
+at the University of Illinois at Urbana-Champaign.
+
+This file is part of the Cyber-Physical Topology Language (CPTL):
+Electrical Power distribution.
+
+The code is free software:   you can redistribute 
+it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either version
+3 of the License, or (at your option) any later version.
+
+The Cyber-Physical Topology Language (CPTL): Electrical Power
+is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with this program.  If not, see http://www.gnu.org/licenses/
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+
+  <start>
+    <ref name="nmap.schema.elements-nmaprun"/>
+  </start>
+
+  <!-- RelaxNG ruleset based on nmap XML dtd at http://www.nmap.org/docs/nmap.dtd -->
+  <!-- nmap.entities -->
+  <define name="nmap.schema.entities-attr_alpha"><text/></define>
+
+  <define name="nmap.schema.entities-attr_numeric"><text/></define>
+
+  <define name="nmap.schema.entities-attr_ipaddr"><text/></define>
+
+  <define name="nmap.schema.entities-attr_percent"><text/></define>
+
+  <define name="nmap.schema.entities-attr_type">
+    <choice>
+      <value>ipv4</value>
+      <value>ipv6</value>
+      <value>mac</value>
+    </choice>
+  </define>
+
+  <define name="nmap.schema.entities-host_states">
+    <choice>
+      <value>up</value>
+      <value>down</value>
+      <value>unknown</value>
+      <value>skipped</value>
+    </choice>
+  </define>
+
+  <define name="nmap.schema.entities-port_states"><text/></define>
+
+  <define name="nmap.schema.entities-hostname_types">
+    <choice>
+      <value>user</value>
+      <value>PTR</value>
+    </choice>
+  </define>
+
+  <define name="nmap.schema.entities-scan_types">
+    <choice>
+      <value>syn</value>
+      <value>ack</value>
+      <value>bounce</value>
+      <value>connect</value>
+      <value>null</value>
+      <value>xmas</value>
+      <value>window</value>
+      <value>maimon</value>
+      <value>fin</value>
+      <value>udp</value>
+      <value>sctpinit</value>
+      <value>sctpcookieecho</value>
+      <value>ipproto</value>
+    </choice>
+  </define>
+
+  <define name="nmap.schema.entities-port_protocols">
+    <choice>
+      <value>ip</value>
+      <value>tcp</value>
+      <value>udp</value>
+      <value>sctp</value>
+    </choice>
+  </define>
+
+  <define name="nmap.schema.entities-service_confs">
+    <choice>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>4</value>
+      <value>5</value>
+      <value>6</value>
+      <value>7</value>
+      <value>8</value>
+      <value>9</value>
+      <value>10</value>
+    </choice>
+  </define>
+
+  <!-- nmaprun -->
+  <define name="nmap.schema.elements-nmaprun">
+    <element name="nmaprun" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-nmaprun"/>  
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-scaninfo"/>
+      </zeroOrMore>
+      <ref name="nmap.schema.elements-verbose"/>
+      <ref name="nmap.schema.elements-debugging"/>
+      <zeroOrMore>
+	<choice>
+	  <ref name="nmap.schema.elements-target"/>
+	  <ref name="nmap.schema.elements-taskbegin"/>
+	  <ref name="nmap.schema.elements-taskprogress"/>
+	  <ref name="nmap.schema.elements-taskend"/>
+	  <ref name="nmap.schema.elements-prescript"/>
+	  <ref name="nmap.schema.elements-postscript"/>
+	  <ref name="nmap.schema.elements-host"/>
+	  <ref name="nmap.schema.elements-output"/>
+        </choice>
+      </zeroOrMore>
+      <ref name="nmap.schema.elements-runstats"/>
+    </element>
+  </define>
+  
+  <define name="nmap.schema.attributes-nmaprun">
+    <attribute name="scanner"><value>nmap</value></attribute>
+    <optional><attribute name="args"><text/></attribute></optional>
+    <optional><attribute name="start"><ref name="nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="startstr"><text/></attribute></optional>
+    <attribute name="version"><text/></attribute>
+    <optional><attribute name="profile_name"><text/></attribute></optional>
+    <attribute name="xmloutputversion"><text/></attribute>
+  </define>
+
+  <!-- scaninfo -->
+  <define name="nmap.schema.elements-scaninfo">
+    <element name="scaninfo" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-scaninfo"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-scaninfo">
+      <attribute name="type"><ref name="nmap.schema.entities-scan_types"/></attribute>
+      <optional><attribute name="scanflags"><text/></attribute></optional>
+      <attribute name="protocol"><ref name="nmap.schema.entities-port_protocols"/></attribute>
+      <attribute name="numservices"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+      <attribute name="services"><text/></attribute>
+  </define>
+
+  <!-- verbose -->
+  <define name="nmap.schema.elements-verbose">
+    <element name="verbose" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-verbose"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-verbose">
+    <attribute name="level"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- debugging -->
+  <define name="nmap.schema.elements-debugging">
+    <element name="debugging" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-debugging"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-debugging">
+    <attribute name="level"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- target -->
+  <define name="nmap.schema.elements-target">
+    <element name="target" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-target"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-target">
+    <attribute name="specification"><text/></attribute>
+    <optional><attribute name="status"><value>skipped</value></attribute></optional>
+    <optional><attribute name="reason"><value>invalid</value></attribute></optional>
+  </define>
+
+  <!-- taskbegin -->
+  <define name="nmap.schema.elements-taskbegin">
+    <element name="taskbegin" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-taskbegin"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-taskbegin">
+    <attribute name="task"><text/></attribute>
+    <attribute name="time"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <optional><attribute name="extrainfo"><text/></attribute></optional>
+  </define>
+
+  <!-- taskprogress -->
+  <define name="nmap.schema.elements-taskprogress">
+    <element name="taskprogress" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-taskprogress"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-taskprogress">
+    <attribute name="task"><text/></attribute>
+    <attribute name="time"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="percent"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="remaining"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="etc"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- taskend -->
+  <define name="nmap.schema.elements-taskend">
+    <element name="taskend" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-taskend"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-taskend">
+    <attribute name="task"><text/></attribute>
+    <attribute name="time"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <optional><attribute name="extrainfo"><text/></attribute></optional>
+  </define>
+  
+  <!-- host -->
+  <define name="nmap.schema.elements-host">
+    <ref name="nmap.schema.attributes-host"/>
+    <ref name="nmap.schema.elements-status"/>
+    <ref name="nmap.schema.elements-address"/>
+    <zeroOrMore>
+      <ref name="nmap.schema.elements-address"/>
+      <ref name="nmap.schema.elements-hostnames"/>
+      <ref name="nmap.schema.elements-smurf"/>
+      <ref name="nmap.schema.elements-ports"/>
+      <ref name="nmap.schema.elements-os"/>
+      <ref name="nmap.schema.elements-distance"/>
+      <ref name="nmap.schema.elements-uptime"/>
+      <ref name="nmap.schema.elements-tcpsequence"/>
+      <ref name="nmap.schema.elements-ipidsequence"/>
+      <ref name="nmap.schema.elements-tcpsequence"/>
+      <ref name="nmap.schema.elements-hostscript"/>
+      <ref name="nmap.schema.elements-trace"/>
+    </zeroOrMore>
+    <optional><ref name="nmap.schema.elements-times"/></optional>
+  </define>
+
+  <define name="nmap.schema.attributes-host">
+    <optional><attribute name="starttime"><ref name="nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="endtime"><ref name="nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="comment"><text/></attribute></optional>
+  </define>
+  
+  <!-- status -->
+  <define name="nmap.schema.elements-status">
+    <element name="status" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-status"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-status">
+    <attribute name="state"><ref name="nmap.schema.entities-host_states"/></attribute>
+    <attribute name="reason"><text/></attribute>
+    <attribute name="reason_ttl"><text/></attribute>
+  </define>
+
+  <!-- address -->
+  <define name="nmap.schema.elements-address">
+    <element name="address" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-address"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-address">
+    <attribute name="addr"><ref name="nmap.schema.entities-attr_ipaddr"/></attribute>
+    <attribute name="addrtype"><ref name="nmap.schema.entities-attr_type"/></attribute>
+    <optional><attribute name="vendor"><text/></attribute></optional>
+  </define>
+
+  <!-- hostnames -->
+  <define name="nmap.schema.elements-hostnames">
+    <zeroOrMore>
+      <ref name="nmap.schema.elements-hostname"/>
+    </zeroOrMore>
+  </define>
+
+  <!-- hostname -->
+  <define name="nmap.schema.elements-hostname">
+    <element name="hostname" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-hostname"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-hostname">
+    <optional><attribute name="name"><text/></attribute></optional>
+    <optional><attribute name="type"><ref name="nmap.schema.entities-hostname_types"/></attribute></optional>
+  </define>
+
+  <!-- smurf -->
+  <define name="nmap.schema.elements-smurf">
+    <element name="smurf" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-smurf"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-smurf">
+    <attribute name="responses"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- ports -->
+  <define name="nmap.schema.elements-ports">
+    <element name="ports" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-extraports"/>
+      </zeroOrMore>
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-port"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <!-- extraports -->
+  <define name="nmap.schema.elements-extraports">
+    <element name="extraports" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-extraports"/>
+      <zeroOrMore><ref name="nmap.schema.elements-extrareasons"/></zeroOrMore>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-extraports">
+    <attribute name="state"><ref name="nmap.schema.entities-port_states"/></attribute>
+    <attribute name="count"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- extrareasons -->
+  <define name="nmap.schema.elements-extrareasons">
+    <element name="extrareasons" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-extrareasons"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-extrareasons">
+    <attribute name="reason"><text/></attribute>
+    <attribute name="count"><text/></attribute>
+  </define>
+
+  <!-- port -->
+  <define name="nmap.schema.elements-port">
+    <element name="port" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-port"/>
+      <ref name="nmap.schema.elements-state"/>
+      <optional><ref name="nmap.schema.elements-owner"/></optional>
+      <optional><ref name="nmap.schema.elements-service"/></optional>
+      <zeroOrMore><ref name="nmap.schema.elements-script"/></zeroOrMore>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-port">
+    <attribute name="protocol"><ref name="nmap.schema.entities-port_protocols"/></attribute>
+    <attribute name="portid"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- state -->
+  <define name="nmap.schema.elements-state">
+    <element name="state" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-state"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-state">
+    <attribute name="state"><ref name="nmap.schema.entities-port_states"/></attribute>
+    <attribute name="reason"><text/></attribute>
+    <attribute name="reason_ttl"><text/></attribute>
+    <optional><attribute name="reason_ip"><text/></attribute></optional>
+  </define>
+
+  <!-- owner -->
+  <define name="nmap.schema.elements-owner">
+    <element name="owner" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-owner"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-owner">
+    <attribute name="name"><text/></attribute>
+  </define>
+
+  <!-- service -->
+  <define name="nmap.schema.elements-service">
+    <element name="service" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-service"/>
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-cpe"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-service">
+    <attribute name="name"><text/></attribute>
+    <attribute name="conf"><ref name="nmap.schema.entities-service_confs"/></attribute>
+    <attribute name="method">
+      <choice>
+	<value>table</value>
+	<value>probed</value>
+      </choice>
+    </attribute>
+    <optional><attribute name="version"><text/></attribute></optional>
+    <optional><attribute name="product"><text/></attribute></optional>
+    <optional><attribute name="extrainfo"><text/></attribute></optional>
+    <optional><attribute name="tunnel"><value>ssl</value></attribute></optional>
+    <optional><attribute name="proto"><value>rpc</value></attribute></optional>
+    <optional><attribute name="rpcnum"><ref name="nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="lowver"><ref name="nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="highver"><ref name="nmap.schema.entities-attr_numeric"/></attribute></optional>
+    <optional><attribute name="hostname"><text/></attribute></optional>
+    <optional><attribute name="ostype"><text/></attribute></optional>
+    <optional><attribute name="devicetype"><text/></attribute></optional>
+    <optional><attribute name="servicefp"><text/></attribute></optional>
+  </define>
+
+  <!-- cpe -->
+  <define name="nmap.schema.elements-cpe">
+    <element name="cpe" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <text/>
+    </element>
+  </define>
+
+  <!-- script -->
+  <define name="nmap.schema.elements-script">
+    <element name="script" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-script"/>
+      <zeroOrMore>
+	<choice>
+	  <ref name="nmap.schema.elements-table"/>
+	  <ref name="nmap.schema.elements-elem"/>
+	</choice>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-script">
+    <attribute name="id"><text/></attribute>
+    <attribute name="output"><text/></attribute>
+  </define>
+
+  <!-- table -->
+  <define name="nmap.schema.elements-table">
+    <element name="table" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-table"/>
+      <zeroOrMore>
+	<choice>
+	  <ref name="nmap.schema.elements-table"/>
+	  <ref name="nmap.schema.elements-elem"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-table">
+    <optional><attribute name="key"><text/></attribute></optional>
+  </define>
+
+  <!-- elem -->
+  <define name="nmap.schema.elements-elem">
+    <element name="elem" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-elem"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-elem">
+    <optional><attribute name="key"><text/></attribute></optional>
+  </define>
+
+  <!-- os -->
+  <define name="nmap.schema.elements-os">
+    <element name="os" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-portused"/>
+      </zeroOrMore>
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-osmatch"/>
+      </zeroOrMore>
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-osfingerprint"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <!-- portused -->
+  <define name="nmap.schema.elements-portused">
+    <element name="portused" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-portused"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-portused">
+    <attribute name="state"><ref name="nmap.schema.entities-port_states"/></attribute>
+    <attribute name="proto"><ref name="nmap.schema.entities-port_protocols"/></attribute>
+    <attribute name="portid"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- osclass -->
+  <define name="nmap.schema.elements-osclass">
+    <element name="osclass" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <attribute name="vendor"><text/></attribute>
+      <optional><attribute name="osgen"><text/></attribute></optional>
+      <optional><attribute name="type"><text/></attribute></optional>
+      <attribute name="accuracy"><text/></attribute>
+      <attribute name="osfamily"><text/></attribute>
+      <zeroOrMore><ref name="nmap.schema.elements-cpe"/></zeroOrMore>
+    </element>
+  </define>
+  
+  <!-- osmatch -->
+  <define name="nmap.schema.elements-osmatch">
+    <element name="osmatch" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-osmatch"/>
+      <zeroOrMore><ref name="nmap.schema.elements-osclass"/></zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="nmap.schema.attributes-osmatch">
+    <attribute name="name"><text/></attribute>
+    <attribute name="accuracy"><text/></attribute>
+    <attribute name="line"><text/></attribute>
+  </define>
+
+  <!-- osfingerprint -->
+  <define name="nmap.schema.elements-osfingerprint">
+    <element name="osfingerprint" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-osfingerprint"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-osfingerprint">
+    <attribute name="fingerprint"><text/></attribute>
+  </define>
+
+  <!-- distance -->
+  <define name="nmap.schema.elements-distance">
+    <element name="distance" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-distance"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-distance">
+    <attribute name="value"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- uptime -->
+  <define name="nmap.schema.elements-uptime">
+    <element name="uptime" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-uptime"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-uptime">
+    <attribute name="seconds"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="lastboot"><text/></attribute>
+  </define>
+
+  <!-- tcpsequence -->
+  <define name="nmap.schema.elements-tcpsequence">
+    <element name="tcpsequence" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-tcpsequence"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-tcpsequence">
+    <attribute name="index"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="difficulty"><text/></attribute>
+    <attribute name="values"><text/></attribute>
+  </define>
+
+  <!-- ipidsequence -->
+  <define name="nmap.schema.elements-ipidsequence">
+    <element name="ipidsequence" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-ipidsequence"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-ipidsequence">
+    <attribute name="class"><text/></attribute>
+    <attribute name="values"><text/></attribute>
+  </define>
+
+  <!-- tcptssequence -->
+  <define name="nmap.schema.elements-tcptssequence">
+    <element name="tcptssequence" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-tcptssequence"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-tcptssequence">
+    <attribute name="class"><text/></attribute>
+    <attribute name="values"><text/></attribute>
+  </define>
+
+  <!-- trace -->
+  <define name="nmap.schema.elements-trace">
+    <element name="trace" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-trace"/>
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-hop"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-trace">
+    <attribute name="proto"><text/></attribute>
+    <attribute name="port"><text/></attribute>
+  </define>
+
+  <!-- hop -->
+  <define name="nmap.schema.elements-hop">
+    <element name="hop" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-hop"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-hop">
+    <attribute name="ttl"><text/></attribute>
+    <optional><attribute name="rtt"><text/></attribute></optional>
+    <optional><attribute name="ipaddr"><text/></attribute></optional>
+    <optional><attribute name="host"><text/></attribute></optional>
+  </define>
+
+  <!-- times -->
+  <define name="nmap.schema.elements-times">
+    <element name="times" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-times"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-times">
+    <attribute name="srtt"><text/></attribute>
+    <attribute name="rttvar"><text/></attribute>
+    <attribute name="to"><text/></attribute>
+  </define>
+
+  <!-- output -->
+  <define name="nmap.schema.elements-output">
+    <element name="output" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-output"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-output">
+    <optional><attribute name="type"><text/></attribute></optional>
+  </define>
+
+  <!-- runstats -->
+  <define name="nmap.schema.elements-runstats">
+    <element name="runstats" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.elements-finished"/>
+      <ref name="nmap.schema.elements-hosts"/>
+    </element>
+  </define>
+
+  <!-- finished -->
+  <define name="nmap.schema.elements-finished">
+    <element name="finished" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-finished"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-finished">
+    <attribute name="time"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <optional><attribute name="timestr"><text/></attribute></optional>
+    <attribute name="elapsed"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <optional><attribute name="summary"><text/></attribute></optional>
+    <optional><attribute name="exit"><choice><value>error</value><value>success</value></choice></attribute></optional>
+    <optional><attribute name="errormsg"><text/></attribute></optional>
+  </define>
+
+  <!-- hosts -->
+  <define name="nmap.schema.elements-hosts">
+    <element name="hosts" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <ref name="nmap.schema.attributes-hosts"/>
+    </element>
+  </define>
+
+  <define name="nmap.schema.attributes-hosts">
+    <attribute name="up"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="down"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+    <attribute name="total"><ref name="nmap.schema.entities-attr_numeric"/></attribute>
+  </define>
+
+  <!-- hostscript -->
+  <define name="nmap.schema.elements-hostscript">
+    <element name="hostscript" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <oneOrMore><ref name="nmap.schema.elements-script"/></oneOrMore>
+    </element>
+  </define>
+
+  <!-- prescript -->
+  <define name="nmap.schema.elements-prescript">
+    <element name="prescript" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <oneOrMore><ref name="nmap.schema.elements-script"/></oneOrMore>
+    </element>
+  </define>
+
+  <!-- postscript -->
+  <define name="nmap.schema.elements-postscript">
+    <element name="postscript" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <oneOrMore><ref name="nmap.schema.elements-script"/></oneOrMore>
+    </element>
+  </define>
+  
+</grammar>
