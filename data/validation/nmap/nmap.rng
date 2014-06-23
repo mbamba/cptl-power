@@ -284,9 +284,11 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
   <!-- hostnames -->
   <define name="nmap.schema.elements-hostnames">
-    <zeroOrMore>
-      <ref name="nmap.schema.elements-hostname"/>
-    </zeroOrMore>
+    <element name="hostnames" ns="http://www.nmap.org/docs/2/nmap.dtd">
+      <zeroOrMore>
+	<ref name="nmap.schema.elements-hostname"/>
+      </zeroOrMore>
+    </element>
   </define>
 
   <!-- hostname -->

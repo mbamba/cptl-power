@@ -48,7 +48,6 @@
        <cpe>cpe:/o:linux:linux_kernel:2.6.39</cpe>
      </osclass>
    </osmatch>
-
   </os>
   <uptime seconds="23450" lastboot="Fri Sep  9 12:03:04 2011"/>
   <distance value="11"/>
