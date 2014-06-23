@@ -33,7 +33,9 @@ class TestNMapDAO(unittest.TestCase):
     xml_nmap_path = "data/test/nmap/nmap.input.xml"
     xml_nmap_path2 = "data/test/nmap/nmap-scan.1.xml"
     network_group = "egCorp"
+    network_group2 = "han"
     network_id = "simple"
+    network_id2 = "simple"
     nmDAO = None
 
     def setUp(self):
@@ -109,11 +111,19 @@ class TestNMapDAO(unittest.TestCase):
         asset_ref = "urn:egCorp:simple"
         asset_vars = [ (asset_type, asset_ref) ]
         asset_to_cptlxml = self.nmDAO.getAssetAsCPTLXML(asset_vars)
-
-
         
+    def testGetAssetAsCPTLXML2(self):
+        nmDAO_1 = NMapDAO.create(self.xml_nmap_path2,
+                                 self.network_group2,
+                                 self.network_id2)
+        asset_type = "urn:nmap:network"
+        asset_ref = "urn:han:simple"
+        asset_vars = [ (asset_type, asset_ref) ]
+        asset_to_cptlxml = nmDAO_1.getAssetAsCPTLXML(asset_vars)
+        f = open("/tmp/nmap-scan.1.cptl.graphml","w")
+        f.write(asset_to_cptlxml.serialize("UTF-8"))
+        f.close()
         
-    
 if __name__ == "__main__":
     unittest.main()
 

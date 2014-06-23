@@ -165,7 +165,8 @@ class NMapDAO():
             data_elet.setProp("key", key_label)
             asset_vars = [ (host_property_type, host_ref) ]
             asset_xml = self.getAsset(asset_vars)[0][2]
-            data_elet.addChild(asset_xml)
+            if asset_xml != None:
+                data_elet.addChild(asset_xml)
 
     """
     @return A list of assets of type 
@@ -206,9 +207,13 @@ class NMapDAO():
         self.nmap_xml_doc = libxml2.parseFile(self.xml_nmap_path)
         context = self.nmap_xml_doc.xpathNewContext()
         xpath = self._getXPathForAssetType(asset_type_ref, host_id)
-        host_property_element = context.xpathEval(xpath)[0].copyNode(1)
-        host_property_element.setNs(self.nmap_ns)
-        print [xpath, host_property_element]
+        results = context.xpathEval(xpath)
+        if len(results) > 0:
+            host_property_element = context.xpathEval(xpath)[0].copyNode(1)
+            host_property_element.setNs(self.nmap_ns)
+            print [xpath, host_property_element]
+        else:
+            host_property_element = None
         self.nmap_xml_doc.freeDoc()
         context.xpathFreeContext()
         return host_property_element

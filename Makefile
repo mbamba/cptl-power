@@ -1,42 +1,43 @@
-package = cptl
-version = 1.0
-tarname = cptl-yEd
-distdir = $(tarname)-$(version)
+CPTL_ROOT=.
+CONFIG_DIR=$(CPTL_ROOT)/config
+DOC_DIR=$(CPTL_ROOT)/doc
+DOC_DIR_DOXYGEN=$(DOC_DIR)/doxygen
 
-builddir = build
-srcdir = src
-datadir = data 
+BUILD_DIR=$(CPTL_ROOT)/build
+SRC_DIR=$(CPTL_ROOT)/src
 
-init:
-	mkdir -p ${builddir}/graphs/constructions/schematic
-	mkdir -p ${builddir}/graphs/constructions/asl
-	mkdir -p ${builddir}/graphs/constructions/cypher
+all: usage
 
+
+clean_desc="clean: clean the build\n"
 clean:
-	rm -rf ${builddir}
+	rm -rf $(BUILD_DIR)
+	rm -rf $(DOC_DIR_DOXYGEN)
 
-schematic2asl:
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/Line.graphml > build/graphs/constructions/asl/Line.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/Node.graphml > build/graphs/constructions/asl/Node.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/Breaker.graphml > build/graphs/constructions/asl/Breaker.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/RTU.graphml > build/graphs/constructions/asl/RTU.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/PotentialTransformer.graphml > build/graphs/constructions/asl/PotentialTransformer.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/CurrentTransformer.graphml > build/graphs/constructions/asl/CurrentTransformer.graphml	
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/BreakerControl.graphml > build/graphs/constructions/asl/BreakerControl.graphml	
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/BreakerInstallation.graphml > build/graphs/constructions/asl/BreakerInstallation.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/RTUToBreakerInstallation.graphml > build/graphs/constructions/asl/RTUToBreakerInstallation.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/BreakerControlInstallation.graphml > build/graphs/constructions/asl/BreakerControlInstallation.graphml
-	xsltproc src/schematic2asl.xslt data/graphs/constructions/schematic/RTUBreakerControlInstallation.graphml > build/graphs/constructions/asl/RTUBreakerControlInstallation.graphml
+init_desc="init: initialize the build\n"
+init:
+	mkdir -p $(BUILD_DIR)/graphs/constructions/schematic
+	mkdir -p $(BUILD_DIR)/graphs/constructions/asl
+	mkdir -p $(BUILD_DIR)/graphs/constructions/cypher
 
-asl2neo4j:
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/Line.graphml > build/graphs/constructions/cypher/Line.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/Node.graphml > build/graphs/constructions/cypher/Node.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/Breaker.graphml > build/graphs/constructions/cypher/Breaker.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/RTU.graphml > build/graphs/constructions/cypher/RTU.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/PotentialTransformer.graphml > build/graphs/constructions/cypher/PotentialTransformer.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/CurrentTransformer.graphml > build/graphs/constructions/cypher/CurrentTransformer.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/BreakerControl.graphml > build/graphs/constructions/cypher/BreakerControl.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/BreakerInstallation.graphml > build/graphs/constructions/cypher/BreakerInstallation.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/RTUToBreakerInstallation.graphml > build/graphs/constructions/cypher/RTUToBreakerInstallation.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/BreakerControlInstallation.graphml > build/graphs/constructions/cypher/BreakerControlInstallation.db
-	xsltproc src/asl2neo4j.xslt build/graphs/constructions/asl/RTUBreakerControlInstallation.graphml > build/graphs/constructions/cypher/RTUBreakerControlInstallation.db
+test_desc="test: test the cptl dao\n"
+test:
+	export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$PYTHONPATH
+	python $(SRC_DIR)/run_test_suite.py
+
+usage:
+	@echo "-------------------------"
+	@echo "target:  description     "
+	@echo "-------------------------"
+	@echo $(clean_desc)
+	@echo $(init_desc)
+	@echo $(doc_desc)
+	@echo $(test_desc)
+	@echo $(validate_desc)
+
+validate_desc="validate: validate test data\n"
+validate:
+	xmllint --noout --dtdvalid data/validation/nmap/nmap.dtd data/test/nmap/nmap.input.xml
+	xmllint --noout --relaxng data/validation/cptl.rng data/test/nmap/nmap.cptl.graphml
+
+
