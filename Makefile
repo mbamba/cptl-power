@@ -22,7 +22,7 @@ init:
 
 test_desc="test: test the cptl dao\n"
 test:
-	export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$PYTHONPATH
+	export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$(PYTHONPATH)
 	python $(SRC_DIR)/run_test_suite.py
 
 usage:
@@ -38,6 +38,7 @@ usage:
 validate_desc="validate: validate test data\n"
 validate:
 	xmllint --noout --dtdvalid data/validation/nmap/nmap.dtd data/test/nmap/nmap.input.xml
-	xmllint --noout --relaxng data/validation/cptl.rng data/test/nmap/nmap.cptl.graphml
+	xmllint --noout --relaxng data/validation/cptl.rng data/test/nmap/nmap-scan.1.cptl.graphml
+	xmllint --noout --relaxng data/validation/cptl.rng data/test/nmap/nmap-scan.2.cptl.graphml
 
 
