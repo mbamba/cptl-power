@@ -21,6 +21,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 """
 
 from cptl import NMapDAO
+import networkx as nx
 import unittest
 
 """
@@ -28,101 +29,71 @@ Test all implementations of an NMapDAO here.  Currently, we
   have a file-based XML Nmap source though others might
   also be provided in the future.
 """
+
 class TestNMapDAO(unittest.TestCase):
 
-    xml_nmap_path = "data/test/nmap/nmap.input.xml"
-    xml_nmap_path2 = "data/test/nmap/nmap-scan.1.xml"
-    network_group = "egCorp"
-    network_group2 = "han"
-    network_id = "simple"
-    network_id2 = "simple"
+    nmap_input_data_path_1 = "data/test/nmap/nmap-scan.1.xml"
+    nmap_input_data_path_2 = "data/test/nmap/nmap-scan.2.xml"
+
+    urn_prefix = "urn:nmap"
+    host_id_prefix = "HOST_"
+
+    namespace_1 = "egCorp"
+    networks_1 = "corporate"
+    network_1 = "core"
+    networks_urn_1 = ":".join([ urn_prefix, namespace_1, networks_1 ])
+    network_urn_1 = ".".join([ networks_urn_1, network_1 ])
+
+    namespace_2 = "egCorp"
+    networks_2 = "remote"
+    network_2 = "edge"
+    networks_urn_2 = ":".join([ urn_prefix, namespace_2, networks_2 ])
+    network_urn_2 = ".".join([ networks_urn_2, network_2 ])
+
     nmDAO = None
 
     def setUp(self):
-        self.nmDAO = NMapDAO.create(self.xml_nmap_path,
-                                    self.network_group,
-                                    self.network_id)
+        self.nmDAO_1 = NMapDAO.create( self.nmap_input_data_path_1,\
+                                           "NMAP_XML",\
+                                           self.network_urn_1,\
+                                           self.host_id_prefix )
+        self.nmDAO_2 = NMapDAO.create( self.nmap_input_data_path_2,\
+                                           "NMAP_XML",\
+                                           self.network_urn_2,\
+                                           self.host_id_prefix )
 
-    def testGetAssetTypes(self):
-        asset_type_refs = self.nmDAO.getAssetTypes()
-        self.assertEquals(len(asset_type_refs), 6)
+    """
+    Parse the input data source (nmap XML) to an internal representation
+      (networkx Graph).  Eventually we may want to load into a 
+      proper database.
+    """
+    def testInitializeCPTLGraph(self):
+        graph_1 = self.nmDAO_1.getCPTLGraph()
+        self.assertEqual( graph_1.number_of_nodes(), 1 )
+        self.assertEqual( graph_1.number_of_edges(), 0 )
 
-    def testGetAssetRefs(self):
+        graph_2 = self.nmDAO_2.getCPTLGraph()
+        self.assertEqual( graph_2.number_of_nodes(), 8)
+
+    def testGetAssetTypeURNs(self):
+        asset_type_urns = NMapDAO.getAssetTypeURNs()
+        self.assertEqual(len(asset_type_urns), 2)
+
+    def testGetAssetAttributeTypeURNs(self):
+        # N.B.:  We don't have any versions of networks in this DAO
+        asset_attr_type_urns = NMapDAO.getAssetAttributeTypeURNs( "urn:nmap:NAMESPACE:NETWORKS.NETWORK" )
+        self.assertEqual(len(asset_attr_type_urns), 2)
+
+        asset_attr_type_urns = NMapDAO.getAssetAttributeTypeURNs( "urn:nmap:NAMESPACE:NETWORKS.NETWORK:HOST" )
+        self.assertEqual(len(asset_attr_type_urns), 5)
         
-        # Test refs for the entire network
-        asset_type_ref = "urn:nmap:network"
-        actual_asset_refs = self.nmDAO.getAssetRefs(asset_type_ref)
-        expected_asset_refs = ["urn:egCorp:simple"]
-        self.assertEqual( len(actual_asset_refs), len(expected_asset_refs) )
-        for i, actual_asset_ref in enumerate(actual_asset_refs):
-            self.assertEqual(actual_asset_ref, expected_asset_refs[i])
+    def testGetCPTLGraph(self):
+        output_format = "JSON"
+        json_cptl = self.nmDAO_1.getCPTLGraph(output_format)
+        print json_cptl
 
-        # Test refs for host references
-        asset_type_ref = "urn:nmap:network.host"
-        actual_asset_refs = self.nmDAO.getAssetRefs(asset_type_ref)
-        expected_asset_refs = ["urn:egCorp:simple.HOST_1"]
-        self.assertEqual( len(actual_asset_refs), len(expected_asset_refs) )
-        for i, actual_asset_ref in enumerate(actual_asset_refs):
-            self.assertEqual(actual_asset_ref, expected_asset_refs[i])
-
-        # Test refs for host status
-        asset_type_ref = "urn:nmap:network.host#status"
-        actual_asset_refs = self.nmDAO.getAssetRefs(asset_type_ref)
-        expected_asset_refs = ["urn:egCorp:simple.HOST_1#status"]
-        self.assertEqual( len(actual_asset_refs), len(expected_asset_refs) )
-        for i, actual_asset_ref in enumerate(actual_asset_refs):
-            self.assertEqual(actual_asset_ref, expected_asset_refs[i])
-
-        # Test refs for host os
-        asset_type_ref = "urn:nmap:network.host#os"
-        actual_asset_refs = self.nmDAO.getAssetRefs(asset_type_ref)        
-        expected_asset_refs = ["urn:egCorp:simple.HOST_1#os"]
-        self.assertEqual( len(actual_asset_refs), len(expected_asset_refs) )
-        for i, actual_asset_ref in enumerate(actual_asset_refs):
-            self.assertEqual(actual_asset_ref, expected_asset_refs[i])
-
-    def testGetAsset(self):
-
-        # Test refs for host
-        asset_type = "urn:nmap:network.host"
-        asset_ref = "urn:egCorp:simple.HOST_1"
-        asset_vars = [ (asset_type, asset_ref) ]
-        actual_assets = self.nmDAO.getAsset(asset_vars)
-        print "HEYU!"
-        print actual_assets
-
-        # Test refs for host status
-        asset_type = "urn:nmap:network.host#status"
-        asset_ref = "urn:egCorp:simple.HOST_1#status"
-        asset_vars = [ (asset_type, asset_ref) ]
-        actual_assets = self.nmDAO.getAsset(asset_vars)
-        print actual_assets
-
-        # Test refs for host os
-        asset_type = "urn:nmap:network.host#os"
-        asset_ref = "urn:egCorp:simple.HOST_1#os"
-        asset_vars = [ (asset_type, asset_ref) ]
-        actual_assets = self.nmDAO.getAsset(asset_vars)
-        print actual_assets
-
-    def testGetAssetAsCPTLXML(self):
-        # Test refs for the network
-        asset_type = "urn:nmap:network"
-        asset_ref = "urn:egCorp:simple"
-        asset_vars = [ (asset_type, asset_ref) ]
-        asset_to_cptlxml = self.nmDAO.getAssetAsCPTLXML(asset_vars)
-        
-    def testGetAssetAsCPTLXML2(self):
-        nmDAO_1 = NMapDAO.create(self.xml_nmap_path2,
-                                 self.network_group2,
-                                 self.network_id2)
-        asset_type = "urn:nmap:network"
-        asset_ref = "urn:han:simple"
-        asset_vars = [ (asset_type, asset_ref) ]
-        asset_to_cptlxml = nmDAO_1.getAssetAsCPTLXML(asset_vars)
-        f = open("/tmp/nmap-scan.1.cptl.graphml","w")
-        f.write(asset_to_cptlxml.serialize("UTF-8"))
-        f.close()
+        json_cptl = self.nmDAO_2.getCPTLGraph(output_format)
+        print json_cptl
         
 if __name__ == "__main__":
     unittest.main()
