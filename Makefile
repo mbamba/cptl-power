@@ -37,7 +37,8 @@ usage:
 
 validate_desc="validate: validate test data\n"
 validate:
-	xmllint --noout --dtdvalid data/validation/nmap/nmap.dtd data/test/nmap/nmap.input.xml
+	xmllint --noout --dtdvalid data/validation/nmap/nmap.dtd data/test/nmap/nmap-scan.1.xml
+	xmllint --noout --dtdvalid data/validation/nmap/nmap.dtd data/test/nmap/nmap-scan.2.xml
 	xmllint --noout --relaxng data/validation/cptl.rng data/test/nmap/nmap-scan.1.cptl.graphml
 	xmllint --noout --relaxng data/validation/cptl.rng data/test/nmap/nmap-scan.2.cptl.graphml
 
