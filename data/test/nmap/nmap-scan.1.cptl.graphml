@@ -18,9 +18,11 @@
 		<data key="summary">Nmap done</data>
 
 		<node id="HOST_1">
-			<data key="type">urn:nmap:network:Host</data>
+			<data key="type">cptl-network-HOST</data>
 			<data key="os">
-			  <nmap:osmatch name="Linux 2.6.39" accuracy="100"/>
+			  <nmap:os>
+			    <nmap:osmatch name="Linux 2.6.39" accuracy="100" line="39278"/>
+			  </nmap:os>
 			</data>
 			<data key="address">
 			  <nmap:address addr="74.207.244.221" addrtype="ipv4"/>

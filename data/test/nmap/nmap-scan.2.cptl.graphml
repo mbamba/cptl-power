@@ -13,9 +13,9 @@
   <key id="etype" for="edge" attr.name="etype"/>
   
   <graph id="urn:han:simple" edgedefault="undirected">
-    <data key="timestr">Fri Sep 9 18:33:54 2011 (HARDCODED!)</data>
+    <data key="timestr">Fri Sep 9 18:33:54 2011</data>
     <node id="urn:han:simple.HOST_1">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.1" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -33,7 +33,7 @@
           <nmap:hostname name="linksys" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_2">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.68" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -54,21 +54,18 @@
           <nmap:hostname name="switch" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_3">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.69" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="localhost-response" reason_ttl="0"/></data>
-      <data key="ports"><nmap:ports>
+      <data key="ports">
+        <nmap:ports>
           <nmap:extraports state="closed" count="993">
             <nmap:extrareasons reason="resets" count="993"/>
           </nmap:extraports>
           <nmap:port protocol="tcp" portid="22">
             <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
             <nmap:service name="ssh" method="table" conf="3"/>
-          </nmap:port>
-          <nmap:port protocol="tcp" portid="53">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
-            <nmap:service name="domain" method="table" conf="3"/>
           </nmap:port>
           <nmap:port protocol="tcp" portid="80">
             <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
@@ -78,24 +75,12 @@
             <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
             <nmap:service name="netbios-ssn" method="table" conf="3"/>
           </nmap:port>
-          <nmap:port protocol="tcp" portid="199">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
-            <nmap:service name="smux" method="table" conf="3"/>
-          </nmap:port>
-          <nmap:port protocol="tcp" portid="443">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
-            <nmap:service name="https" method="table" conf="3"/>
-          </nmap:port>
-          <nmap:port protocol="tcp" portid="445">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="64"/>
-            <nmap:service name="microsoft-ds" method="table" conf="3"/>
-          </nmap:port>
         </nmap:ports></data>
       <data key="hostnames"><nmap:hostnames>
-          <nmap:hostname name="whopper" type="PTR"/>
+          <nmap:hostname name="aphrodite" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_4">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.100" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -115,24 +100,16 @@
             <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
             <nmap:service name="microsoft-ds" method="table" conf="3"/>
           </nmap:port>
-          <nmap:port protocol="tcp" portid="2869">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
-            <nmap:service name="icslap" method="table" conf="3"/>
-          </nmap:port>
-          <nmap:port protocol="tcp" portid="5225">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
-            <nmap:service name="hp-server" method="table" conf="3"/>
-          </nmap:port>
           <nmap:port protocol="tcp" portid="5357">
             <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
             <nmap:service name="wsdapi" method="table" conf="3"/>
           </nmap:port>
         </nmap:ports></data>
       <data key="hostnames"><nmap:hostnames>
-          <nmap:hostname name="beth-hp" type="PTR"/>
+          <nmap:hostname name="apollo" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_5">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.109" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -157,7 +134,7 @@
           <nmap:hostname name="printer" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_6">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.120" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -177,20 +154,16 @@
             <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
             <nmap:service name="microsoft-ds" method="table" conf="3"/>
           </nmap:port>
-          <nmap:port protocol="tcp" portid="1045">
-            <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
-            <nmap:service name="fpitp" method="table" conf="3"/>
-          </nmap:port>
           <nmap:port protocol="tcp" portid="5357">
             <nmap:state state="open" reason="syn-ack" reason_ttl="128"/>
             <nmap:service name="wsdapi" method="table" conf="3"/>
           </nmap:port>
         </nmap:ports></data>
       <data key="hostnames"><nmap:hostnames>
-          <nmap:hostname name="wills-gateway" type="PTR"/>
+          <nmap:hostname name="ares" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_7">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.133" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -240,10 +213,10 @@
           </nmap:port>
         </nmap:ports></data>
       <data key="hostnames"><nmap:hostnames>
-          <nmap:hostname name="winders8" type="PTR"/>
+          <nmap:hostname name="artemis" type="PTR"/>
         </nmap:hostnames></data>
     </node><node id="urn:han:simple.HOST_8">
-      <data key="type">network:Host</data>
+      <data key="type">cptl-network-HOST</data>
       <data key="os"/>
       <data key="address"><nmap:address addr="192.168.1.146" addrtype="ipv4"/></data>
       <data key="status"><nmap:status state="up" reason="arp-response" reason_ttl="0"/></data>
@@ -285,17 +258,8 @@
           </nmap:port>
         </nmap:ports></data>
       <data key="hostnames"><nmap:hostnames>
-          <nmap:hostname name="bigslaptop" type="PTR"/>
+          <nmap:hostname name="athena" type="PTR"/>
         </nmap:hostnames></data>
     </node>
-    <edge source="HOST_3" target="HOST_4">
-      <data key="etype">urn:badger_clustering.host_similarity#hasSamePort</data>
-    </edge>
-    <edge source="HOST_1" target="HOST_2">
-      <data key="etype">urn:badger_clustering.host_similarity#hasSamePort</data>
-    </edge>
-    <edge source="HOST_3" target="HOST_5">
-      <data key="etype">urn:cptl:network.hasLink</data>
-    </edge>
   </graph>
 </graphml>

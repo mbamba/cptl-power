@@ -35,18 +35,14 @@
 <host starttime="1403532682" endtime="1403532682"><status state="up" reason="localhost-response" reason_ttl="0"/>
 <address addr="192.168.1.69" addrtype="ipv4"/>
 <hostnames>
-<hostname name="whopper" type="PTR"/>
+<hostname name="aphrodite" type="PTR"/>
 </hostnames>
 <ports><extraports state="closed" count="993">
 <extrareasons reason="resets" count="993"/>
 </extraports>
 <port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
-<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
 <port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
 <port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" method="table" conf="3"/></port>
-<port protocol="tcp" portid="199"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="smux" method="table" conf="3"/></port>
-<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
-<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
 </ports>
 <times srtt="10" rttvar="6" to="100000"/>
 </host>
@@ -54,7 +50,7 @@
 <address addr="192.168.1.100" addrtype="ipv4"/>
 <address addr="E8:40:F2:97:2C:B9" addrtype="mac" vendor="Pegatron"/>
 <hostnames>
-<hostname name="beth-hp" type="PTR"/>
+<hostname name="apollo" type="PTR"/>
 </hostnames>
 <ports><extraports state="filtered" count="994">
 <extrareasons reason="no-responses" count="994"/>
@@ -62,8 +58,6 @@
 <port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
 <port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="netbios-ssn" method="table" conf="3"/></port>
 <port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="microsoft-ds" method="table" conf="3"/></port>
-<port protocol="tcp" portid="2869"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="icslap" method="table" conf="3"/></port>
-<port protocol="tcp" portid="5225"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="hp-server" method="table" conf="3"/></port>
 <port protocol="tcp" portid="5357"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="wsdapi" method="table" conf="3"/></port>
 </ports>
 <times srtt="539" rttvar="272" to="100000"/>
@@ -87,7 +81,7 @@
 <address addr="192.168.1.120" addrtype="ipv4"/>
 <address addr="90:FB:A6:E0:A6:A2" addrtype="mac" vendor="Hon Hai Precision Ind.Co.Ltd"/>
 <hostnames>
-<hostname name="wills-gateway" type="PTR"/>
+<hostname name="ares" type="PTR"/>
 </hostnames>
 <ports><extraports state="filtered" count="995">
 <extrareasons reason="no-responses" count="995"/>
@@ -95,7 +89,6 @@
 <port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
 <port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="netbios-ssn" method="table" conf="3"/></port>
 <port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="microsoft-ds" method="table" conf="3"/></port>
-<port protocol="tcp" portid="1045"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="fpitp" method="table" conf="3"/></port>
 <port protocol="tcp" portid="5357"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="wsdapi" method="table" conf="3"/></port>
 </ports>
 <times srtt="345" rttvar="261" to="100000"/>
@@ -104,7 +97,7 @@
 <address addr="192.168.1.133" addrtype="ipv4"/>
 <address addr="4C:72:B9:A8:00:2C" addrtype="mac"/>
 <hostnames>
-<hostname name="winders8" type="PTR"/>
+<hostname name="artemis" type="PTR"/>
 </hostnames>
 <ports><extraports state="filtered" count="990">
 <extrareasons reason="no-responses" count="990"/>
@@ -126,7 +119,7 @@
 <address addr="192.168.1.146" addrtype="ipv4"/>
 <address addr="C8:0A:A9:49:BD:AC" addrtype="mac" vendor="Quanta Computer"/>
 <hostnames>
-<hostname name="bigslaptop" type="PTR"/>
+<hostname name="athena" type="PTR"/>
 </hostnames>
 <ports><extraports state="filtered" count="992">
 <extrareasons reason="no-responses" count="992"/>
