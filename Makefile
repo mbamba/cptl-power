@@ -1,8 +1,5 @@
 CPTL_ROOT=.
 CONFIG_DIR=$(CPTL_ROOT)/config
-DOC_DIR=$(CPTL_ROOT)/doc
-DOC_DIR_DOXYGEN=$(DOC_DIR)/doxygen
-
 BUILD_DIR=$(CPTL_ROOT)/build
 SRC_DIR=$(CPTL_ROOT)/src
 
@@ -31,7 +28,6 @@ usage:
 	@echo "-------------------------"
 	@echo $(clean_desc)
 	@echo $(init_desc)
-	@echo $(doc_desc)
 	@echo $(test_desc)
 	@echo $(validate_desc)
 

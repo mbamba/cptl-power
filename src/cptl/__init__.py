@@ -78,12 +78,11 @@ class NMapDAO():
         # Parse information for the hosts
         host_elements = context.xpathEval("//host")
         ref2idx = {}
-        id2host = { 1:"linksys", 2:"switch", 3:"whopper", 4:"beth-hp",\
-                        5:"printer", 6:"wills-gateway", 7:"winders8", 8:"bigslaptop" }
+
         i = 1
         for host_element in host_elements:
             host_id = self.host_id_prefix + str(i)
-            host_ref = self.cptl_nmap_graph.graph['network_urn'] + ":" + id2host[i] #host_id
+            host_ref = self.cptl_nmap_graph.graph['network_urn'] + ":" + host_id
             self.cptl_nmap_graph.add_node(i, urn_id=host_ref)
             
 
@@ -101,7 +100,16 @@ class NMapDAO():
                         self.cptl_nmap_graph.node[i]['urn-cptl-HOST-ipv6'] = child.prop("addr")
                     elif "mac" == addrtype:
                         self.cptl_nmap_graph.node[i]['urn-cptl-HOST-mac'] = child.prop("addr")
-                        
+                elif "element" == child.type and "hostnames" == child.name:
+                    grandchild = child.children
+                    while grandchild is not None:
+                        if "element" == grandchild.type and "hostname" == grandchild.name:
+                            hostname = grandchild.prop("name")
+                            self.cptl_nmap_graph.node[i]['hostname'] = hostname
+                            self.cptl_nmap_graph.node[i]['urn_id'] =\
+                                self.cptl_nmap_graph.graph['network_urn'] + ":" + hostname
+                            break
+                        grandchild = grandchild.next
                 child = child.next
             i = i + 1
 
