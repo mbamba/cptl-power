@@ -1,0 +1,12 @@
+urn:
+- cptl
+  - id
+  - HOST
+    - os                          
+    - address
+    - status
+    - ports
+    - hostnames
+  - NETWORK
+    
+
