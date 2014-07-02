@@ -19,8 +19,7 @@ init:
 
 test_desc="test: test the cptl dao\n"
 test:
-	export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$(PYTHONPATH)
-	python $(SRC_DIR)/run_test_suite.py
+	python2 $(SRC_DIR)/run_test_suite.py
 
 usage:
 	@echo "-------------------------"
