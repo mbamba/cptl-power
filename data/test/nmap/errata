@@ -1,3 +1,0 @@
-1.  The sample nmap.input.xml does not validate against the DTD def (or rng def) since
-    a.  osclass is contained by itself, not in context of osmatch element
-    b.  the status element does not have a 'reason_ttl' attribute
