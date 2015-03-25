@@ -26,6 +26,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 StatusCode use_json_node_link_recognizer(const string input_filepath) {
 
   StatusCode status = OK;
@@ -38,18 +39,28 @@ StatusCode use_json_node_link_recognizer(const string input_filepath) {
   mpc_parser_t *Dictionary = mpc_new("dictionary");
   mpc_parser_t *ListElement = mpc_new("list_element");
   mpc_parser_t *List = mpc_new("list");
+  mpc_parser_t *LinkDictionary = mpc_new("link_dictionary");
+  mpc_parser_t *LinkList = mpc_new("link_list");
+  mpc_parser_t *NodeDictionary = mpc_new("node_dictionary");
+  mpc_parser_t *NodeList = mpc_new("node_list");
+  mpc_parser_t *GraphDictionary = mpc_new("graph_dictionary");
   mpc_parser_t *JSONNodeLink = mpc_new("json_node_link");
       
   mpca_lang(MPCA_LANG_PREDICTIVE,
 	    " string  : /\"(\\\\.|[^\"])*\"/ ;             "
 	    " key : <string>;"
-	    " value : <string> | <list>; "
+	    " value : <string>; "
 	    " key_value_pair : <key>':'<value>;          "
 	    " dictionary : '{' <key_value_pair> (',' <key_value_pair>)* '}'; "
 	    " list_element : <dictionary> ;"
 	    " list : '[' <list_element> (',' <list_element>)* ']'; "
-	    " json_node_link        : /^/<dictionary>/$/;     ",
-	    String, Key, Value, KeyValuePair, Dictionary, ListElement, List, JSONNodeLink, NULL);
+	    " link_dictionary : '{' /\"source\"/ ':' <value> ',' /\"target\"/ ':' <value> ',' /\"relation\"/ ':' <value> (',' <key_value_pair>)* '}' ;"
+	    " link_list : '[' <link_dictionary> (',' <link_dictionary>)* ']'; "
+	    " node_dictionary : '{' /\"name\"/ ':' <value> ',' /\"rdfs:type\"/ ':' <value> (',' <key_value_pair>)* '}' ;"
+	    " node_list : '[' <node_dictionary> (',' <node_dictionary>)* ']'; "
+	    " graph_dictionary : '{' /\"nodes\"/ ':' <node_list> ',' /\"links\"/ ':' <link_list> '}'; "
+	    " json_node_link        : /^/<graph_dictionary>/$/;     ",
+	    String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
 
   if ( mpc_parse_contents(input_filepath, JSONNodeLink, &r) ) {
     mpc_ast_print(r.output);
@@ -62,7 +73,7 @@ StatusCode use_json_node_link_recognizer(const string input_filepath) {
     exit(status);
   }
   
-  mpc_cleanup(8, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, JSONNodeLink);
+  mpc_cleanup(11, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink);
   return status;
 }
 
