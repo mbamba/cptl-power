@@ -23,10 +23,13 @@
 #ifndef _VALIDATE_H_
 
 #define STRING_SIZE 50
+#define MAX_STRING_SIZE 800
 typedef char string[STRING_SIZE];
 
 typedef enum recognizer_type {
-  JSON_NODE_LINK
+  JSON_NODE_LINK,
+  SUBSTATION_NETWORK_VIEW,
+  SUBSTATION_YARD_VIEW,
 } RecognizerType;
 
 typedef enum status_codes {
@@ -36,7 +39,9 @@ typedef enum status_codes {
   UNKNOWN_RECOGNIZER_TYPE = 3
 } StatusCode;
 
-StatusCode use_json_node_link_recognizer(const string input_filepath);
+
+StatusCode use_substation_yard_view_recognizer(const string input_filepath, const string grammar_filepath);
+StatusCode use_json_node_link_recognizer(const string input_filepath, const string grammar_filepath);
 StatusCode use_recognizer(const string recognizer_type, const string input_filepath);
 StatusCode print_usage();
 

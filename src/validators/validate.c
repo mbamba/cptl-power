@@ -26,11 +26,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 //! Validate the input as a Substation Yard View
 /*!
   \param The input file to validate
  */
-StatusCode use_substation_yard_view_recognizer(const string input_filepath) {
+StatusCode use_view_recognizer(const string input_filepath,
+			       const string grammar_filepath) {
   StatusCode status = OK;
   mpc_result_t r;
 
@@ -49,30 +52,12 @@ StatusCode use_substation_yard_view_recognizer(const string input_filepath) {
   mpc_parser_t *NodeList = mpc_new("node_list");
   mpc_parser_t *GraphDictionary = mpc_new("graph_dictionary");
   mpc_parser_t *JSONNodeLink = mpc_new("json_node_link");
-      
-  mpca_lang(MPCA_LANG_DEFAULT,
-	    " node_types : /\"syard:Bus\"/                               \n"
-	    "            | /\"syard:Breaker\"/                           \n"
-	    "            | /\"syard:Generator\"/                         \n"
-	    "            | /\"syard:Node\"/                              \n"
-	    "            | /\"syard:Transformer\"/;                      \n"
-	    "                                                            \n"	    
-	    " link_types : /\"syard:hasLine\"/ ;"
-	    "                                                            \n"	    
-	    " string  : /\"(\\\\.|[^\"])*\"/ ;             "
-	    " key : <string>;"
-	    " value : <string>; "
-	    " key_value_pair : <key>':'<value>;          "
-	    " dictionary : '{' <key_value_pair> (',' <key_value_pair>)* '}'; "
-	    " list_element : <dictionary> ;"
-	    " list : '[' <list_element> (',' <list_element>)* ']'; "
-	    " link_dictionary : '{' /\"source\"/ ':' <value> ',' /\"target\"/ ':' <value> ',' /\"relation\"/ ':' <link_types> (',' <key_value_pair>)* '}' ;"
-	    " link_list : '[' <link_dictionary> (',' <link_dictionary>)* ']'; "
-	    " node_dictionary : '{' /\"name\"/ ':' <value> ',' /\"rdfs:type\"/ ':' <node_types> (',' <key_value_pair>)* '}' ;"
-	    " node_list : '[' <node_dictionary> (',' <node_dictionary>)* ']'; "
-	    " graph_dictionary : '{' /\"nodes\"/ ':' <node_list> ',' /\"links\"/ ':' <link_list> '}'; "
-	    " json_node_link        : /^/<graph_dictionary>/$/;     ",
-	    NodeTypes, LinkTypes, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
+
+  FILE* view_grammar_file = fopen(grammar_filepath, "r");
+  
+  mpca_lang_file(MPCA_LANG_DEFAULT,
+		 view_grammar_file, 
+		 NodeTypes, LinkTypes, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
 
   if ( mpc_parse_contents(input_filepath, JSONNodeLink, &r) ) {
     mpc_ast_print(r.output);
@@ -82,10 +67,12 @@ StatusCode use_substation_yard_view_recognizer(const string input_filepath) {
     mpc_err_delete(r.error);
     status = PARSE_ERROR;
     fprintf(stderr, "Error:  PARSE ERROR\n");
+    fclose(view_grammar_file);
     exit(status);
   }
   
   mpc_cleanup(13, NodeTypes, LinkTypes, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink);
+  fclose(view_grammar_file);
   return status;
 }
 
@@ -93,7 +80,8 @@ StatusCode use_substation_yard_view_recognizer(const string input_filepath) {
 /*!
   \param The input file to validate
  */
-StatusCode use_json_node_link_recognizer(const string input_filepath) {
+StatusCode use_json_node_link_recognizer(const string input_filepath,
+					 const string grammar_filepath) {
 
   StatusCode status = OK;
   mpc_result_t r;
@@ -111,22 +99,11 @@ StatusCode use_json_node_link_recognizer(const string input_filepath) {
   mpc_parser_t *NodeList = mpc_new("node_list");
   mpc_parser_t *GraphDictionary = mpc_new("graph_dictionary");
   mpc_parser_t *JSONNodeLink = mpc_new("json_node_link");
-      
-  mpca_lang(MPCA_LANG_PREDICTIVE,
-	    " string  : /\"(\\\\.|[^\"])*\"/ ;             "
-	    " key : <string>;"
-	    " value : <string>; "
-	    " key_value_pair : <key>':'<value>;          "
-	    " dictionary : '{' <key_value_pair> (',' <key_value_pair>)* '}'; "
-	    " list_element : <dictionary> ;"
-	    " list : '[' <list_element> (',' <list_element>)* ']'; "
-	    " link_dictionary : '{' /\"source\"/ ':' <value> ',' /\"target\"/ ':' <value> ',' /\"relation\"/ ':' <value> (',' <key_value_pair>)* '}' ;"
-	    " link_list : '[' <link_dictionary> (',' <link_dictionary>)* ']'; "
-	    " node_dictionary : '{' /\"name\"/ ':' <value> ',' /\"rdfs:type\"/ ':' <value> (',' <key_value_pair>)* '}' ;"
-	    " node_list : '[' <node_dictionary> (',' <node_dictionary>)* ']'; "
-	    " graph_dictionary : '{' /\"nodes\"/ ':' <node_list> ',' /\"links\"/ ':' <link_list> '}'; "
-	    " json_node_link        : /^/<graph_dictionary>/$/;     ",
-	    String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
+
+  FILE* grammar_file = fopen(grammar_filepath, "r");
+  mpca_lang_file(MPCA_LANG_DEFAULT,
+		 grammar_file, 
+		 String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
 
   if ( mpc_parse_contents(input_filepath, JSONNodeLink, &r) ) {
     mpc_ast_print(r.output);
@@ -136,19 +113,23 @@ StatusCode use_json_node_link_recognizer(const string input_filepath) {
     mpc_err_delete(r.error);
     status = PARSE_ERROR;
     fprintf(stderr, "Error:  PARSE ERROR\n");
+    fclose(grammar_file);
     exit(status);
   }
   
   mpc_cleanup(11, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink);
+  fclose(grammar_file);
   return status;
 }
 
 StatusCode use_recognizer(const string recognizer_type, const string input_filepath) {
   StatusCode status = OK;
   if ( !strncmp( recognizer_type, "JSON_NODE_LINK", STRING_SIZE ) ) {
-    status = use_json_node_link_recognizer(input_filepath);
+    status = use_json_node_link_recognizer(input_filepath, "src/grammars/json_node_link.grammar");
   } else if ( !strncmp( recognizer_type, "SUBSTATION_YARD_VIEW", STRING_SIZE ) ) {
-    status = use_substation_yard_view_recognizer(input_filepath);
+    status = use_view_recognizer(input_filepath, "src/grammars/substation_yard.grammar");
+  } else if ( !strncmp( recognizer_type, "SUBSTATION_NETWORK_VIEW", STRING_SIZE ) ) {
+    status = use_view_recognizer(input_filepath, "src/grammars/substation_network.grammar");    
   } else {
     fprintf(stderr, "Unknown recognizer type: %s\n", recognizer_type);
     print_usage();
