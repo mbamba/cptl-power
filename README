@@ -1,8 +1,10 @@
 L I C E N S I N G 
-The CPTL ontologies, unless otherwise noted, are available under 
+
+* The CPTL ontologies and grammars, unless otherwise noted, are available under 
 the Creative Commons Attribution-ShareAlike License.  Details 
 about this license are available at the following URL:
 
 http://creativecommons.org/licenses/by-sa/3.0/legalcode
 
-
+* The source code provided is available under the GPLv3.  A copy of the
+license has been provided in this distribution.
