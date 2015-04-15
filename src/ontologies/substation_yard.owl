@@ -60,6 +60,13 @@
     (http://en.wikipedia.org/wiki/Electric_generator).</rdfs:comment>
   </owl:Class>
 
+  <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Node">
+    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:label xml:lang="en">Node</rdfs:label>
+    <rdfs:comment>Not sure whether this really belongs here or in an ontology
+      for node-breaker diagrams.</rdfs:comment>
+  </owl:Class>
+  
   <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Transformer">
     <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Transformer</rdfs:label>

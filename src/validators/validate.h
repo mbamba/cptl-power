@@ -24,25 +24,68 @@
 
 #define STRING_SIZE 50
 #define MAX_STRING_SIZE 800
+
+#include <lcthw/hashmap.h>
+#include <graph.h>
+#include <mpc.h>
+#include <uthash.h>
+
 typedef char string[STRING_SIZE];
+
+struct v_attribute_entry {
+  int id;
+  string name;
+  string rdfs_type;
+  UT_hash_handle hh;
+};
+
+struct e_attribute_entry {
+  int target_id;
+  string rdfs_type;
+  struct e_attribute_entry* next;
+};
+
+struct vertex_adjacency_list {
+  int source_id;
+  struct e_attribute_entry* targets;
+  UT_hash_handle hh;
+};
+
+typedef struct view {
+  Graph graph;
+  struct v_attribute_entry *v_inverse_interpretation;
+  struct v_attribute_entry *v_interpretation;
+  struct vertex_adjacency_list *e_interpretation;
+  int vertex_count;
+  int current_source_id;  // a hack
+} View;
 
 typedef enum recognizer_type {
   JSON_NODE_LINK,
+  RDF_TURTLE,
   SUBSTATION_NETWORK_VIEW,
   SUBSTATION_YARD_VIEW,
 } RecognizerType;
+
+typedef enum graph_format_type {
+  NODE_LINK,
+  ADJACENCY_LIST,
+  ADJACENCY_MATRIX
+} GraphFormatType;
+
 
 typedef enum status_codes {
   OK = 0, 
   INVALID_ARGS = 1,
   PARSE_ERROR = 2,
-  UNKNOWN_RECOGNIZER_TYPE = 3
+  UNKNOWN_RECOGNIZER_TYPE = 3,
+  NO_INTERPRETATION_ERROR = 4
 } StatusCode;
 
 
 StatusCode use_substation_yard_view_recognizer(const string input_filepath, const string grammar_filepath);
-StatusCode use_json_node_link_recognizer(const string input_filepath, const string grammar_filepath);
-StatusCode use_recognizer(const string recognizer_type, const string input_filepath);
+StatusCode use_json_node_link_recognizer(const string input_filepath, const string grammar_filepath, mpc_result_t *r);
+StatusCode use_recognizer(const string recognizer_type, const string input_filepath, mpc_result_t *r);
 StatusCode print_usage();
 
 #endif

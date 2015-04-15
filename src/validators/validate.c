@@ -27,15 +27,14 @@
 #include <string.h>
 
 
-
 //! Validate the input as a Substation Yard View
 /*!
   \param The input file to validate
  */
-StatusCode use_view_recognizer(const string input_filepath,
-			       const string grammar_filepath) {
+StatusCode use_json_view_recognizer(const string input_filepath,
+				    const string grammar_filepath,
+				    mpc_result_t* r) {
   StatusCode status = OK;
-  mpc_result_t r;
 
   mpc_parser_t *NodeTypes = mpc_new("node_types");
   mpc_parser_t *LinkTypes = mpc_new("link_types");
@@ -59,12 +58,9 @@ StatusCode use_view_recognizer(const string input_filepath,
 		 view_grammar_file, 
 		 NodeTypes, LinkTypes, String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
 
-  if ( mpc_parse_contents(input_filepath, JSONNodeLink, &r) ) {
-    mpc_ast_print(r.output);
-    mpc_ast_delete(r.output);
-  } else {
-    mpc_err_print(r.error);
-    mpc_err_delete(r.error);
+  if ( ! mpc_parse_contents(input_filepath, JSONNodeLink, r) ) {
+    mpc_err_print(r->error);
+    mpc_err_delete(r->error);
     status = PARSE_ERROR;
     fprintf(stderr, "Error:  PARSE ERROR\n");
     fclose(view_grammar_file);
@@ -76,15 +72,58 @@ StatusCode use_view_recognizer(const string input_filepath,
   return status;
 }
 
+StatusCode use_ttl_view_recognizer(const string input_filepath,
+				   const string grammar_filepath,
+				   mpc_result_t *r) {
+  StatusCode status = OK;
+  FILE* grammar_file = fopen(grammar_filepath, "r");
+
+  mpc_parser_t *NodeTypes = mpc_new("node_types");
+  mpc_parser_t *LinkTypes = mpc_new("link_types");
+  mpc_parser_t *String = mpc_new("string");
+  mpc_parser_t *NS_Prefix = mpc_new("ns_prefix");
+  mpc_parser_t *URI = mpc_new("uri");
+  mpc_parser_t *NS_Decl = mpc_new("ns_decl");
+  mpc_parser_t *NS_Decls = mpc_new("ns_decls");
+  mpc_parser_t *Subject = mpc_new("subject");
+  mpc_parser_t *Predicate = mpc_new("predicate");
+  mpc_parser_t *Object = mpc_new("object");
+  mpc_parser_t *RDF_Triple_Block = mpc_new("rdf_triple_block");
+  mpc_parser_t *RDF_Triple_List = mpc_new("rdf_triple_list");
+  mpc_parser_t *RDF_Turtle_File = mpc_new("rdf_turtle_file");
+  
+  mpca_lang_file(MPCA_LANG_DEFAULT,
+		 grammar_file, NodeTypes, LinkTypes,
+		 String, NS_Prefix,
+		 URI, NS_Decl, NS_Decls, Subject,
+		 Predicate, Object, RDF_Triple_Block,
+		 RDF_Triple_List, RDF_Turtle_File, NULL);
+
+  if ( ! mpc_parse_contents(input_filepath, RDF_Turtle_File, r) ) {
+    mpc_err_print(r->error);
+    mpc_err_delete(r->error);
+    status = PARSE_ERROR;
+    fprintf(stderr, "Error:  PARSE ERROR\n");
+    fclose(grammar_file);
+    exit(status);
+  }
+  
+  mpc_cleanup(13, RDF_Turtle_File, RDF_Triple_List, RDF_Triple_Block, Object, Predicate, Subject, NS_Decls, NS_Decl, URI, NS_Prefix, String, NodeTypes, LinkTypes);
+  fclose(grammar_file);
+
+  return status;
+}
+
+
 //! Validate the input as a JSON Node Link Graph
 /*!
   \param The input file to validate
  */
 StatusCode use_json_node_link_recognizer(const string input_filepath,
-					 const string grammar_filepath) {
+					 const string grammar_filepath,
+					 mpc_result_t *r) {
 
   StatusCode status = OK;
-  mpc_result_t r;
     
   mpc_parser_t *String = mpc_new("string");
   mpc_parser_t *Key = mpc_new("key");
@@ -105,12 +144,9 @@ StatusCode use_json_node_link_recognizer(const string input_filepath,
 		 grammar_file, 
 		 String, Key, Value, KeyValuePair, Dictionary, ListElement, List, LinkDictionary, LinkList, NodeDictionary, NodeList, GraphDictionary, JSONNodeLink, NULL);
 
-  if ( mpc_parse_contents(input_filepath, JSONNodeLink, &r) ) {
-    mpc_ast_print(r.output);
-    mpc_ast_delete(r.output);
-  } else {
-    mpc_err_print(r.error);
-    mpc_err_delete(r.error);
+  if ( ! mpc_parse_contents(input_filepath, JSONNodeLink, r) ) {
+    mpc_err_print(r->error);
+    mpc_err_delete(r->error);
     status = PARSE_ERROR;
     fprintf(stderr, "Error:  PARSE ERROR\n");
     fclose(grammar_file);
@@ -122,14 +158,61 @@ StatusCode use_json_node_link_recognizer(const string input_filepath,
   return status;
 }
 
-StatusCode use_recognizer(const string recognizer_type, const string input_filepath) {
+StatusCode use_rdf_turtle_recognizer(const string input_filepath,
+				     const string grammar_filepath,
+				     mpc_result_t *r) {
+  StatusCode status = OK;
+  FILE* grammar_file = fopen(grammar_filepath, "r");
+
+  mpc_parser_t *String = mpc_new("string");
+  mpc_parser_t *NS_Prefix = mpc_new("ns_prefix");
+  mpc_parser_t *URI = mpc_new("uri");
+  mpc_parser_t *NS_Decl = mpc_new("ns_decl");
+  mpc_parser_t *NS_Decls = mpc_new("ns_decls");
+  mpc_parser_t *Subject = mpc_new("subject");
+  mpc_parser_t *Predicate = mpc_new("predicate");
+  mpc_parser_t *Object = mpc_new("object");
+  mpc_parser_t *RDF_Triple_Block = mpc_new("rdf_triple_block");
+  mpc_parser_t *RDF_Triple_List = mpc_new("rdf_triple_list");
+  mpc_parser_t *RDF_Turtle_File = mpc_new("rdf_turtle_file");
+  
+  mpca_lang_file(MPCA_LANG_DEFAULT,
+		 grammar_file, String, NS_Prefix,
+		 URI, NS_Decl, NS_Decls, Subject,
+		 Predicate, Object, RDF_Triple_Block,
+		 RDF_Triple_List, RDF_Turtle_File, NULL);
+
+  if ( ! mpc_parse_contents(input_filepath, RDF_Turtle_File, r) ) {
+    mpc_err_print(r->error);
+    mpc_err_delete(r->error);
+    status = PARSE_ERROR;
+    fprintf(stderr, "Error:  PARSE ERROR\n");
+    fclose(grammar_file);
+    exit(status);
+  }
+  
+  mpc_cleanup(11, RDF_Turtle_File, RDF_Triple_List, RDF_Triple_Block, Object, Predicate, Subject, NS_Decls, NS_Decl, URI, NS_Prefix, String);
+  fclose(grammar_file);
+
+  return status;
+}
+
+StatusCode use_recognizer(const string recognizer_type,
+			  const string input_filepath,
+			  mpc_result_t *r) {
   StatusCode status = OK;
   if ( !strncmp( recognizer_type, "JSON_NODE_LINK", STRING_SIZE ) ) {
-    status = use_json_node_link_recognizer(input_filepath, "src/grammars/json_node_link.grammar");
-  } else if ( !strncmp( recognizer_type, "SUBSTATION_YARD_VIEW", STRING_SIZE ) ) {
-    status = use_view_recognizer(input_filepath, "src/grammars/substation_yard.grammar");
-  } else if ( !strncmp( recognizer_type, "SUBSTATION_NETWORK_VIEW", STRING_SIZE ) ) {
-    status = use_view_recognizer(input_filepath, "src/grammars/substation_network.grammar");    
+    status = use_json_node_link_recognizer(input_filepath, "src/grammars/json/json_node_link.grammar", r);
+  } else if ( !strncmp( recognizer_type, "TTL", STRING_SIZE) ) {
+    status = use_rdf_turtle_recognizer(input_filepath, "src/grammars/ttl/rdf_turtle.grammar", r);
+  } else if ( !strncmp( recognizer_type, "JSON_SUBSTATION_YARD_VIEW", STRING_SIZE ) ) {
+    status = use_json_view_recognizer(input_filepath, "src/grammars/json/substation_yard.grammar", r);
+  } else if ( !strncmp( recognizer_type, "TTL_SUBSTATION_YARD_VIEW", STRING_SIZE ) ) {
+    status = use_ttl_view_recognizer(input_filepath, "src/grammars/ttl/substation_yard.grammar", r);
+  } else if ( !strncmp( recognizer_type, "JSON_SUBSTATION_NETWORK_VIEW", STRING_SIZE ) ) {
+    status = use_json_view_recognizer(input_filepath, "src/grammars/json/substation_network.grammar", r);    
+  } else if ( !strncmp( recognizer_type, "TTL_SUBSTATION_NETWORK_VIEW", STRING_SIZE ) ) {
+    status = use_ttl_view_recognizer(input_filepath, "src/grammars/ttl/substation_network.grammar", r);
   } else {
     fprintf(stderr, "Unknown recognizer type: %s\n", recognizer_type);
     print_usage();
@@ -139,6 +222,7 @@ StatusCode use_recognizer(const string recognizer_type, const string input_filep
   return status;
 }
 
+#if defined VALIDATOR
 StatusCode print_usage() {
   fprintf(stderr, "Usage:  validate <recognizer_type> <input_filepath>\n");
   return OK;
@@ -148,11 +232,14 @@ int main(int argc, char **argv) {
 
   int status = OK;
   string input_filepath, recognizer_type;
+  mpc_result_t r;
   
   if ( argc == 3 ) {
     strncpy(recognizer_type, argv[1], STRING_SIZE);
     strncpy(input_filepath, argv[2], STRING_SIZE);
-    status = use_recognizer(recognizer_type, input_filepath);
+    status = use_recognizer(recognizer_type, input_filepath, &r);
+    mpc_ast_print(r.output);
+    mpc_ast_delete(r.output);
   } else {
     print_usage();
     status = INVALID_ARGS;
@@ -160,3 +247,4 @@ int main(int argc, char **argv) {
   }
   return status;
 }
+#endif

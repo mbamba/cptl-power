@@ -1,0 +1,17 @@
+node_types		: /syard:Bus/ 
+	   		| /syard:Breaker/              
+  			| /syard:Generator/  
+       	   		| /syard:Node/    
+       	   		| /syard:Transformer/ ;
+link_types 		: /syard:hasLine/ ;
+string		 :	/(\\\\.|[^\"\ \n])*/ ;
+ns_prefix	 : 	/(\\\\.|[^\":])*/ ':' ;
+uri		 :	'<' /(\\\\.|[^\">])*/ '>' ;
+ns_decl		 :	/@prefix/ <ns_prefix> <uri> '.' ;
+ns_decls	 :	<ns_decl>+ ;
+subject		 :      <string> ;
+predicate	 :      <string> ;
+object		 :      <string> ;
+rdf_triple_block :	<subject> /rdfs:type/ <node_types> ';' (<link_types> <object> ';')* '.';
+rdf_triple_list  :	<rdf_triple_block>+ ;
+rdf_turtle_file	 : 	<ns_decls> <rdf_triple_list> ;

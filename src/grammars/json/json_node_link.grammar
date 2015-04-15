@@ -1,0 +1,13 @@
+string		 :	/(\\\\.|[^\"])*/ ; 
+key 		 :      '"' <string> '"';
+value 		 : 	'"' <string> '"';
+key_value_pair   : 	<key>':'<value>;          
+dictionary 	 : 	'{' <key_value_pair> (',' <key_value_pair>)* '}';
+list_element 	 : 	<dictionary> ;
+list 		 : 	'[' <list_element> (',' <list_element>)* ']'; 
+link_dictionary  : 	'{' /\"source\"/ ':' <value> ',' /\"target\"/ ':' <value> ',' /\"relation\"/ ':' <value> (',' <key_value_pair>)* '}' ;
+link_list 	 : 	'[' <link_dictionary> (',' <link_dictionary>)* ']'; 
+node_dictionary  : 	'{' /\"name\"/ ':' <value> ',' /\"rdfs:type\"/ ':' <value> (',' <key_value_pair>)* '}' ;
+node_list 	 : '[' <node_dictionary> (',' <node_dictionary>)* ']'; 
+graph_dictionary : '{' /\"nodes\"/ ':' <node_list> ',' /\"links\"/ ':' <link_list> '}'; 
+json_node_link   : /^/<graph_dictionary>/$/;    
