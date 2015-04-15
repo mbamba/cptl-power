@@ -45,7 +45,7 @@ validators:
 	chmod u+x build/validate
 
 converters: 
-	gcc -g -Ilib -DCONVERTER lib/mpc.c lib/lcthw/hashmap.c lib/lcthw/darray.c lib/bstrlib/bstrlib.c lib/graph.c src/validators/validate.c src/converters/convert.c -o build/convert
+	gcc -g -Ilib -DCONVERTER lib/mpc.c lib/graph.c src/validators/validate.c src/converters/convert.c -o build/convert
 
 clean:
 	rm -rf build
