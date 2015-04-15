@@ -26,12 +26,26 @@ STND=-ansi
 init:
 	mkdir build
 
-tests: init
-	gcc -g -Ilib lib/mpc.c lib/ptest.c tests/src/test.c tests/src/core.c -o build/tests
+lcthw_test: init
+	gcc -Wall -g -DNDEBUG lib/lcthw/dbg_test.c -o build/dbg_test	
+	gcc -Wall -g -DNDEBUG -Ilib lib/lcthw/darray.c lib/lcthw/darray_test.c -o build/darray_test
+	gcc -Wall -g -DNDEBUG -Ilib lib/bstrlib/bstrlib.c lib/lcthw/darray.c lib/lcthw/hashmap.c lib/lcthw/hashmap_test.c -o build/hashmap_test
+	./build/dbg_test test
+	./build/darray_test
+	./build/hashmap_test
 
-validators: init
-	gcc -g -Ilib lib/mpc.c src/validators/validate.c -o build/validate
+graph_test: init
+	gcc -Wall -g -Ilib lib/graph.c lib/graph_test.c -o build/graph_test
+	./build/graph_test
+
+tests: init lcthw_test graph_test
+
+validators: 
+	gcc -g -Ilib -DVALIDATOR lib/mpc.c src/validators/validate.c -o build/validate
 	chmod u+x build/validate
+
+converters: 
+	gcc -g -Ilib -DCONVERTER lib/mpc.c lib/lcthw/hashmap.c lib/lcthw/darray.c lib/bstrlib/bstrlib.c lib/graph.c src/validators/validate.c src/converters/convert.c -o build/convert
 
 clean:
 	rm -rf build

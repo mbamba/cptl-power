@@ -25,7 +25,6 @@
 #define STRING_SIZE 50
 #define MAX_STRING_SIZE 800
 
-#include <lcthw/hashmap.h>
 #include <graph.h>
 #include <mpc.h>
 #include <uthash.h>

@@ -21,7 +21,6 @@
  */
 
 #include "../converters/convert.h"
-#include <bstrlib/bstrlib.h>
 #include <graph.h>
 #include <mpc.h>
 #include <stdlib.h>
