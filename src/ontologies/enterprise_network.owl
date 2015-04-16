@@ -13,8 +13,8 @@
   http://creativecommons.org/licenses/by-sa/3.0/legalcode 
  -->
 <rdf:RDF 
-    xmlns:cptlc="http://cptl-c.org/core/2014/07/core/"/>
-    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    xmlns:cptlc="http://cptl-c.org/core/2014/07/core/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="  http://www.w3.org/2000/01/rdf-schema#">
@@ -65,6 +65,14 @@
     its ports. (http://en.wikipedia.org/wiki/Network_switch)</rdfs:comment>
     </owl:Class>
 
+  <!-- Relations -->
+  <owl:DatatypeProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasIPValue">
+    <rdfs:label xml:lang="en">IP Value</rdfs:label>
+    <rdfs:comment>An IPv4 or IPv6 value associated with a devices.</rdfs:comment>
+    <rdfs:domain rdf:resource="cptlc:Asset"/>
+    <rdfs:range>rdfs:Literal</rdfs:range>
+  </owl:DatatypeProperty>
+    
 </rdf:RDF>
 
 

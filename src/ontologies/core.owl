@@ -32,9 +32,9 @@
 	software/hardware to buildings or rooms.</rdfs:comment>
     </owl:Class>
 
-    <owl:DatatypeProperty rdf:about="http://cptl-c.org/core/2014/07/core/hasLink">
+    <owl:ObjectProperty rdf:about="http://cptl-c.org/core/2014/07/core/hasLink">
       <rdfs:label xml:lang="en">Has Link</rdfs:label>
       <rdfs:comment>Used to indicate a relation between two assets.</rdfs:comment>
-    </owl:DatatypeProperty>
+    </owl:ObjectProperty>
 
 </rdf:RDF>

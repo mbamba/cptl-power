@@ -2,7 +2,7 @@ node_types		: /snet:DistanceRelay/
 	   		| /snet:OvercurrentRelay/
 	   		| /snet:Switch/ ; 			
 link_types 		: /cptlc:hasLink/
-			| /snet:hasBreakerConnections/ ;    
+			| /snet:hasBreakerConnections/ ;
 string		 :	/(\\\\.|[^\"\ \n])*/ ;
 ns_prefix	 : 	/(\\\\.|[^\":])*/ ':' ;
 uri		 :	'<' /(\\\\.|[^\">])*/ '>' ;
