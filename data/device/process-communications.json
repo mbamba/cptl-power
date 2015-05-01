@@ -1,0 +1,45 @@
+{
+    "nodes":
+    [
+	{"name":"example-laptop:p1",
+	 "rdfs:type":"devos:Process"},
+
+	{"name":"example-laptop:p2",
+	 "rdfs:type":"devos:Process"},
+
+	{"name":"example-laptop:p3",
+	 "rdfs:type":"devos:Process"},
+
+	{"name":"example-laptop:file1",
+	 "rdfs:type":"devos:File"},
+
+	{"name":"example-laptop:file2",
+	 "rdfs:type":"devos:File"},
+
+	{"name":"example-laptop:file3",
+	 "rdfs:type":"devos:File"}
+    ],
+
+    "links":
+    [
+	{"source":"example-laptop:p1",
+	 "target":"example-laptop:p3",
+	 "relation":"devos:hasIPC" },
+
+	{"source":"example-laptop:p2",
+	 "target":"example-laptop:p3",
+	 "relation":"devos:hasIPC" },
+
+	{"source":"example-laptop:p1",
+	 "target":"example-laptop:file1",
+	 "relation":"devos:readsFile" },
+
+	{"source":"example-laptop:p3",
+	 "target":"example-laptop:file1",
+	 "relation":"devos:writesFile" },
+
+	{"source":"example-laptop:p3",
+	 "target":"example-laptop:file2",
+	 "relation":"devos:readsFile" }
+    ]	
+}
