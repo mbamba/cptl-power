@@ -213,6 +213,8 @@ StatusCode use_recognizer(const string recognizer_type,
     status = use_json_view_recognizer(input_filepath, "src/grammars/json/substation_network.grammar", r);    
   } else if ( !strncmp( recognizer_type, "TTL_SUBSTATION_NETWORK_VIEW", STRING_SIZE ) ) {
     status = use_ttl_view_recognizer(input_filepath, "src/grammars/ttl/substation_network.grammar", r);
+  } else if ( !strncmp( recognizer_type, "JSON_PROCESS_COMS_VIEW", STRING_SIZE ) ) {
+    status = use_json_view_recognizer(input_filepath, "src/grammars/json/process_communications.grammar", r);
   } else {
     fprintf(stderr, "Unknown recognizer type: %s\n", recognizer_type);
     print_usage();
