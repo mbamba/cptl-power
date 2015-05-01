@@ -64,6 +64,7 @@ typedef enum recognizer_type {
   RDF_TURTLE,
   SUBSTATION_NETWORK_VIEW,
   SUBSTATION_YARD_VIEW,
+  PROCESS_COMS_VIEW
 } RecognizerType;
 
 typedef enum graph_format_type {
