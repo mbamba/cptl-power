@@ -25,40 +25,85 @@
 #include <graph.h>
 #include <mpc.h>
 
+StatusCode use_converter(FormatType format_type,
+			 View *view,
+			 ViewType view_type,
+			 mpc_result_t *r);
 
-//-- OUTPUT METHODS
-// View Formats:  JSON_NODE_LINK or RDF_TURTLE
-StatusCode output_view(void* view, string view_format_type, FILE* output_file);
+//-- INPUT FORMAT PARSERS
+//---- General Purpose Methods
+StatusCode traverse_parse_tree( mpc_ast_t *a, View *view,
+				StatusCode(*graph_builder)(View *view, mpc_ast_t *a) );
 
-// Graph Formats:  NODE-LINK
-StatusCode output_graph(void* view, string graph_format_type, FILE* output_file);              
+static StatusCode json_node_link_ast_edge_initializer(mpc_ast_t *a, View *view, ViewType view_type);
+static StatusCode json_node_link_ast_edge_initializer_helper(mpc_ast_t *a, View *view, ViewType view_type);
+static StatusCode json_node_link_ast_vertex_initializer(mpc_ast_t *a, View *view, ViewType view_type);
+static StatusCode json_node_link_ast_vertex_initializer_helper(mpc_ast_t *a, View *view, ViewType view_type);
 
-// Interpretation Formats:  TABULAR
+static StatusCode rdf_turtle_ast_edge_initializer(mpc_ast_t *a, View *view, ViewType view_type);
+static StatusCode rdf_turtle_ast_edge_initializer_helper(mpc_ast_t *a, View *view, ViewType view_type);
+static StatusCode rdf_turtle_ast_vertex_initializer(mpc_ast_t *a, View *view, ViewType view_type);
+static StatusCode rdf_turtle_ast_vertex_initializer_helper(mpc_ast_t *a, View *view, ViewType view_type);
+
+//---- VIEW FORMATS
+//------ Process Communications View
+static StatusCode json_node_link_process_communications_view_initializer(View *view, mpc_result_t *r);
+static StatusCode json_node_link_process_communications_view_vertex_initializer(View *view, mpc_ast_t *a);
+static StatusCode json_node_link_process_communications_view_edge_initializer(View *view, mpc_ast_t *a);
+
+//------ Substation Network View
+static StatusCode json_node_link_substation_network_view_initializer(View *view, mpc_result_t *r);
+static StatusCode json_node_link_substation_network_view_vertex_initializer(View *view, mpc_ast_t *a);
+static StatusCode json_node_link_substation_network_view_edge_initializer(View *view, mpc_ast_t *a);
+
+static StatusCode rdf_turtle_substation_network_view_initializer(View *view, mpc_result_t *r);
+static StatusCode rdf_turtle_substation_network_view_vertex_initializer(View *view, mpc_ast_t *a);
+static StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view, mpc_ast_t *a);
+
+
+//------ Substation Yard View
+static StatusCode json_node_link_substation_yard_view_initializer(View *view, mpc_result_t *r);
+static StatusCode json_node_link_substation_yard_view_vertex_initializer(View *view, mpc_ast_t *a);
+static StatusCode json_node_link_substation_yard_view_edge_initializer(View *view, mpc_ast_t *a);
+
+static StatusCode rdf_turtle_substation_yard_view_initializer(View *view, mpc_result_t *r);
+static StatusCode rdf_turtle_substation_yard_view_vertex_initializer(View *view, mpc_ast_t *a);
+static StatusCode rdf_turtle_substation_yard_view_edge_initializer(View *view, mpc_ast_t *a);
+
+
+//---- OTHER FORMATS
+//------ Process Tree Output
+static StatusCode pstree_output_process_tree_view_initializer(View *view, mpc_result_t *r);
+static StatusCode pstree_output_process_tree_view_vertex_initializer(View *view, mpc_ast_t *a);
+static StatusCode pstree_output_process_tree_view_edge_initializer(View *view, mpc_ast_t *a);
+
+
+//-- OUTPUT FORMAT SERIALIZERS
+//---- General Purpose Methods
+
+StatusCode output_graph(void* view, FormatType format_type, FILE* output_file);
+
 StatusCode output_interpretation(void *view, string recognizer_type, FILE* output_file);     
 
+StatusCode output_view(View* view, FormatType format_type, ViewType view_type, FILE* output_file);
 
-//---- BASE NODE LINK VIEW
-//------ JSON Format
 StatusCode output_view_to_json_node_link(View* view, FILE* output_file);
 
-//------ RDF Turtle Format
 StatusCode output_view_to_rdf_turtle(View* view, FILE* output_file);
-					     
 
-//-- AST METHODS
-StatusCode traverse_parse_tree( mpc_ast_t *a, View *view,
-				StatusCode(*graph_builder)(mpc_ast_t *a, View* view) );
-//---- BASE NODE LINK VIEW
-//------ JSON Format
-static StatusCode json_node_link_edge_initializer(mpc_ast_t *a, View *view);
-static StatusCode json_node_link_edge_initializer_helper(mpc_ast_t *a, View *view);
-static StatusCode json_node_link_vertex_initializer(mpc_ast_t *a, View *view);
-static StatusCode json_node_link_vertex_initializer_helper(mpc_ast_t *a, View *view);
 
-//------ TTL Format
-static StatusCode rdf_turtle_edge_initializer(mpc_ast_t *a, View *view);
-static StatusCode rdf_turtle_edge_initializer_helper(mpc_ast_t *a, View *view);
-static StatusCode rdf_turtle_vertex_initializer(mpc_ast_t *a, View *view);
-static StatusCode rdf_turtle_vertex_initializer_helper(mpc_ast_t *a, View *view);
+//------ Process Communications View
+StatusCode output_json_node_link_process_communications_view(View* view, FILE* output_file);
+
+//------ Process Tree View
+StatusCode output_json_node_link_process_tree_view(View* view, FILE* output_file);
+
+//------ Substation Network View
+StatusCode output_json_node_link_substation_network_view(View* view, FILE* output_file);
+StatusCode output_rdf_turtle_substation_network_view(View* view, FILE* output_file);
+
+//------ Substation Yard View
+StatusCode output_json_node_link_substation_yard_view(View* view, FILE* output_file);
+StatusCode output_rdf_turtle_substation_yard_view(View* view, FILE* output_file);
 
 #endif

@@ -35,6 +35,8 @@ struct v_attribute_entry {
   int id;
   string name;
   string rdfs_type;
+  string devos_username;
+  string devos_command;
   UT_hash_handle hh;
 };
 
@@ -59,33 +61,70 @@ typedef struct view {
   int current_source_id;  // a hack
 } View;
 
-typedef enum recognizer_type {
+typedef enum format_type {
+  INTERPRETATION_TABLE,
   JSON_NODE_LINK,
-  RDF_TURTLE,
+  PSTREE_OUTPUT,  
+  RDF_TURTLE
+} FormatType;
+  
+typedef enum view_type {
+  PROCESS_COMS_VIEW,
+  PROCESS_TREE_VIEW,
   SUBSTATION_NETWORK_VIEW,
-  SUBSTATION_YARD_VIEW,
-  PROCESS_COMS_VIEW
-} RecognizerType;
-
-typedef enum graph_format_type {
-  NODE_LINK,
-  ADJACENCY_LIST,
-  ADJACENCY_MATRIX
-} GraphFormatType;
-
+  SUBSTATION_YARD_VIEW
+} ViewType;
 
 typedef enum status_codes {
   OK = 0, 
   INVALID_ARGS = 1,
   PARSE_ERROR = 2,
-  UNKNOWN_RECOGNIZER_TYPE = 3,
-  NO_INTERPRETATION_ERROR = 4
+  UNKNOWN_FORMAT_TYPE = 3, 
+  UNKNOWN_VIEW_TYPE = 4,
+  NO_INTERPRETATION_ERROR = 5,
+  NOT_YET_IMPLEMENTED = 6
 } StatusCode;
 
+//---- Type methods
+FormatType get_code_for_format_type_str(const string format_type_str);
+ViewType get_code_for_view_type_str(const string view_type_str);
 
-StatusCode use_substation_yard_view_recognizer(const string input_filepath, const string grammar_filepath);
-StatusCode use_json_node_link_recognizer(const string input_filepath, const string grammar_filepath, mpc_result_t *r);
-StatusCode use_recognizer(const string recognizer_type, const string input_filepath, mpc_result_t *r);
+//---- General purpose recognizers
+StatusCode use_json_view_recognizer(const string input_filepath,
+				    const string grammar_filepath,
+				    mpc_result_t* r);
+
+StatusCode use_ttl_view_recognizer(const string input_filepath,
+				   const string grammar_filepath,
+				   mpc_result_t* r);
+
+//---- Process Communications View
+StatusCode json_node_link_process_communications_view_recognizer(const string input_filepath,
+								 mpc_result_t *r);
+
+//---- Process Tree View
+StatusCode json_node_link_process_tree_view_recognizer(const string input_filepath,
+						       mpc_result_t *r);
+
+StatusCode pstree_output_process_tree_view_recognizer(const string input_filepath,
+						mpc_result_t *r);
+
+
+//---- Substation Network View
+StatusCode json_node_link_substation_network_view_recognizer(const string input_filepath,
+							     mpc_result_t *r);
+StatusCode rdf_turtle_substation_network_view_recognizer(const string input_filepath,
+							 mpc_result_t *r);
+
+//---- Substation Yard View
+StatusCode json_node_link_substation_yard_view_recognizer(const string input_filepath,
+							  mpc_result_t *r);
+StatusCode rdf_turtle_substation_yard_view_recognizer(const string input_filepath,
+						      mpc_result_t *r);
+
+StatusCode use_recognizer(FormatType format_type, ViewType view_type,
+			  const string input_filepath, mpc_result_t *r);
+
 StatusCode print_usage();
 
 #endif

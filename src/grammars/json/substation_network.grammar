@@ -1,12 +1,12 @@
-node_types		: /\"snet:DistanceRelay\"/
-	   		| /\"snet:OvercurrentRelay\"/
-	   		| /\"snet:Switch\"/ ; 			
-link_types 		: /\"cptlc:hasLink\"/
-			| /\"snet:hasBreakerConnections\"/ ;    
-string  		: /\"(\\\\.|[^\"])*\"/ ;                   
-key 			: <string> ;
-value 			: <string> ;
-key_value_pair 		: <key>':'<value> ;
+node_types		: '"'/snet:DistanceRelay/'"'
+	   		| '"'/snet:OvercurrentRelay/'"'
+	   		| '"'/snet:Switch/'"' ;
+link_types 		: '"'/cptlc:hasLink/'"'
+			| '"'/snet:hasBreakerConnections/'"' ;    
+string  		: /(\\\\.|[^\"])*/ ;                   
+key 			: '"'<string>'"' ;
+value 			: '"'<string>'"' ;
+key_value_pair 		: <key>':'<value>;
 dictionary 		: '{' <key_value_pair> (',' <key_value_pair>)* '}' ;  
 list_element 		: <dictionary> ;
 list 			: '[' <list_element> (',' <list_element>)* ']' ;

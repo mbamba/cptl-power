@@ -1,12 +1,12 @@
-node_types		: /\"syard:Bus\"/ 
-	   		| /\"syard:Breaker\"/              
-  			| /\"syard:Generator\"/  
-       	   		| /\"syard:Node\"/    
-       	   		| /\"syard:Transformer\"/ ;
-link_types 		: /\"syard:hasLine\"/ ;    
-string  		: /\"(\\\\.|[^\"])*\"/ ;                   
-key 			: <string> ;
-value 			: <string> ;
+node_types		: '"'/syard:Bus/'"' 
+	   		| '"'/syard:Breaker/'"'              
+  			| '"'/syard:Generator/'"'  
+       	   		| '"'/syard:Node/'"'    
+       	   		| '"'/syard:Transformer/'"' ;
+link_types 		: '"'/syard:hasLine/'"' ;    
+string  		: /(\\\\.|[^\"])*/ ;                   
+key 			: '"'<string>'"' ;
+value 			: '"'<string>'"' ;
 key_value_pair 		: <key>':'<value> ;
 dictionary 		: '{' <key_value_pair> (',' <key_value_pair>)* '}' ;  
 list_element 		: <dictionary> ;

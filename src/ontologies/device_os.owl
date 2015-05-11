@@ -24,6 +24,18 @@
     <dc:description>OS-level data structures to describe systems.</dc:description>
   </owl:Ontology>
 
+  <owl:Class rdf:about="http://cptl-c.org/device/2014/07/os/Username">
+    <rdfs:label xml:lang="en">Username</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://cptl-c.org/device/2014/07/os/UID">
+    <rdfs:label xml:lang="en">User Identifier</rdfs:label>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://cptl-c.org/device/2014/07/os/PID">
+    <rdfs:label xml:lang="en">Process Identifier</rdfs:label>
+  </owl:Class>
+  
   <owl:Class rdf:about="http://cptl-c.org/device/2014/07/os/Process">
     <rdfs:subClassOf rdf:resource="http://cptl-c.org/core/2014/07/core/Asset"/>
     <rdfs:label xml:lang="en">Process</rdfs:label>
@@ -107,6 +119,10 @@
     <rdfs:label xml:lang="en">Closes File</rdfs:label>
     <rdfs:comment>A process closes a file.</rdfs:comment>
   </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasCommand"/>
+  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasChildProcess"/>
+
   
 </rdf:RDF>
     
