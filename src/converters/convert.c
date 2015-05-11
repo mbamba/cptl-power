@@ -139,9 +139,84 @@ StatusCode output_json_node_link_process_communications_view(View *view, FILE* o
 //------ Process Tree View
 StatusCode output_json_node_link_process_tree_view(View *view, FILE* output_file) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  output_json_node_link_process_tree_view\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);
+  int i;
+  int num_vertices;
+  struct v_attribute_entry *v_attributes;
+  View* v = (View*)view;
+  
+  fprintf(output_file, "{\n");
+
+  // Print Nodes
+  fprintf(output_file, "\t\"nodes\":\n");
+  fprintf(output_file, "\t   [\n");
+
+  num_vertices = v->vertex_count; //graph_vertex_count(view->graph);
+  for (i=0; i < num_vertices; i++) {
+    HASH_FIND_INT(view->v_interpretation, &i, v_attributes);
+    if ( NULL == v_attributes ) {
+      fprintf( stderr, "No interpretation for vertex %d\n", i );
+      exit(NO_INTERPRETATION_ERROR);
+    }
+    fprintf(output_file, "\t\t{\"name\":\"%s\",\n", v_attributes->name);
+    fprintf(output_file, "\t\t \"rdfs:type\":\"%s\",\n", v_attributes->rdfs_type);
+    fprintf(output_file, "\t\t \"devos:hasUsername\":\"%s\",\n", v_attributes->devos_username);
+    fprintf(output_file, "\t\t \"devos:hasCommand\":\"%s\"}", v_attributes->devos_command);
+    if (i != num_vertices - 1) {
+      fprintf(output_file, ",\n");
+    }
+    fprintf(output_file, "\n");
+  }
+  fprintf(output_file, "\t   ],\n");
+  
+  // Print Link Dictionary
+  fprintf(output_file, "\t\"links\":\n");
+  fprintf(output_file, "\t   [\n");
+
+  struct vertex_adjacency_list *vertex_adjacency_list;
+  struct e_attribute_entry *e_attr_entry;
+  struct v_attribute_entry *v_attr_entry;
+  int source_id, target_id;
+  struct v_attribute_entry *source_v_attr_entry, *target_v_attr_entry;
+  
+  for (i=0; i < num_vertices; i++) {
+    source_id = i;
+    
+    HASH_FIND_INT(view->e_interpretation, &source_id, vertex_adjacency_list);
+    if ( NULL == vertex_adjacency_list ) {
+      fprintf( stderr, "No adjacency list for source vertex: %d\n", source_id);
+      exit(NO_INTERPRETATION_ERROR);
+    }
+
+    HASH_FIND_INT(view->v_interpretation, &source_id, source_v_attr_entry);
+    if ( source_v_attr_entry == NULL ) {
+      fprintf( stderr, "No interpretation for vertex %d\n", source_id );
+      exit(NO_INTERPRETATION_ERROR);
+    }
+
+    // Loop through all the target vertices
+    e_attr_entry = vertex_adjacency_list->targets;
+    while ( e_attr_entry != NULL ) {
+      target_id = e_attr_entry->target_id;
+
+      // Resolve the names
+      HASH_FIND_INT(view->v_interpretation, &target_id, target_v_attr_entry);
+      if ( target_v_attr_entry == NULL ) {
+	fprintf( stderr, "No interpretation for vertex %d\n", target_id );
+	exit(NO_INTERPRETATION_ERROR);
+      }
+      
+      fprintf(output_file, "\t\t{\"source\":\"%s\",\n", source_v_attr_entry->name);
+      fprintf(output_file, "\t\t \"target\":\"%s\",\n", target_v_attr_entry->name);
+      fprintf(output_file, "\t\t \"relation\":\"%s\"}", e_attr_entry->rdfs_type);
+
+      e_attr_entry = e_attr_entry->next;
+      fprintf(output_file, ",\n\n");
+    }
+  }
+
+  fprintf(output_file, "\t   ]\n");  
+  fprintf(output_file, "}\n");
+  return status;
 }
 
 //------ Substation Network View
@@ -1050,25 +1125,126 @@ StatusCode pstree_output_process_tree_view_initializer(View *view,
   status = traverse_parse_tree(r->output, view,
 			       pstree_output_process_tree_view_vertex_initializer);
   view->graph = graph_create(view->vertex_count);
-  status= traverse_parse_tree(r->output, view,
-			      pstree_output_process_tree_view_edge_initializer);
+  status = pstree_output_process_tree_view_edge_initializer(view, r->output);
   return status;
 }
 
 StatusCode pstree_output_process_tree_view_vertex_initializer(View *view,
 							      mpc_ast_t *a) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  ps_tree_output_process_tree_view_vertex_initializer\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);    
+  if ( ! strncmp(">", a->tag, 1) ||
+       ! strncmp("tree", a->tag, 4) ||
+       ! strncmp("leaf_node", a->tag, 9) ) {
+    int rc;
+
+    
+    mpc_ast_t * pid_value_node = a->children[2];
+    mpc_ast_t * username_value_node = a->children[3];
+    mpc_ast_t * command_value_node = a->children[4];
+
+    string name, rdfs_type, username, command;
+    strncpy(name, pid_value_node->contents, STRING_SIZE);
+    strncpy(rdfs_type, "devos:Process", STRING_SIZE);
+    strncpy(username, username_value_node->contents, STRING_SIZE);
+    strncpy(command, command_value_node->contents, STRING_SIZE);
+    
+    int vertex_id;
+    vertex_id = view->vertex_count;
+    
+    struct v_attribute_entry *v_attr_entry;
+    struct v_attribute_entry *v_inverse_attr_entry;
+
+    v_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
+    v_inverse_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
+
+    // Initialize the vertex attribute maps
+    v_attr_entry->id = view->vertex_count;
+    v_inverse_attr_entry->id = view->vertex_count;
+
+    strncpy(v_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
+    strncpy(v_inverse_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
+
+    strncpy(v_attr_entry->name, name, STRING_SIZE);
+    strncpy(v_inverse_attr_entry->name, name, STRING_SIZE);
+
+    strncpy(v_attr_entry->devos_username, username, STRING_SIZE);
+    strncpy(v_inverse_attr_entry->devos_username, username, STRING_SIZE);
+
+    strncpy(v_attr_entry->devos_command, command, STRING_SIZE);
+    strncpy(v_inverse_attr_entry->devos_command, command, STRING_SIZE);
+
+    HASH_ADD_INT( view->v_interpretation, id, v_attr_entry);
+    HASH_ADD_STR( view->v_inverse_interpretation, name, v_inverse_attr_entry);
+
+    // Initialize the vertex adjacency list
+    struct vertex_adjacency_list *vertex_adjacency_list;
+    vertex_adjacency_list = (struct vertex_adjacency_list*)malloc(sizeof(struct vertex_adjacency_list));
+    vertex_adjacency_list->source_id = vertex_id;
+    vertex_adjacency_list->targets = NULL;
+    HASH_ADD_INT( view->e_interpretation, source_id, vertex_adjacency_list );
+
+    view->vertex_count = view->vertex_count + 1;
+  }
+  return status;
 }
 
 StatusCode pstree_output_process_tree_view_edge_initializer(View *view,
 							    mpc_ast_t *a) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  ps_tree_output_process_tree_view_edge_initializer\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);  
+  int i;
+
+  string relation_name;
+  int source_id, target_id;
+
+  //-- SOURCE NODE
+  mpc_ast_t * source_name_value_node = a->children[2];
+  struct vertex_adjacency_list *vertex_adjacency_list = NULL;  
+  struct v_attribute_entry *source_attr_entry = NULL;
+  struct v_attribute_entry *target_attr_entry = NULL;
+  
+  HASH_FIND_STR( view->v_inverse_interpretation, source_name_value_node->contents, source_attr_entry );
+  if ( source_attr_entry == NULL ) {
+    fprintf(stderr, "Edge initializer:  Could not find vertex with name %s\n", source_name_value_node->contents);
+    exit(NO_INTERPRETATION_ERROR);
+  }
+  view->current_source_id = source_attr_entry->id;
+  HASH_FIND_INT(view->e_interpretation, &view->current_source_id, vertex_adjacency_list);
+  
+  //-- TARGET NODE
+  for ( i = 0; i < a->children_num; i++) {
+    struct e_attribute_entry *e_attr_entry = NULL;
+    struct v_attribute_entry *target_attr_entry = NULL;
+    mpc_ast_t * child_target_node = a->children[i];
+
+    //---- only process children that are either subtrees or leaves
+    if ( strncmp("tree", child_target_node->tag, 4) &&
+	 strncmp("leaf_node", child_target_node->tag, 9) ) {
+      continue;
+    }
+
+    mpc_ast_t * target_name_value_node = child_target_node->children[2];
+    HASH_FIND_STR( view->v_inverse_interpretation, target_name_value_node->contents, target_attr_entry);
+    //---- loop through all the target vertices
+    e_attr_entry = vertex_adjacency_list->targets;
+    if ( NULL == e_attr_entry ) {
+      e_attr_entry = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+      e_attr_entry->target_id = target_attr_entry->id;
+      strncpy(e_attr_entry->rdfs_type, "devos:hasChildProcess", STRING_SIZE);
+      e_attr_entry->next = NULL;
+      vertex_adjacency_list->targets = e_attr_entry;
+    } else {
+      while ( e_attr_entry->next != NULL ) {
+	e_attr_entry = e_attr_entry->next;
+      }
+      e_attr_entry->next = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+      e_attr_entry = e_attr_entry->next;
+      e_attr_entry->target_id = target_attr_entry->id;
+      strncpy(e_attr_entry->rdfs_type, "devos:hasChildProcess", STRING_SIZE);
+      e_attr_entry->next = NULL;
+    }
+    status = pstree_output_process_tree_view_edge_initializer(view, a->children[i]);
+  }
+  return status;  
 }
 
 StatusCode use_converter(FormatType format_type,
