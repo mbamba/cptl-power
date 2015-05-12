@@ -120,9 +120,29 @@
     <rdfs:comment>A process closes a file.</rdfs:comment>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasCommand"/>
-  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasChildProcess"/>
+  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasCommand">
+    <rdfs:label xml:lang="en">Has Command</rdfs:label>
+    <rdfs:comment>The command invoked to start the process</rdfs:comment>
+    <rdfs:domain rdf:resource="devos:Process"/>
+    <rdfs:range rdf:resource="devos:Command"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasUsername">
+    <rdfs:label xml:lang="en">Has Username</rdfs:label>
+    <rdfs:comment>The username associated with the process</rdfs:comment>
+    <rdfs:domain rdf:resource="devos:Process"/>
+    <rdfs:range rdf:resource="devos:Username"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasChildProcess">
+    <rdfs:label xml:lang="en">Has Child Process</rdfs:label>
+    <rdfs:comment>The child process associated with the process</rdfs:comment>
+    <rdfs:domain rdf:resource="devos:Process"/>
+    <rdfs:range rdf:resource="devos:Process"/>
+  </owl:ObjectProperty>
 
+  <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasCommandValue"/>
+  <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasUsernameValue"/>
   
 </rdf:RDF>
     

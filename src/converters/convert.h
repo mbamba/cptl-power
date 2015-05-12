@@ -97,6 +97,7 @@ StatusCode output_json_node_link_process_communications_view(View* view, FILE* o
 
 //------ Process Tree View
 StatusCode output_json_node_link_process_tree_view(View* view, FILE* output_file);
+StatusCode output_rdf_turtle_process_tree_view(View *view, FILE* output_file);
 
 //------ Substation Network View
 StatusCode output_json_node_link_substation_network_view(View* view, FILE* output_file);

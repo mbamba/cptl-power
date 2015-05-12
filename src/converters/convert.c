@@ -112,7 +112,9 @@ StatusCode output_view(View *view,
     }
     
   } else if ( RDF_TURTLE == format_type ) {
-    if ( SUBSTATION_NETWORK_VIEW == view_type ) {
+    if ( PROCESS_TREE_VIEW == view_type ) {
+      status = output_rdf_turtle_process_tree_view(view, output_file);
+    } else if ( SUBSTATION_NETWORK_VIEW == view_type ) {
       status = output_rdf_turtle_substation_network_view(view, output_file);
     } else if ( SUBSTATION_YARD_VIEW == view_type ) {
       status = output_rdf_turtle_substation_yard_view(view, output_file);
@@ -159,8 +161,8 @@ StatusCode output_json_node_link_process_tree_view(View *view, FILE* output_file
     }
     fprintf(output_file, "\t\t{\"name\":\"%s\",\n", v_attributes->name);
     fprintf(output_file, "\t\t \"rdfs:type\":\"%s\",\n", v_attributes->rdfs_type);
-    fprintf(output_file, "\t\t \"devos:hasUsername\":\"%s\",\n", v_attributes->devos_username);
-    fprintf(output_file, "\t\t \"devos:hasCommand\":\"%s\"}", v_attributes->devos_command);
+    fprintf(output_file, "\t\t \"devos:hasUsernameValue\":\"%s\",\n", v_attributes->devos_username);
+    fprintf(output_file, "\t\t \"devos:hasCommandValue\":\"%s\"}", v_attributes->devos_command);
     if (i != num_vertices - 1) {
       fprintf(output_file, ",\n");
     }
@@ -299,6 +301,65 @@ StatusCode output_json_node_link_substation_network_view(View *view, FILE* outpu
   fprintf(output_file, "\t   ]\n");  
   fprintf(output_file, "}\n");
   return status;
+}
+
+StatusCode output_rdf_turtle_process_tree_view(View *view, FILE* output_file) {
+  StatusCode status = OK;
+
+  struct v_attribute_entry *v_attr_entry;
+
+  int i;
+  int num_vertices;
+  View* v = (View*)view;
+  
+  num_vertices = v->vertex_count; //graph_vertex_count(view->graph);
+
+  // Not sure how to output the namespaces well just yet.
+  // Iterate through the adjacency list
+  struct vertex_adjacency_list *vertex_adjacency_list;
+  struct e_attribute_entry *e_attr_entry;
+  int source_id, target_id;
+  struct v_attribute_entry *source_v_attr_entry, *target_v_attr_entry;
+  
+  for (i=0; i < num_vertices; i++) {
+    source_id = i;
+
+    // Get the adjacency list for the source vertex
+    HASH_FIND_INT(view->e_interpretation, &source_id, vertex_adjacency_list);
+    if ( NULL == vertex_adjacency_list ) {
+      fprintf( stderr, "No adjacency list for source vertex: %d\n", source_id);
+      exit(NO_INTERPRETATION_ERROR);
+    }
+
+    // Get the attribute information for the source vertex
+    HASH_FIND_INT(view->v_interpretation, &source_id, source_v_attr_entry);
+    if ( source_v_attr_entry == NULL ) {
+      fprintf( stderr, "No interpretation for vertex %d\n", source_id );
+      exit(NO_INTERPRETATION_ERROR);
+    }
+
+
+    // Output the desired information
+    fprintf(output_file, "\t%s\n", source_v_attr_entry->name);
+    fprintf(output_file, "\t\t%s \"%s\" ;\n", "rdfs:type", source_v_attr_entry->rdfs_type);
+    fprintf(output_file, "\t\t%s \"%s\" ;\n", "devos:hasCommandValue", source_v_attr_entry->devos_command);
+    fprintf(output_file, "\t\t%s \"%s\" ;\n", "devos:hasUsernameValue", source_v_attr_entry->devos_username);
+    
+    e_attr_entry = vertex_adjacency_list->targets;
+    while ( e_attr_entry != NULL ) {
+      target_id = e_attr_entry->target_id;
+      HASH_FIND_INT(view->v_interpretation, &target_id, target_v_attr_entry);
+      if ( target_v_attr_entry == NULL ) {
+	fprintf( stderr, "No interpretation for vertex %d\n", target_id );
+	exit(NO_INTERPRETATION_ERROR);
+      }
+      
+      fprintf(output_file, "\t\t%s %s ;\n", e_attr_entry->rdfs_type, target_v_attr_entry->name);
+      e_attr_entry = e_attr_entry->next;
+    }
+    fprintf(output_file, "\t\t.\n\n");
+  }
+  return status;  
 }
 
 StatusCode output_rdf_turtle_substation_network_view(View *view, FILE* output_file) {
