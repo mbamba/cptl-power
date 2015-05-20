@@ -11,10 +11,22 @@
   are available at the following URL:
 
   http://creativecommons.org/licenses/by-sa/3.0/legalcode 
- -->
+  -->
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY cptlc "http://cptl-c.org/core/2014/07/core/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY enet "http://cptl-c.org/enterprise/2015/07/enterprise_network/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
 <rdf:RDF 
     xmlns:cptlc="http://cptl-c.org/core/2014/07/core/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:enet="http://cptl-c.org/enterprise/2015/07/enterprise_network/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="  http://www.w3.org/2000/01/rdf-schema#">
@@ -100,44 +112,44 @@
   <owl:ObjectProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasIPAddress">
     <rdfs:label xml:lang="en">Has IP Address</rdfs:label>
     <rdfs:comment>An IPv4 or IPv6 value associated with an Asset.</rdfs:comment>    
-    <rdfs:domain rdf:resource="cptlc:Asset"/>
-    <rdfs:range rdf:resource="enet:IPAddress"/>
+    <rdfs:domain rdf:resource="&cptlc;Asset"/>
+    <rdfs:range rdf:resource="&enet;IPAddress"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasPort">
     <rdfs:label xml:lang="en">Has Port</rdfs:label>
     <rdfs:comment>A port associated with an asset</rdfs:comment>
-    <rdfs:domain rdf:resource="cptlc:Asset"/>
-    <rdfs:range rdf:resource="enet:Port"/>
+    <rdfs:domain rdf:resource="&cptlc;Asset"/>
+    <rdfs:range rdf:resource="&enet;Port"/>
   </owl:ObjectProperty>
 
   <!-- Datatype Properties -->
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasIPAddressValue">
     <rdfs:label xml:lang="en">IP Address Value</rdfs:label>
     <rdfs:comment>An IPv4 or IPv6 value associated with a devices.</rdfs:comment>
-    <rdfs:domain rdf:resource="cptlc:Asset"/>
-    <rdfs:range>rdfs:Literal</rdfs:range>
+    <rdfs:domain rdf:resource="&cptlc;Asset"/>
+    <rdfs:range rdf:resource="&rdfs;Literal"/>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasPortValue">
     <rdfs:label xml:lang="en">Has Port Value</rdfs:label>
     <rdfs:comment>A port associated with an asset</rdfs:comment>
-    <rdfs:domain rdf:resource="cptlc:Asset"/>
-    <rdfs:range rdf:resource="rdfs:Literal"/>
+    <rdfs:domain rdf:resource="&cptlc;Asset"/>
+    <rdfs:range rdf:resource="&rdfs;Literal"/>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasIPv4AddressValue">
     <rdfs:label xml:lang="en">IPv4 Value</rdfs:label>
     <rdfs:comment>An IPv4 value associated with a devices.</rdfs:comment>
-    <rdfs:domain rdf:resource="cptlc:Asset"/>
-    <rdfs:range>rdfs:Literal</rdfs:range>
+    <rdfs:domain rdf:resource="&cptlc;Asset"/>
+    <rdfs:range rdf:resource="&rdfs;Literal"/>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network/hasIPv6AddressValue">
     <rdfs:label xml:lang="en">IPv6 Value</rdfs:label>
     <rdfs:comment>An IPv6 value associated with a devices.</rdfs:comment>
-    <rdfs:domain rdf:resource="cptlc:Asset"/>
-    <rdfs:range>rdfs:Literal</rdfs:range>
+    <rdfs:domain rdf:resource="&cptlc;Asset"/>
+    <rdfs:range rdf:resource="&rdfs;Literal"/>
   </owl:DatatypeProperty>
   
 </rdf:RDF>

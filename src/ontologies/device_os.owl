@@ -12,8 +12,20 @@
 
   http://creativecommons.org/licenses/by-sa/3.0/legalcode 
 -->
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY devos "http://cptl-c.org/device/2014/07/os/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
 <rdf:RDF
     xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -84,13 +96,11 @@
   <owl:ObjectProperty
       rdf:about="http://cptl-c.org/device/2014/07/os/hasCommunicationFlow">
     <rdfs:subClassOf rdf:resource="http://cptl-c.org/core/2014/07/core/hasLink"/>
-    <rdfs:label xml:lang="en">Has Interprocess Communications</rdfs:label>
-    <rdfs:comment>In computer science, inter-process communication
-    (IPC) is the activity of sharing data across multiple and commonly
-    specialized processes using communication protocols.
-    (http://en.wikipedia.org/wiki/Inter-process_communication) </rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:Process"/>    
+    <rdfs:label xml:lang="en">Has Communications Flow</rdfs:label>
+    <rdfs:comment>A general communications flow betwen two processes,
+    whether on the same host or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;Process"/>    
   </owl:ObjectProperty>
 
   <owl:ObjectProperty
@@ -101,16 +111,16 @@
     (IPC) is the activity of sharing data across multiple and commonly
     specialized processes using communication protocols.
     (http://en.wikipedia.org/wiki/Inter-process_communication) </rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:Process"/>    
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;Process"/>    
   </owl:ObjectProperty>
 
   <owl:ObjectProperty
       rdf:about="http://cptl-c.org/device/2014/07/os/isProcessOwner">
-    <rdfs:label xml:lang="en">Accesses File</rdfs:label>
+    <rdfs:label xml:lang="en">Is Process Owner</rdfs:label>
     <rdfs:comment>A relation to capture the process owner.</rdfs:comment>
-    <rdfs:domain rdf:resource="kobra:User"/>
-    <rdfs:range rdf:resource="devos:Process"/>
+    <rdfs:domain rdf:resource="&foaf;OnlineAccount"/>
+    <rdfs:range rdf:resource="&devos;Process"/>
   </owl:ObjectProperty>
    
   <owl:ObjectProperty
@@ -118,8 +128,8 @@
     <rdfs:subClassOf rdf:resource="http://cptl-c.org/core/2014/07/core/hasLink"/>
     <rdfs:label xml:lang="en">Accesses File</rdfs:label>
     <rdfs:comment>A relation to capture file accesses by a process.</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:File"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;File"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty
@@ -167,29 +177,29 @@
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasCommand">
     <rdfs:label xml:lang="en">Has Command</rdfs:label>
     <rdfs:comment>The command invoked to start the process</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:Command"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;Command"/>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasUsername">
     <rdfs:label xml:lang="en">Has Username</rdfs:label>
     <rdfs:comment>The username associated with the process</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:Username"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;Username"/>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasChildProcess">
     <rdfs:label xml:lang="en">Has Child Process</rdfs:label>
     <rdfs:comment>The child process associated with the process</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:Process"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;Process"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasParentProcess">
-    <rdfs:label xml:lang="en">Has Child Process</rdfs:label>
+    <rdfs:label xml:lang="en">Has Parent Process</rdfs:label>
     <rdfs:comment>The parent process associated with the process</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="devos:Process"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&devos;Process"/>
   </owl:ObjectProperty>
 
 
@@ -197,8 +207,8 @@
     <rdfs:label xml:lang="en">Has CPU Usage</rdfs:label>
     <rdfs:comment>This provides the percentage of CPU consumed by a
     process.</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:float"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;float"/>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasMemoryUsage">
@@ -206,50 +216,50 @@
     <rdfs:comment>This provides the information on physical or virtual
     memory usage.  This property needs to be throught through more
     clearly.</rdfs:comment>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:float"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;float"/>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasCommandValue">
     <rdfs:label xml:lang="en">Has Command Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasGIDValue">
     <rdfs:label xml:lang="en">Has GID Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasPIDValue">
     <rdfs:label xml:lang="en">Has PID Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasPrivilegeValue">
     <rdfs:label xml:lang="en">Has Privilege Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasSIDValue">
     <rdfs:label xml:lang="en">Has SID Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasUIDValue">
     <rdfs:label xml:lang="en">Has UID Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
     
   <owl:DatatypeProperty rdf:about="http://cptl-c.org/device/2014/07/os/hasUsernameValue">
     <rdfs:label xml:lang="en">Has Username Value</rdfs:label>
-    <rdfs:domain rdf:resource="devos:Process"/>
-    <rdfs:range rdf:resource="xsd:Literal"/>
+    <rdfs:domain rdf:resource="&devos;Process"/>
+    <rdfs:range rdf:resource="&xsd;Literal"/>
   </owl:DatatypeProperty>
 
   

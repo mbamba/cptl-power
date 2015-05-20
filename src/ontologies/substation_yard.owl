@@ -11,9 +11,23 @@
   are available at the following URL:
 
   http://creativecommons.org/licenses/by-sa/3.0/legalcode 
- -->
+  -->
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY cptlc "http://cptl-c.org/core/2014/07/core/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY enet "http://cptl-c.org/enterprise/2015/07/enterprise_network/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY syard "http://cptl-c.org/power/2015/07/substation_yard/" >
+]>
+
 <rdf:RDF
+    xmlns:cptlc="http://cptl-c.org/core/2014/07/core/"    
     xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:enet="http://cptl-c.org/enterprise/2015/07/enterprise_network/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -34,7 +48,7 @@
   </owl:Class>
 
   <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Breaker">
-    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:subClassOf rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Breaker</rdfs:label>
     <rdfs:comment>A breaker is an automatically operated electrical
     switch designed to protect an electrical circuit from damage
@@ -43,7 +57,7 @@
   </owl:Class>
 
   <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Bus">
-    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:subClassOf rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Bus</rdfs:label>
     <rdfs:comment>A busbar is a strip or bar of conductive material
       designed to conduct a substantial current of electricity
@@ -51,7 +65,7 @@
   </owl:Class>
 
   <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Generator">
-    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:subClassOf rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Generator</rdfs:label>
     <rdfs:comment>A generator is a device that converts mechanical
     energy to electrical energy for use in an external circuit.
@@ -61,14 +75,14 @@
   </owl:Class>
 
   <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Node">
-    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:subClassOf rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Node</rdfs:label>
     <rdfs:comment>Not sure whether this really belongs here or in an ontology
       for node-breaker diagrams.</rdfs:comment>
   </owl:Class>
   
   <owl:Class rdf:about="http://cptl-c.org/power/2015/07/substation_yard/Transformer">
-    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:subClassOf rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Transformer</rdfs:label>
     <rdfs:comment>A transformer is an electrical device that transfers
     energy between two or more circuits through electromagnetic
@@ -77,11 +91,11 @@
   </owl:Class>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/power/2015/07/substation_yard/hasLine">
-    <rdfs:subClassOf rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:subClassOf rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:label xml:lang="en">Has Line</rdfs:label>
     <rdf:type rdf:resource="&owl;SymmetricProperty"/>
-    <rdfs:domain rdf:resource="syard:SubstationYardComponent"/>
-    <rdfs:range rdf:resource="syard:SubstationYardComponent"/>
+    <rdfs:domain rdf:resource="&syard;SubstationYardComponent"/>
+    <rdfs:range rdf:resource="&syard;SubstationYardComponent"/>
     <rdfs:comment>An electrical power line between two substation yard 
       components.</rdfs:comment>
   </owl:ObjectProperty>    

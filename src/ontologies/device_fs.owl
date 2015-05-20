@@ -11,7 +11,19 @@
   are available at the following URL:
 
   http://creativecommons.org/licenses/by-sa/3.0/legalcode 
--->
+  -->
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY devos "http://cptl-c.org/device/2014/07/os/" >
+    <!ENTITY devfs "http://cptl-c.org/device/2015/05/fs/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
 <rdf:RDF
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -63,15 +75,15 @@
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2015/05/fs/inDirectory">
     <rdfs:label xml:lang="en">In Directory</rdfs:label>
     <rdfs:comment>Denotes that a file is contained within a directory.</rdfs:comment>
-    <rdfs:domain rdf:resource="devfs:File"/>
-    <rdfs:range rdf:resource="devfs:Directory"/>
+    <rdfs:domain rdf:resource="&devfs;File"/>
+    <rdfs:range rdf:resource="&devfs;Directory"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2015/05/fs/hasLinkTo">
     <rdfs:label xml:lang="en">Has Link To</rdfs:label>
     <rdfs:comment>Denotes that a file path resolves to another file path via a symlink, alias, or shortcut.</rdfs:comment>
-    <rdfs:domain rdf:resource="devfs:FilePath"/>
-    <rdfs:range rdf:resource="devfs:FilePath"/>
+    <rdfs:domain rdf:resource="&devfs;FilePath"/>
+    <rdfs:range rdf:resource="&devfs;FilePath"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2015/05/fs/canRead">
@@ -79,8 +91,8 @@
     <rdfs:comment>Denotes that a user account has permission to read from a
     file.  Currently, we use the FOAF ontology to denote a user account, although
     these accounts may be local to a machine, not online.</rdfs:comment>
-    <rdfs:domain rdf:resource="foaf:OnlineAccount"/>
-    <rdfs:range rdf:resource="devfs:File"/>
+    <rdfs:domain rdf:resource="&foaf;OnlineAccount"/>
+    <rdfs:range rdf:resource="&devfs;File"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2015/05/fs/canWrite">
@@ -89,8 +101,8 @@
     to a file.  Currently, we use the FOAF ontology to denote a user
     account, although these accounts may be local to a machine, not
     online.</rdfs:comment>
-    <rdfs:domain rdf:resource="foaf:OnlineAccount"/>
-    <rdfs:range rdf:resource="devfs:File"/>
+    <rdfs:domain rdf:resource="&foaf;OnlineAccount"/>
+    <rdfs:range rdf:resource="&devfs;File"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://cptl-c.org/device/2015/05/fs/canRead">
@@ -98,8 +110,8 @@
     <rdfs:comment>Denotes that a user account has permission to execute a 
     file.  Currently, we use the FOAF ontology to denote a user account, although
     these accounts may be local to a machine, not online.</rdfs:comment>
-    <rdfs:domain rdf:resource="foaf:OnlineAccount"/>
-    <rdfs:range rdf:resource="devfs:File"/>
+    <rdfs:domain rdf:resource="&foaf;OnlineAccount"/>
+    <rdfs:range rdf:resource="&devfs;File"/>
   </owl:ObjectProperty>
   
 </rdf:RDF>
