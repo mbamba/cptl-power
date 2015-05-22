@@ -29,7 +29,7 @@
     xmlns:enet="http://cptl-c.org/enterprise/2015/07/enterprise_network/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs="  http://www.w3.org/2000/01/rdf-schema#">
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     
     <owl:Ontology rdf:about="http://cptl-c.org/enterprise/2015/07/enterprise_network">
       <dc:title>Enterprise Network Ontology</dc:title>
