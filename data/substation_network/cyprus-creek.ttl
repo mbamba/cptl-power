@@ -14,8 +14,8 @@
 @prefix capital-city-network: <http://arpae-example.org/2014/07/8-substation/capital-city/snet/> .
 
 cyprus-creek-network:SEL_3620
-	rdfs:type sel-snet:3620 ;
-	enet:hasIPValue "192.168.1.200" ;	
+	rdfs:type snet:Switch ;
+	enet:hasIPValue '192.168.1.200' ;	
 	cptlc:hasLink cyprus-creek-network:SEL_421_1 ;
 	cptlc:hasLink cyprus-creek-network:SEL_421_2 ;
 	cptlc:hasLink cyprus-creek-network:SEL_421_3 ;
@@ -31,55 +31,55 @@ cyprus-creek-network:SEL_3620
 	.
 
 cyprus-creek-network:SEL_421_1
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.31.1.201" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.201' ;
 	cptlc:hasLink paris-network:SEL_421_2 ;
 	.
 
 cyprus-creek-network:SEL_421_2
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.31.1.202" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.202' ;
 	.
 
 cyprus-creek-network:SEL_421_3
-	rdfs:type sel-snet:421 ;
-	cptlc:hasIP "10.31.1.203" ;
+	rdfs:type snet:DistanceRelay ;
+	cptlc:hasIP '10.31.1.203' ;
 	cptlc:hasLink north-haverbrook-network:DistanceRelay_3 ;
 	.
 
 cyprus-creek-network:SEL_421_4
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.31.1.204" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.204' ;
 	cptlc:hasLink shelbyville-network:SEL_421_2 ;
 	.
 
 cyprus-creek-network:SEL_421_5
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.31.1.205" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.205' ;
 	cptlc:hasLink haverbrook-network:DistanceRelay_2 ;
 	.
 
 cyprus-creek-network:SEL_421_6
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.31.1.206" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.206' ;
 	cptlc:hasLink ogdenville-network:SEL_421_1 ;
 	.
 
 cyprus-creek-network:SEL_421_7
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.31.1.207" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.207' ;
 	cptlc:hasLink capital-city-network:DistanceRelay_1 ;
 	.
 
 cyprus-creek-network:SEL_451_1
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.31.1.101" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.101' ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-2425 ;
 	.
 
 cyprus-creek-network:SEL_451_2
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.31.1.102" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.102' ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-1519 ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-1715 ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-1815 ;
@@ -87,22 +87,22 @@ cyprus-creek-network:SEL_451_2
 	.
 
 cyprus-creek-network:SEL_451_3
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.31.1.103" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.103' ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-2019 ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-1719 ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-1925 ;
 	.
 
 cyprus-creek-network:SEL_451_4
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.31.1.104" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.104' ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-2325 ;
 	.
 
 cyprus-creek-network:SEL_451_5
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.31.1.105" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.105' ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-2125 ;
 	snet:hasBreakerConnections cyprus-creek-yard:CyprusCreek-BRK-2225 ;
 	.

@@ -8,13 +8,13 @@
 
 capital-city-network:Switch_1
 	rdfs:type snet:Switch ;
-	enet:hasIPValue "192.168.7.200" ;	
+	enet:hasIPValue '192.168.7.200' ;	
 	cptlc:hasLink capital-city-network:OvercurrentRelay_1 ;
 	.
 
 capital-city-network:DistanceRelay_1
 	rdfs:type snet:DistanceRelay ;
-	enet:hasIPValue "10.37.1.201" ;
+	enet:hasIPValue '10.37.1.201' ;
 	cptlc:hasLink cyprus-creek-network:SEL_421_7 ;
 	cptlc:hasLink capital-city-network:OvercurrentRelay_2 ;
 	snet:hasBreakerConnections capital-city-yard:CapitalCity-BRK-4546 ;
@@ -22,14 +22,14 @@ capital-city-network:DistanceRelay_1
 
 capital-city-network:OvercurrentRelay_1
 	rdfs:type snet:OvercurrentRelay ;
-	enet:hasIPValue "10.37.1.101" ;
+	enet:hasIPValue '10.37.1.101' ;
 	cptlc:hasLink capital-city-network:DistanceRelay_1 ;
 	snet:hasBreakerConnections capital-city-yard:CapitalCity-BRK-4546 ;
 	.
 
 capital-city-network:OvercurrentRelay_2
 	rdfs:type snet:OvercurrentRelay ;
-	enet:hasIPValue "10.37.1.102" ;
+	enet:hasIPValue '10.37.1.102' ;
 	snet:hasBreakerConnections capital-city-yard:CapitalCity-BRK-4647 ;
 	.
 

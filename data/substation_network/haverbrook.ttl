@@ -10,13 +10,13 @@
 
 haverbrook-network:Switch_1
 	rdfs:type snet:Switch ;
-	enet:hasIPValue "192.168.2.200" ;	
+	enet:hasIPValue '192.168.2.200' ;	
 	cptlc:hasLink haverbrook-network:OvercurrentRelay_1 ;
 	.
 
 haverbrook-network:DistanceRelay_1
 	rdfs:type snet:DistanceRelay ;
-	enet:hasIPValue "10.32.1.201" ;		
+	enet:hasIPValue '10.32.1.201' ;		
 	cptlc:hasLink springfield-network:DistanceRelay_3 ;
 	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3735 ;
 	.

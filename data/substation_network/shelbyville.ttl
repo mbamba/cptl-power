@@ -10,8 +10,8 @@
 @prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
 
 shelbyville-network:SEL_3620
-	rdfs:type sel-snet:3620 ;
-	enet:hasIPValue "192.168.6.200" ;	
+	rdfs:type snet:Switch ;
+	enet:hasIPValue '192.168.6.200' ;	
 	cptlc:hasLink shelbyville-network:SEL_421_1 ;
 	cptlc:hasLink shelbyville-network:SEL_421_2 ;
 	cptlc:hasLink shelbyville-network:SEL_421_3 ;
@@ -24,55 +24,55 @@ shelbyville-network:SEL_3620
 	.
 
 shelbyville-network:SEL_421_1
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.36.1.201" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.36.1.201' ;
 	cptlc:hasLink north-haverbrook-network:DistanceRelay_2 ;
 	.
 
 shelbyville-network:SEL_421_2
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.36.1.202" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.36.1.202' ;
 	cptlc:hasLink cyprus-creek-network:SEL_421_4 ;
 	.
 
 shelbyville-network:SEL_421_3
-	rdfs:type sel-snet:421 ;
-	enet:hasIPValue "10.36.1.203" ;
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.36.1.203' ;
 	cptlc:hasLink paris-network:SEL_421_1 ;
 	.
 
 shelbyville-network:SEL_451_1
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.36.1.101" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.36.1.101' ;
 	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2629 ;
 	.
 
 shelbyville-network:SEL_451_2
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.36.1.102" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.36.1.102' ;
 	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2928 ;
 	.
 
 shelbyville-network:SEL_451_3
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.36.1.103" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.36.1.103' ;
 	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-3132 ;
 	.
 
 shelbyville-network:SEL_451_4
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.36.1.104" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.36.1.104' ;
 	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-3031 ;
 	.
 
 shelbyville-network:SEL_451_5
-	rdfs:type sel-snet:451 ;
-	enet:hasIPValue "10.36.1.105" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.36.1.105' ;
 	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2729 ;
 	.
 
 shelbyville-network:SEL_451_6
-	rdfs:type sel-snet:451 ;	
-	enet:hasIPValue "10.36.1.106" ;
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.36.1.106' ;
 	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2931 ;
 	.
