@@ -1,0 +1,58 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix sel-snet:  <http://cptl-c.org/power/2015/substation_network/sel/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ogdenville-network: <http://arpae-example.org/2014/07/8-substation/ogdenville/snet/> .
+@prefix ogdenville-yard: <http://arpae-example.org/2014/07/8-substation/ogdenville/syard/> .
+@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+@prefix cyprus-creek-yard: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/syard/> .
+@prefix north-haverbrook-network: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/snet/> .
+@prefix north-haverbrook-yard: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/syard/> .
+
+ogdenville-network:SEL_3620
+	rdfs:type sel-snet:3620 ;
+	enet:hasIPValue   "192.168.4.200" ;	
+	cptlc:hasLink ogdenville-network:SEL_421_1 ;
+	cptlc:hasLink ogdenville-network:SEL_421_2 ;
+	cptlc:hasLink ogdenville-network:SEL_451_1 ;
+	cptlc:hasLink ogdenville-network:SEL_451_2 ;
+	cptlc:hasLink ogdenville-network:SEL_451_3 ;
+	.
+
+ogdenville-network:SEL_421_1 
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.34.1.201" ;		    
+	cptlc:hasLink cyprus-creek-network:SEL_421_6 ;
+        .
+
+ogdenville-network:SEL_421_2
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.34.1.202" ;
+	cptlc:hasLink north-haverbrook-network:DistanceRelay_1 ;
+        .
+
+ogdenville-network:SEL_451_1
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.34.1.101" ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-14 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-12 ;
+        .
+
+ogdenville-network:SEL_451_2
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.34.1.102" ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-14 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-42 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-23 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-34 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-12 ;
+        .
+
+ogdenville-network:SEL_451_3
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.34.1.103" ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-25 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-56 ;
+	snet:hasBreakerConnections ogdenville-yard:Ogdenville-BRK-62 ;
+        .

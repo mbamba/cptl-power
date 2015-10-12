@@ -1,0 +1,76 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix sel-snet:  <http://cptl-c.org/power/2015/substation_network/sel/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+@prefix haverbrook-network: <http://arpae-example.org/2014/07/8-substation/haverbrook/snet/> .
+@prefix haverbrook-yard: <http://arpae-example.org/2014/07/8-substation/haverbrook/syard/> .
+@prefix springfield-network: <http://arpae-example.org/2014/07/8-substation/springfield/snet/> .
+
+haverbrook-network:Switch_1
+	rdfs:type snet:Switch ;
+	enet:hasIPValue "192.168.2.200" ;	
+	cptlc:hasLink haverbrook-network:OvercurrentRelay_1 ;
+	.
+
+haverbrook-network:DistanceRelay_1
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue "10.32.1.201" ;		
+	cptlc:hasLink springfield-network:DistanceRelay_3 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3735 ;
+	.
+
+haverbrook-network:DistanceRelay_2
+	rdfs:type snet:DistanceRelay ;
+	cptlc:hasLink haverbrook-network:OvercurrentRelay_3 ;
+	cptlc:hasLink cyprus-creek-network:SEL_421_5 ;
+	cptlc:hasLink springfield-network:DistanceRelay_3 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3635 ;
+	.
+
+haverbrook-network:DistanceRelay_3
+	rdfs:type snet:DistanceRelay ;
+	cptlc:hasLink haverbrook-network:OvercurrentRelay_4 ;
+	cptlc:hasLink haverbrook-network:ReversePowerRelay_1 ;
+	cptlc:hasLink springfield-network:DistanceRelay_1 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3835 ;
+	.
+
+haverbrook-network:ReversePowerRelay_1
+        rdfs:type snet:ReversePowerRelay ;
+	cptlc:hasLink haverbrook-network:OvercurrentRelay_2 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3335 ;	
+	.
+				    				       
+haverbrook-network:OvercurrentRelay_1
+	rdfs:type snet:OvercurrentRelay ;
+	cptlc:hasLink haverbrook-network:OvercurrentRelay_4 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3335 ;
+	.
+
+haverbrook-network:OvercurrentRelay_2
+	rdfs:type snet:OvercurrentRelay ;
+	cptlc:hasLink haverbrook-network:DistanceRelay_2 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3435 ;
+	.
+
+haverbrook-network:OvercurrentRelay_3
+	rdfs:type snet:OvercurrentRelay ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3635 ;
+	.
+
+haverbrook-network:OvercurrentRelay_4
+	rdfs:type snet:OvercurrentRelay ;
+	cptlc:hasLink haverbrook-network:OvercurrentRelay_5 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3735 ;
+	.
+
+haverbrook-network:OvercurrentRelay_5
+	rdfs:type snet:OvercurrentRelay ;
+	cptlc:hasLink haverbrook-network:DistanceRelay_3 ;
+	snet:hasBreakerConnections haverbrook-yard:Haverbrook-BRK-3835 ;	
+	.
+
+
+

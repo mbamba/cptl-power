@@ -1,0 +1,36 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:   <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:   <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix capital-city-network: <http://arpae-example.org/2014/07/8-substation/capital-city/snet/> .
+@prefix capital-city-yard: <http://arpae-example.org/2014/07/8-substation/capital-city/syard/> .
+@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+
+capital-city-network:Switch_1
+	rdfs:type snet:Switch ;
+	enet:hasIPValue "192.168.7.200" ;	
+	cptlc:hasLink capital-city-network:OvercurrentRelay_1 ;
+	.
+
+capital-city-network:DistanceRelay_1
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue "10.37.1.201" ;
+	cptlc:hasLink cyprus-creek-network:SEL_421_7 ;
+	cptlc:hasLink capital-city-network:OvercurrentRelay_2 ;
+	snet:hasBreakerConnections capital-city-yard:CapitalCity-BRK-4546 ;
+	.
+
+capital-city-network:OvercurrentRelay_1
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.37.1.101" ;
+	cptlc:hasLink capital-city-network:DistanceRelay_1 ;
+	snet:hasBreakerConnections capital-city-yard:CapitalCity-BRK-4546 ;
+	.
+
+capital-city-network:OvercurrentRelay_2
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.37.1.102" ;
+	snet:hasBreakerConnections capital-city-yard:CapitalCity-BRK-4647 ;
+	.
+
+	

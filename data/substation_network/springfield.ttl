@@ -1,0 +1,78 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix springfield-network: <http://arpae-example.org/2014/07/8-substation/springfield/snet/> .
+@prefix springfield-yard: <http://arpae-example.org/2014/07/8-substation/springfield/syard/> .
+@prefix haverbrook-network: <http://arpae-example.org/2014/07/8-substation/haverbrook/snet/> .
+@prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
+
+springfield-network:Switch_1
+	rdfs:type snet:Switch ;
+	enet:hasIPValue "192.168.8.200" ;
+	cptlc:hasLink springfield-network:OvercurrentRelay_1 ;
+	.
+
+springfield-network:DistanceRelay_1
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue "10.38.1.201" ;
+	cptlc:hasLink springfield-network:DistanceRelay_2 ;
+	cptlc:hasLink haverbrook-network:DistanceRelay_3 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4041 ;
+	.
+
+springfield-network:DistanceRelay_2
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue "10.38.1.202" ;
+	cptlc:hasLink springfield-network:OvercurrentRelay_2 ;
+	cptlc:hasLink paris-network:SEL_421_3 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4142 ;
+	.
+
+springfield-network:DistanceRelay_3
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue "10.38.1.203" ;
+	cptlc:hasLink springfield-network:OvercurrentRelay_5 ;
+	cptlc:hasLink haverbrook-network:DistanceRelay_1 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-3941 ;
+	.
+
+springfield-network:ReversePowerRelay_1
+	rdfs:type snet:ReversePowerRelay ;
+	cptlc:hasLink springfield-network:OvercurrentRelay_3 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4341 ;
+	.
+
+springfield-network:OvercurrentRelay_1
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.38.1.101" ;
+	cptlc:hasLink springfield-network:DistanceRelay_1 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4041 ;
+	.
+
+springfield-network:OvercurrentRelay_2
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.38.1.102" ;
+	cptlc:hasLink springfield-network:ReversePowerRelay_1 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4142 ;
+	.
+
+springfield-network:OvercurrentRelay_3
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.38.1.103" ;
+	cptlc:hasLink springfield-network:OvercurrentRelay_4 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4341 ;
+	.
+
+springfield-network:OvercurrentRelay_4
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.38.1.104" ;
+	cptlc:hasLink springfield-network:DistanceRelay_3 ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4441 ;
+	.
+
+springfield-network:OvercurrentRelay_5
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue "10.38.1.105" ;
+	snet:hasBreakerConnections springfield-yard:Springfield-BRK-3941 ;
+	.

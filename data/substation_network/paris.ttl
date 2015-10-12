@@ -1,0 +1,66 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix sel-snet:  <http://cptl-c.org/power/2015/substation_network/sel/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
+@prefix paris-yard: <http://arpae-example.org/2014/07/8-substation/paris/syard/> .
+@prefix shelbyville-network: <http://arpae-example.org/2014/07/8-substation/shelbyville/snet/> .
+@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+@prefix springfield-network: <http://arpae-example.org/2014/07/8-substation/springfield/snet/> .
+
+paris-network:SEL_3620
+	rdfs:type sel-snet:3620 ;
+	enet:hasIPValue "192.168.5.200" ;	
+	cptlc:hasLink paris-network:SEL_421_1 ;
+	cptlc:hasLink paris-network:SEL_421_2 ;
+	cptlc:hasLink paris-network:SEL_421_3 ;
+	cptlc:hasLink paris-network:SEL_451_1 ;
+	cptlc:hasLink paris-network:SEL_451_2 ;
+	cptlc:hasLink paris-network:SEL_451_3 ;
+	cptlc:hasLink paris-network:SEL_451_4 ;
+	.
+
+paris-network:SEL_421_1
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.35.1.201" ;
+	cptlc:hasLink shelbyville-network:SEL_421_3 ;
+	.
+
+paris-network:SEL_421_2
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.35.1.202" ;
+	cptlc:hasLink cyprus-creek-network:SEL_421_1 ;
+	.
+
+paris-network:SEL_421_3
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.35.1.203" ;
+	cptlc:hasLink springfield-network:DistanceRelay_2 ;
+	.
+
+paris-network:SEL_451_1
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.35.1.101" ;
+	snet:hasBreakerConnections paris-yard:Paris-BRK-5052 ;
+	.
+
+paris-network:SEL_451_2
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.35.1.102" ;
+	snet:hasBreakerConnections paris-yard:Paris-BRK-4950 ;
+	.
+
+paris-network:SEL_451_3
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.35.1.103" ;
+	snet:hasBreakerConnections paris-yard:Paris-BRK-4850 ;
+	.
+
+paris-network:SEL_451_4
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.35.1.104" ;
+	snet:hasBreakerConnections paris-yard:Paris-BRK-5051 ;
+	.
+
+

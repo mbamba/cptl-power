@@ -1,82 +1,78 @@
 @prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
 @prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
 @prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix sel-snet:  <http://cptl-c.org/power/2015/substation_network/sel/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix shelbyville-network: <http://arpae-example.org/2014/07/8-substation/shelbyville/network/> .
-@prefix shelbyville-nb: <http://arpae-example.org/2014/07/8-substation/shelbyville/nb/> .
-@prefix north-haverbrook-nb: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/nb/> .
-@prefix cyprus-creek-nb: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/nb/> .
-@prefix paris-nb: <http://arpae-example.org/2014/07/8-substation/paris/nb/> .
+@prefix shelbyville-network: <http://arpae-example.org/2014/07/8-substation/shelbyville/snet/> .
+@prefix shelbyville-yard: <http://arpae-example.org/2014/07/8-substation/shelbyville/syard/> .
+@prefix north-haverbrook-network: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/snet/> .
+@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+@prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
 
-shelbyville-nb:Shelbyville-ND-32
-	rdfs:type power:Node ;
-	power:hasLine shelbyville-nb:Shelbyville-BRK-3132 ;
+shelbyville-network:SEL_3620
+	rdfs:type sel-snet:3620 ;
+	enet:hasIPValue "192.168.6.200" ;	
+	cptlc:hasLink shelbyville-network:SEL_421_1 ;
+	cptlc:hasLink shelbyville-network:SEL_421_2 ;
+	cptlc:hasLink shelbyville-network:SEL_421_3 ;
+	cptlc:hasLink shelbyville-network:SEL_451_1 ;
+	cptlc:hasLink shelbyville-network:SEL_451_2 ;
+	cptlc:hasLink shelbyville-network:SEL_451_3 ;
+	cptlc:hasLink shelbyville-network:SEL_451_4 ;
+	cptlc:hasLink shelbyville-network:SEL_451_5 ;
+	cptlc:hasLink shelbyville-network:SEL_451_6 ;
 	.
 
-shelbyville-nb:Shelbyville-BRK-3132
-	rdfs:type power:Breaker ;
-	power:hasLine shelbyville-nb:Shelbyville-ND-31 ;
+shelbyville-network:SEL_421_1
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.36.1.201" ;
+	cptlc:hasLink north-haverbrook-network:DistanceRelay_2 ;
 	.
 
-shelbyville-nb:Shelbyville-ND-31
-	rdfs:type power:Bus ;
-	power:hasLine shelbyville-nb:Shelbyville-BRK-2931 ;
-	power:hasLine shelbyville-nb:Shelbyville-BRK-3031 ;
+shelbyville-network:SEL_421_2
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.36.1.202" ;
+	cptlc:hasLink cyprus-creek-network:SEL_421_4 ;
 	.
 
-shelbyville-nb:Shelbyville-BRK-3031
-	rdfs:type power:Breaker ;
-	power:hasLine shelbyville-nb:Shelbyville-ND-30 ;
+shelbyville-network:SEL_421_3
+	rdfs:type sel-snet:421 ;
+	enet:hasIPValue "10.36.1.203" ;
+	cptlc:hasLink paris-network:SEL_421_1 ;
 	.
 
-shelbyville-nb:Shelbyville-ND-30
-	rdfs:type power:Node ;
-	power:hasLine shelbyville-nb:Shelbyville-UN-Gen3 ;
+shelbyville-network:SEL_451_1
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.36.1.101" ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2629 ;
 	.
 
-shelbyville-nb:Shelbyville-UN-Gen3
-	rdfs:type power:Generator ;
+shelbyville-network:SEL_451_2
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.36.1.102" ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2928 ;
 	.
 
-shelbyville-nb:Shelbyville-BRK-2931
-	rdfs:type power:Breaker ;
-	power:hasLine shelbyville-nb:Shelbyville-ND-29 ;
+shelbyville-network:SEL_451_3
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.36.1.103" ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-3132 ;
 	.
 
-shelbyville-nb:Shelbyville-ND-29
-	rdfs:type power:Bus ;
-	power:hasLine shelbyville-nb:Shelbyville-BRK-2729 ;
-	power:hasLine shelbyville-nb:Shelbyville-BRK-2629 ;
-	power:hasLine shelbyville-nb:Shelbyville-BRK-2928 ;
+shelbyville-network:SEL_451_4
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.36.1.104" ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-3031 ;
 	.
 
-shelbyville-nb:Shelbyville-BRK-2729
-	rdfs:type power:Breaker ;
-	power:hasLine shelbyville-nb:Shelbyville-ND-27 ;
+shelbyville-network:SEL_451_5
+	rdfs:type sel-snet:451 ;
+	enet:hasIPValue "10.36.1.105" ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2729 ;
 	.
 
-shelbyville-nb:Shelbyville-ND-27
-	rdfs:type power:Node ;
+shelbyville-network:SEL_451_6
+	rdfs:type sel-snet:451 ;	
+	enet:hasIPValue "10.36.1.106" ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2931 ;
 	.
-
-shelbyville-nb:Shelbyville-BRK-2629
-	rdfs:type power:Breaker ;
-	power:hasLine shelbyville-nb:Shelbyville-ND-26 ;
-	.
-
-shelbyville-nb:Shelbyville-ND-26
-	rdfs:type power:Node ;
-	power:hasLine north-haverbrook-nb:NorthHaverbrook-ND-14 ;
-	.
-
-shelbyville-nb:Shelbyville-BRK-2928
-	rdfs:type power:Breaker ;
-	power:hasLine shelbyville-nb:Shelbyville-ND-28 ;
-	.
-
-shelbyville-nb:Shelbyville-ND-28
-	rdfs:type power:Node ;
-	power:hasLine cyprus-creek-nb:CyprusCreek-ND-22 ;
-	.
-
-
