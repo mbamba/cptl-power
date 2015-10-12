@@ -1,0 +1,129 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix syard:  <http://cptl-c.org/power/2015/07/substation_yard/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cyprus-creek-yard: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/syard/> .
+@prefix haverbrook-yard: <http://arpae-example.org/2014/07/8-substation/haverbrook/syard/> .
+@prefix ogdenville-yard: <http://arpae-example.org/2014/07/8-substation/ogdenville/syard/> .
+@prefix shelbyville-yard: <http://arpae-example.org/2014/07/8-substation/shelbyville/syard/> .
+@prefix paris-yard: <http://arpae-example.org/2014/07/8-substation/paris/syard/> .
+@prefix north-haverbrook-yard: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/syard/> .
+
+cyprus-creek-yard:CyprusCreek-TX-4545
+	rdfs:type syard:Transformer ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-16 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-16
+	rdfs:type syard:Node ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-1615 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-1615
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-15 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-15
+	rdfs:type syard:Bus ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-1715 ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-1519 ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-1815 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-1519
+	rdfs:type syard:Breaker ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-1815
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-18 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-18
+	rdfs:type syard:Node ;
+	syard:hasLine haverbrook-yard:Haverbrook-ND-36 ;
+	.	
+
+cyprus-creek-yard:CyprusCreek-BRK-1715
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-17 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-17
+	rdfs:type syard:Node ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-1719 ;
+	syard:hasLine ogdenville-yard:Ogdenville-ND-6 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-1719
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-19 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-19
+	rdfs:type syard:Bus ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-1519 ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-2019 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-2019
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-20 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-20
+	rdfs:type syard:Node ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-UN-Gen2 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-1925
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-25 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-25
+	rdfs:type syard:Bus ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-2225 ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-2425 ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-2125 ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-BRK-2325 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-2225
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-22 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-22
+	rdfs:type syard:Node ;
+	syard:hasLine shelbyville-yard:Shelbyville-ND-28 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-2425
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-24 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-24
+	rdfs:type syard:Node ;
+	syard:hasLine paris-yard:Paris-ND-48 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-2125
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-21 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-21
+	rdfs:type syard:Node ;
+	syard:hasLine north-haverbrook-yard:NorthHaverbrook-ND-11 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-BRK-2325
+	rdfs:type syard:Breaker ;
+	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-23 ;
+	.
+
+cyprus-creek-yard:CyprusCreek-ND-23
+	rdfs:type syard:Node ;
+	.
