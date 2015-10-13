@@ -1112,17 +1112,119 @@ StatusCode rdf_turtle_substation_network_view_initializer(View *view,
 StatusCode rdf_turtle_substation_network_view_vertex_initializer(View *view,
 								 mpc_ast_t *a) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  rdf_turtle_substation_network_view_vertex_initializer\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);
+
+  if ( !strncmp("rdf_triple_block", a->tag, 16) ) {
+    int rc;
+
+    mpc_ast_t * name_value_node = a->children[0];
+    mpc_ast_t * rdfs_type_value_node = a->children[2];
+
+    string name, rdfs_type;
+    strncpy(name, name_value_node->contents, STRING_SIZE);
+    strncpy(rdfs_type, rdfs_type_value_node->contents, STRING_SIZE);
+
+    int vertex_id;
+    vertex_id = view->vertex_count;
+    
+    struct v_attribute_entry *v_attr_entry;
+    struct v_attribute_entry *v_inverse_attr_entry;
+
+    v_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
+    v_inverse_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
+
+    v_attr_entry->id = view->vertex_count;
+    v_inverse_attr_entry->id = view->vertex_count;
+
+    strncpy(v_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
+    strncpy(v_inverse_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
+
+    strncpy(v_attr_entry->name, name, STRING_SIZE);
+    strncpy(v_inverse_attr_entry->name, name, STRING_SIZE);
+
+    HASH_ADD_INT( view->v_interpretation, id, v_attr_entry );
+    HASH_ADD_STR( view->v_inverse_interpretation, name, v_inverse_attr_entry);
+
+    // Initialize the vertex adjacency list
+    struct vertex_adjacency_list *vertex_adjacency_list;
+    vertex_adjacency_list = (struct vertex_adjacency_list*)malloc(sizeof(struct vertex_adjacency_list));
+    vertex_adjacency_list->source_id = vertex_id;
+    vertex_adjacency_list->targets = NULL;
+    HASH_ADD_INT( view->e_interpretation, source_id, vertex_adjacency_list );
+
+    view->vertex_count = view->vertex_count + 1;
+  }
+  return status;
 }
 
 StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view,
 							       mpc_ast_t *a) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  rdf_turtle_substation_network_view_edge_initializer\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);  
+
+  string relation_name;
+  int source_id, target_id;
+  
+  // Process the RDF Triple Block
+  if ( !strncmp("rdf_triple_block", a->tag, 16) ) {
+    int rc;
+    mpc_ast_t *source_name_value_node = a->children[0];
+    struct vertex_adjacency_list *vertex_adjacency_list = NULL;
+    struct v_attribute_entry *source_attr_entry = NULL;
+    struct v_attribute_entry *target_attr_entry = NULL;
+
+    HASH_FIND_STR( view->v_inverse_interpretation, source_name_value_node->contents, source_attr_entry);
+    if ( source_attr_entry == NULL ) {
+      fprintf(stderr, "Edge initializer:  Could not find vertex with name %s\n", source_name_value_node->contents);
+      exit(NO_INTERPRETATION_ERROR);
+    }
+    view->current_source_id = source_attr_entry->id;
+    HASH_FIND_INT(view->e_interpretation, &view->current_source_id, vertex_adjacency_list);
+
+    //-- All of the edges with a given source are documented within
+    //--  a given RDF Triple Block
+    int i;    
+    for ( i = 0; i < a->children_num; i++) {
+      mpc_ast_t *child_target_node = a->children[i];
+
+      if ( !strncmp("link_types", child_target_node->tag, 10) ) {
+	// Then we have an edge to add to the graph
+	struct e_attribute_entry *e_attr_entry = NULL;
+	struct v_attribute_entry *target_attr_entry = NULL;
+
+	if ( ! strncmp("cptlc:hasLink", child_target_node->contents, 13) ) {
+	  mpc_ast_t *target_name_value_node = a->children[i+1];
+	  HASH_FIND_STR( view->v_inverse_interpretation,
+			 target_name_value_node->contents,
+			 target_attr_entry );
+
+	  if ( NULL == target_attr_entry ) {
+	    fprintf( stderr, "Unable to find adjacency list for target: %s\n",
+		     target_name_value_node->contents );
+	  } else {
+	    //---- loop through all the target vertices
+	    e_attr_entry = vertex_adjacency_list->targets;
+	    if ( NULL == e_attr_entry ) {
+	      e_attr_entry = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+	      e_attr_entry->target_id = target_attr_entry->id;
+	      strncpy(e_attr_entry->rdfs_type, "cptlc:hasLink", STRING_SIZE);
+	      e_attr_entry->next = NULL;
+	      vertex_adjacency_list->targets = e_attr_entry;
+	    } else {
+	      while ( e_attr_entry->next != NULL ) {
+		e_attr_entry = e_attr_entry->next;
+	      }
+	      e_attr_entry->next = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+	      e_attr_entry = e_attr_entry->next;
+	      e_attr_entry->target_id = target_attr_entry->id;
+	      strncpy(e_attr_entry->rdfs_type, "cptlc:hasLink", STRING_SIZE);
+	      e_attr_entry->next = NULL;
+	    }
+	  } // If an adjacency list entry exists
+	  
+	} // If the link is of type cptlc:hasLink
+      } // If a child is a link
+    } // Loop through all the children of the block
+  } // Loop through all RDF triple blocks
+  return status;
 }
 
 //------ Substation Yard View
