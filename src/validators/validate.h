@@ -22,7 +22,7 @@
 
 #ifndef _VALIDATE_H_
 
-#define STRING_SIZE 50
+#define STRING_SIZE 100
 #define MAX_STRING_SIZE 800
 
 #include <graph.h>

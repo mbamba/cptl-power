@@ -1,7 +1,9 @@
 node_types		: '"'/snet:DistanceRelay/'"'
 	   		| '"'/snet:OvercurrentRelay/'"'
+			| '"'/snet:ReversePowerRelay/'"'
 	   		| '"'/snet:Switch/'"' ;
 link_types 		: '"'/cptlc:hasLink/'"'
+			| '"'/enet:hasIPValue/'"'
 			| '"'/snet:hasBreakerConnections/'"' ;    
 string  		: /(\\\\.|[^\"])*/ ;                   
 key 			: '"'<string>'"' ;
