@@ -1190,7 +1190,8 @@ StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view,
 	struct e_attribute_entry *e_attr_entry = NULL;
 	struct v_attribute_entry *target_attr_entry = NULL;
 
-	if ( ! strncmp("cptlc:hasLink", child_target_node->contents, 13) ) {
+	if ( ! strncmp("cptlc:hasLink", child_target_node->contents, 13) ||
+	     ! strncmp("syard:hasLine", child_target_node->contents, 13) ) {
 	  mpc_ast_t *target_name_value_node = a->children[i+1];
 	  HASH_FIND_STR( view->v_inverse_interpretation,
 			 target_name_value_node->contents,
@@ -1205,7 +1206,7 @@ StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view,
 	    if ( NULL == e_attr_entry ) {
 	      e_attr_entry = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
 	      e_attr_entry->target_id = target_attr_entry->id;
-	      strncpy(e_attr_entry->rdfs_type, "cptlc:hasLink", STRING_SIZE);
+	      strncpy(e_attr_entry->rdfs_type, child_target_node->contents, STRING_SIZE);
 	      e_attr_entry->next = NULL;
 	      vertex_adjacency_list->targets = e_attr_entry;
 	    } else {
@@ -1215,7 +1216,7 @@ StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view,
 	      e_attr_entry->next = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
 	      e_attr_entry = e_attr_entry->next;
 	      e_attr_entry->target_id = target_attr_entry->id;
-	      strncpy(e_attr_entry->rdfs_type, "cptlc:hasLink", STRING_SIZE);
+	      strncpy(e_attr_entry->rdfs_type, child_target_node->contents, STRING_SIZE);
 	      e_attr_entry->next = NULL;
 	    }
 	  } // If an adjacency list entry exists
@@ -1267,17 +1268,15 @@ StatusCode rdf_turtle_substation_yard_view_initializer(View *view,
 StatusCode rdf_turtle_substation_yard_view_vertex_initializer(View *view,
 							      mpc_ast_t *a) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  rdf_turtle_substation_yard_view_vertex_initializer\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);
+  status = rdf_turtle_substation_network_view_vertex_initializer(view, a);
+  return status;
 }
 
 StatusCode rdf_turtle_substation_yard_view_edge_initializer(View *view,
 							    mpc_ast_t *a) {
   StatusCode status = OK;
-  fprintf(stderr, "Not yet implemented:  rdf_turtle_substation_yard_view_edge_initializer\n");
-  status = NOT_YET_IMPLEMENTED;
-  exit(status);  
+  status = rdf_turtle_substation_network_view_edge_initializer(view, a);
+  return status;
 }
 
 //---- OTHER FORMATS

@@ -50,6 +50,9 @@ converters:
 generate-json:
 	./src/scripts/generate-json.sh
 
+validate-json:
+	./src/scripts/validate-json.sh
+
 clean:
 	rm -rf build
 	rm -rf data/substation_network/json
