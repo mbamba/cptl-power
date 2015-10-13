@@ -47,5 +47,9 @@ validators:
 converters: 
 	gcc -g -Ilib -DCONVERTER lib/mpc.c lib/graph.c src/validators/validate.c src/converters/convert.c -o build/convert
 
+generate-json:
+	./src/scripts/generate-json.sh
+
 clean:
 	rm -rf build
+	rm -rf data/substation_network/json
