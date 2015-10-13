@@ -1,0 +1,164 @@
+{
+	"nodes":
+	   [
+		{"name":"cyprus-creek-yard:CyprusCreek-TX-4545",
+		 "rdfs:type":"syard:Transformer"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-16",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-1615",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-15",
+		 "rdfs:type":"syard:Bus"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-1519",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-1815",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-18",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-1715",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-17",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-1719",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-19",
+		 "rdfs:type":"syard:Bus"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-2019",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-20",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-1925",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-25",
+		 "rdfs:type":"syard:Bus"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-2225",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-22",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-2425",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-24",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-2125",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-21",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-BRK-2325",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-23",
+		 "rdfs:type":"syard:Node"}
+	   ],
+	"links":
+	   [
+		{"source":"cyprus-creek-yard:CyprusCreek-TX-4545",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-16",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-16",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-1615",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-1615",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-15",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-15",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-1715",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-15",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-1519",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-15",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-1815",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-1815",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-18",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-1715",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-17",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-17",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-1719",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-1719",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-19",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-19",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-1519",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-19",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-2019",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-2019",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-20",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-1925",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-25",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-25",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-2225",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-25",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-2425",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-25",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-2125",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-ND-25",
+		 "target":"cyprus-creek-yard:CyprusCreek-BRK-2325",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-2225",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-22",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-2425",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-24",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-2125",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-21",
+		 "relation":"syard:hasLine"},
+
+		{"source":"cyprus-creek-yard:CyprusCreek-BRK-2325",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-23",
+		 "relation":"syard:hasLine"}
+
+	   ]
+}

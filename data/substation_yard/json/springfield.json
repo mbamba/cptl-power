@@ -1,0 +1,87 @@
+{
+	"nodes":
+	   [
+		{"name":"springfield-yard:Springfield-UN-Gen5",
+		 "rdfs:type":"syard:Generator"},
+
+		{"name":"springfield-yard:Springfield-ND-43",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"springfield-yard:Springfield-BRK-4341",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"springfield-yard:Springfield-ND-41",
+		 "rdfs:type":"syard:Bus"},
+
+		{"name":"springfield-yard:Springfield-BRK-3941",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"springfield-yard:Springfield-ND-39",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"springfield-yard:Springfield-BRK-4441",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"springfield-yard:Springfield-ND-44",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"springfield-yard:Springfield-BRK-4142",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"springfield-yard:Springfield-ND-42",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"springfield-yard:Springfield-BRK-4041",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"springfield-yard:Springfield-ND-40",
+		 "rdfs:type":"syard:Node"}
+	   ],
+	"links":
+	   [
+		{"source":"springfield-yard:Springfield-UN-Gen5",
+		 "target":"springfield-yard:Springfield-ND-43",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-ND-43",
+		 "target":"springfield-yard:Springfield-BRK-4341",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-BRK-4341",
+		 "target":"springfield-yard:Springfield-ND-41",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-ND-41",
+		 "target":"springfield-yard:Springfield-BRK-3941",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-ND-41",
+		 "target":"springfield-yard:Springfield-BRK-4441",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-ND-41",
+		 "target":"springfield-yard:Springfield-BRK-4142",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-ND-41",
+		 "target":"springfield-yard:Springfield-BRK-4041",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-BRK-3941",
+		 "target":"springfield-yard:Springfield-ND-39",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-BRK-4441",
+		 "target":"springfield-yard:Springfield-ND-44",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-BRK-4142",
+		 "target":"springfield-yard:Springfield-ND-42",
+		 "relation":"syard:hasLine"},
+
+		{"source":"springfield-yard:Springfield-BRK-4041",
+		 "target":"springfield-yard:Springfield-ND-40",
+		 "relation":"syard:hasLine"}
+
+	   ]
+}

@@ -1,0 +1,38 @@
+{
+	"nodes":
+	   [
+		{"name":"capital-city-yard:CapitalCity-ND-45",
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"capital-city-yard:CapitalCity-BRK-4546",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"capital-city-yard:CapitalCity-ND-46",
+		 "rdfs:type":"syard:Bus"},
+
+		{"name":"capital-city-yard:CapitalCity-BRK-4647",
+		 "rdfs:type":"syard:Breaker"},
+
+		{"name":"capital-city-yard:CapitalCity-ND-47",
+		 "rdfs:type":"syard:Node"}
+	   ],
+	"links":
+	   [
+		{"source":"capital-city-yard:CapitalCity-ND-45",
+		 "target":"capital-city-yard:CapitalCity-BRK-4546",
+		 "relation":"syard:hasLine"},
+
+		{"source":"capital-city-yard:CapitalCity-BRK-4546",
+		 "target":"capital-city-yard:CapitalCity-ND-46",
+		 "relation":"syard:hasLine"},
+
+		{"source":"capital-city-yard:CapitalCity-ND-46",
+		 "target":"capital-city-yard:CapitalCity-BRK-4647",
+		 "relation":"syard:hasLine"},
+
+		{"source":"capital-city-yard:CapitalCity-BRK-4647",
+		 "target":"capital-city-yard:CapitalCity-ND-47",
+		 "relation":"syard:hasLine"}
+
+	   ]
+}
