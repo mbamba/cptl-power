@@ -1,0 +1,24 @@
+{
+	"nodes":
+	   [
+		{"name":"cyprus-creek-network:SEL_3620",
+		 "rdfs:type":"snet:Switch"},
+
+		{"name":"cyprus-creek-network:SEL_421_1",
+		 "rdfs:type":"snet:DistanceRelay"},
+
+		{"name":"cyprus-creek-network:SEL_421_2",
+		 "rdfs:type":"snet:DistanceRelay"}
+	   ],
+	"links":
+	   [
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+	   ]
+}

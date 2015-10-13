@@ -1,0 +1,59 @@
+{
+	"nodes":
+	   [
+		{"name":"paris-network:SEL_3620",
+		 "rdfs:type":"snet:Switch"},
+
+		{"name":"paris-network:SEL_421_1",
+		 "rdfs:type":"snet:DistanceRelay"},
+
+		{"name":"paris-network:SEL_421_2",
+		 "rdfs:type":"snet:DistanceRelay"},
+
+		{"name":"paris-network:SEL_421_3",
+		 "rdfs:type":"snet:DistanceRelay"},
+
+		{"name":"paris-network:SEL_451_1",
+		 "rdfs:type":"snet:OvercurrentRelay"},
+
+		{"name":"paris-network:SEL_451_2",
+		 "rdfs:type":"snet:OvercurrentRelay"},
+
+		{"name":"paris-network:SEL_451_3",
+		 "rdfs:type":"snet:OvercurrentRelay"},
+
+		{"name":"paris-network:SEL_451_4",
+		 "rdfs:type":"snet:OvercurrentRelay"}
+	   ],
+	"links":
+	   [
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_421_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_451_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_451_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_451_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_3620",
+		 "target":"paris-network:SEL_451_4",
+		 "relation":"cptlc:hasLink"}
+
+	   ]
+}
