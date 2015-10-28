@@ -43,7 +43,7 @@ cyprus-creek-network:SEL_421_2
 
 cyprus-creek-network:SEL_421_3
 	rdfs:type snet:DistanceRelay ;
-	cptlc:hasIP '10.31.1.203' ;
+	enet:hasIPValue '10.31.1.203' ;
 	cptlc:hasLink north-haverbrook-network:DistanceRelay_3 ;
 	.
 

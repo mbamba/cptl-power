@@ -1,7 +1,8 @@
 node_types		: '"'/snet:DistanceRelay/'"'
 	   		| '"'/snet:OvercurrentRelay/'"'
 			| '"'/snet:ReversePowerRelay/'"'
-	   		| '"'/snet:Switch/'"' ;
+	   		| '"'/snet:Switch/'"'
+			| '"'/cptlc:Asset/'"';
 link_types 		: '"'/cptlc:hasLink/'"'
 			| '"'/enet:hasIPValue/'"'
 			| '"'/snet:hasBreakerConnections/'"' ;    

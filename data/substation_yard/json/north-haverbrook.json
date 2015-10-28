@@ -47,12 +47,25 @@
 		 "rdfs:type":"syard:Breaker"},
 
 		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-10",
-		 "rdfs:type":"syard:Node"}
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"ogdenville-yard:Ogdenville-ND-3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-21",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville-ND-26",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
 		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-7",
 		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-78",
+		 "relation":"syard:hasLine"},
+
+		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-7",
+		 "target":"ogdenville-yard:Ogdenville-ND-3",
 		 "relation":"syard:hasLine"},
 
 		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-78",
@@ -83,6 +96,10 @@
 		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-11",
 		 "relation":"syard:hasLine"},
 
+		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-11",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-21",
+		 "relation":"syard:hasLine"},
+
 		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-1213",
 		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-13",
 		 "relation":"syard:hasLine"},
@@ -97,6 +114,10 @@
 
 		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-1413",
 		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		 "relation":"syard:hasLine"},
+
+		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		 "target":"shelbyville-yard:Shelbyville-ND-26",
 		 "relation":"syard:hasLine"},
 
 		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-913",

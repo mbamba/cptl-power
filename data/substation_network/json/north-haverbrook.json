@@ -2,37 +2,57 @@
 	"nodes":
 	   [
 		{"name":"north-haverbrook-network:Switch_1",
-		 "rdfs:type":"snet:Switch"},
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.3.200"},
 
 		{"name":"north-haverbrook-network:DistanceRelay_1",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.33.1.201"},
 
 		{"name":"north-haverbrook-network:DistanceRelay_2",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.33.1.202"},
 
 		{"name":"north-haverbrook-network:DistanceRelay_3",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.33.1.203"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_1",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.101"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_2",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.102"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_3",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.103"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_4",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.104"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_5",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.105"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_6",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.106"},
 
 		{"name":"north-haverbrook-network:OvercurrentRelay_7",
-		 "rdfs:type":"snet:OvercurrentRelay"}
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.33.1.107"},
+
+		{"name":"ogdenville-network:SEL_421_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-network:SEL_421_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cyprus-creek-network:SEL_421_3",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -44,8 +64,20 @@
 		 "target":"north-haverbrook-network:OvercurrentRelay_2",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"north-haverbrook-network:DistanceRelay_1",
+		 "target":"ogdenville-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
 		{"source":"north-haverbrook-network:DistanceRelay_2",
 		 "target":"north-haverbrook-network:OvercurrentRelay_7",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:DistanceRelay_2",
+		 "target":"shelbyville-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:DistanceRelay_3",
+		 "target":"cyprus-creek-network:SEL_421_3",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"north-haverbrook-network:OvercurrentRelay_1",

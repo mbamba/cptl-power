@@ -14,12 +14,19 @@
 		 "rdfs:type":"syard:Breaker"},
 
 		{"name":"capital-city-yard:CapitalCity-ND-47",
-		 "rdfs:type":"syard:Node"}
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-TX-4545",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
 		{"source":"capital-city-yard:CapitalCity-ND-45",
 		 "target":"capital-city-yard:CapitalCity-BRK-4546",
+		 "relation":"syard:hasLine"},
+
+		{"source":"capital-city-yard:CapitalCity-ND-45",
+		 "target":"cyprus-creek-yard:CyprusCreek-TX-4545",
 		 "relation":"syard:hasLine"},
 
 		{"source":"capital-city-yard:CapitalCity-BRK-4546",

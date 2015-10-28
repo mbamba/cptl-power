@@ -41,7 +41,13 @@
 		 "rdfs:type":"syard:Breaker"},
 
 		{"name":"shelbyville-yard:Shelbyville-ND-28",
-		 "rdfs:type":"syard:Node"}
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-22",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -93,8 +99,16 @@
 		 "target":"shelbyville-yard:Shelbyville-ND-26",
 		 "relation":"syard:hasLine"},
 
+		{"source":"shelbyville-yard:Shelbyville-ND-26",
+		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		 "relation":"syard:hasLine"},
+
 		{"source":"shelbyville-yard:Shelbyville-BRK-2928",
 		 "target":"shelbyville-yard:Shelbyville-ND-28",
+		 "relation":"syard:hasLine"},
+
+		{"source":"shelbyville-yard:Shelbyville-ND-28",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-22",
 		 "relation":"syard:hasLine"}
 
 	   ]

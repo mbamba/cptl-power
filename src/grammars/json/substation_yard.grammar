@@ -2,7 +2,8 @@ node_types		: '"'/syard:Bus/'"'
 	   		| '"'/syard:Breaker/'"'              
   			| '"'/syard:Generator/'"'  
        	   		| '"'/syard:Node/'"'    
-       	   		| '"'/syard:Transformer/'"' ;
+       	   		| '"'/syard:Transformer/'"'
+			| '"'/cptlc:Asset/'"' ;			
 link_types 		: '"'/syard:hasLine/'"' ;    
 string  		: /(\\\\.|[^\"])*/ ;                   
 key 			: '"'<string>'"' ;

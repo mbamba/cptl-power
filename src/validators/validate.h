@@ -35,6 +35,7 @@ struct v_attribute_entry {
   int id;
   string name;
   string rdfs_type;
+  string enet_has_ip_value;
   string devos_username;
   string devos_command;
   UT_hash_handle hh;

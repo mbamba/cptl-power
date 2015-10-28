@@ -2,34 +2,53 @@
 	"nodes":
 	   [
 		{"name":"shelbyville-network:SEL_3620",
-		 "rdfs:type":"snet:Switch"},
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.6.200"},
 
 		{"name":"shelbyville-network:SEL_421_1",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.36.1.201"},
 
 		{"name":"shelbyville-network:SEL_421_2",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.36.1.202"},
 
 		{"name":"shelbyville-network:SEL_421_3",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.36.1.203"},
 
 		{"name":"shelbyville-network:SEL_451_1",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.36.1.101"},
 
 		{"name":"shelbyville-network:SEL_451_2",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.36.1.102"},
 
 		{"name":"shelbyville-network:SEL_451_3",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.36.1.103"},
 
 		{"name":"shelbyville-network:SEL_451_4",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.36.1.104"},
 
 		{"name":"shelbyville-network:SEL_451_5",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.36.1.105"},
 
 		{"name":"shelbyville-network:SEL_451_6",
-		 "rdfs:type":"snet:OvercurrentRelay"}
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.36.1.106"},
+
+		{"name":"north-haverbrook-network:DistanceRelay_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cyprus-creek-network:SEL_421_4",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"paris-network:SEL_421_1",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -67,6 +86,18 @@
 
 		{"source":"shelbyville-network:SEL_3620",
 		 "target":"shelbyville-network:SEL_451_6",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"shelbyville-network:SEL_421_1",
+		 "target":"north-haverbrook-network:DistanceRelay_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"shelbyville-network:SEL_421_2",
+		 "target":"cyprus-creek-network:SEL_421_4",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"shelbyville-network:SEL_421_3",
+		 "target":"paris-network:SEL_421_1",
 		 "relation":"cptlc:hasLink"}
 
 	   ]

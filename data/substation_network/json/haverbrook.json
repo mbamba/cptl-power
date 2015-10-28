@@ -2,10 +2,12 @@
 	"nodes":
 	   [
 		{"name":"haverbrook-network:Switch_1",
-		 "rdfs:type":"snet:Switch"},
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.2.200"},
 
 		{"name":"haverbrook-network:DistanceRelay_1",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.32.1.201"},
 
 		{"name":"haverbrook-network:DistanceRelay_2",
 		 "rdfs:type":"snet:DistanceRelay"},
@@ -29,7 +31,16 @@
 		 "rdfs:type":"snet:OvercurrentRelay"},
 
 		{"name":"haverbrook-network:OvercurrentRelay_5",
-		 "rdfs:type":"snet:OvercurrentRelay"}
+		 "rdfs:type":"snet:OvercurrentRelay"},
+
+		{"name":"springfield-network:DistanceRelay_3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cyprus-creek-network:SEL_421_5",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"springfield-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -37,8 +48,20 @@
 		 "target":"haverbrook-network:OvercurrentRelay_1",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"haverbrook-network:DistanceRelay_1",
+		 "target":"springfield-network:DistanceRelay_3",
+		 "relation":"cptlc:hasLink"},
+
 		{"source":"haverbrook-network:DistanceRelay_2",
 		 "target":"haverbrook-network:OvercurrentRelay_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:DistanceRelay_2",
+		 "target":"cyprus-creek-network:SEL_421_5",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:DistanceRelay_2",
+		 "target":"springfield-network:DistanceRelay_3",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"haverbrook-network:DistanceRelay_3",
@@ -47,6 +70,10 @@
 
 		{"source":"haverbrook-network:DistanceRelay_3",
 		 "target":"haverbrook-network:ReversePowerRelay_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:DistanceRelay_3",
+		 "target":"springfield-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"haverbrook-network:ReversePowerRelay_1",

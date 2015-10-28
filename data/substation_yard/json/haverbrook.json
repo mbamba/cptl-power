@@ -35,7 +35,16 @@
 		 "rdfs:type":"syard:Breaker"},
 
 		{"name":"haverbrook-yard:Haverbrook-ND-34",
-		 "rdfs:type":"syard:Node"}
+		 "rdfs:type":"syard:Node"},
+
+		{"name":"springfield-yard:Springfield-ND-39",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cyprus-creek-yard:CyprusCreek-ND-18",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"springfield-yard:Springfield-ND-40",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -71,12 +80,24 @@
 		 "target":"haverbrook-yard:Haverbrook-ND-37",
 		 "relation":"syard:hasLine"},
 
+		{"source":"haverbrook-yard:Haverbrook-ND-37",
+		 "target":"springfield-yard:Springfield-ND-39",
+		 "relation":"syard:hasLine"},
+
 		{"source":"haverbrook-yard:Haverbrook-BRK-3635",
 		 "target":"haverbrook-yard:Haverbrook-ND-36",
 		 "relation":"syard:hasLine"},
 
+		{"source":"haverbrook-yard:Haverbrook-ND-36",
+		 "target":"cyprus-creek-yard:CyprusCreek-ND-18",
+		 "relation":"syard:hasLine"},
+
 		{"source":"haverbrook-yard:Haverbrook-BRK-3835",
 		 "target":"haverbrook-yard:Haverbrook-ND-38",
+		 "relation":"syard:hasLine"},
+
+		{"source":"haverbrook-yard:Haverbrook-ND-38",
+		 "target":"springfield-yard:Springfield-ND-40",
 		 "relation":"syard:hasLine"},
 
 		{"source":"haverbrook-yard:Haverbrook-BRK-3435",

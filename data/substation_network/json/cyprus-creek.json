@@ -2,13 +2,74 @@
 	"nodes":
 	   [
 		{"name":"cyprus-creek-network:SEL_3620",
-		 "rdfs:type":"snet:Switch"},
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.1.200"},
 
 		{"name":"cyprus-creek-network:SEL_421_1",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.201"},
 
 		{"name":"cyprus-creek-network:SEL_421_2",
-		 "rdfs:type":"snet:DistanceRelay"}
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.202"},
+
+		{"name":"cyprus-creek-network:SEL_421_3",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.203"},
+
+		{"name":"cyprus-creek-network:SEL_421_4",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.204"},
+
+		{"name":"cyprus-creek-network:SEL_421_5",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.205"},
+
+		{"name":"cyprus-creek-network:SEL_421_6",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.206"},
+
+		{"name":"cyprus-creek-network:SEL_421_7",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.207"},
+
+		{"name":"cyprus-creek-network:SEL_451_1",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.101"},
+
+		{"name":"cyprus-creek-network:SEL_451_2",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.102"},
+
+		{"name":"cyprus-creek-network:SEL_451_3",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.103"},
+
+		{"name":"cyprus-creek-network:SEL_451_4",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.104"},
+
+		{"name":"cyprus-creek-network:SEL_451_5",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.105"},
+
+		{"name":"paris-network:SEL_421_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-network:DistanceRelay_3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-network:SEL_421_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-network:DistanceRelay_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"ogdenville-network:SEL_421_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"capital-city-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -18,6 +79,70 @@
 
 		{"source":"cyprus-creek-network:SEL_3620",
 		 "target":"cyprus-creek-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_4",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_5",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_6",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_421_7",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_451_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_451_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_451_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_451_4",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_3620",
+		 "target":"cyprus-creek-network:SEL_451_5",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_421_1",
+		 "target":"paris-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_421_3",
+		 "target":"north-haverbrook-network:DistanceRelay_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_421_4",
+		 "target":"shelbyville-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_421_5",
+		 "target":"haverbrook-network:DistanceRelay_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_421_6",
+		 "target":"ogdenville-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cyprus-creek-network:SEL_421_7",
+		 "target":"capital-city-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"}
 
 	   ]

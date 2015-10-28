@@ -2,34 +2,52 @@
 	"nodes":
 	   [
 		{"name":"springfield-network:Switch_1",
-		 "rdfs:type":"snet:Switch"},
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.8.200"},
 
 		{"name":"springfield-network:DistanceRelay_1",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.38.1.201"},
 
 		{"name":"springfield-network:DistanceRelay_2",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.38.1.202"},
 
 		{"name":"springfield-network:DistanceRelay_3",
-		 "rdfs:type":"snet:DistanceRelay"},
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.38.1.203"},
 
 		{"name":"springfield-network:ReversePowerRelay_1",
 		 "rdfs:type":"snet:ReversePowerRelay"},
 
 		{"name":"springfield-network:OvercurrentRelay_1",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.38.1.101"},
 
 		{"name":"springfield-network:OvercurrentRelay_2",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.38.1.102"},
 
 		{"name":"springfield-network:OvercurrentRelay_3",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.38.1.103"},
 
 		{"name":"springfield-network:OvercurrentRelay_4",
-		 "rdfs:type":"snet:OvercurrentRelay"},
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.38.1.104"},
 
 		{"name":"springfield-network:OvercurrentRelay_5",
-		 "rdfs:type":"snet:OvercurrentRelay"}
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.38.1.105"},
+
+		{"name":"haverbrook-network:DistanceRelay_3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"paris-network:SEL_421_3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
@@ -41,12 +59,24 @@
 		 "target":"springfield-network:DistanceRelay_2",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"springfield-network:DistanceRelay_1",
+		 "target":"haverbrook-network:DistanceRelay_3",
+		 "relation":"cptlc:hasLink"},
+
 		{"source":"springfield-network:DistanceRelay_2",
 		 "target":"springfield-network:OvercurrentRelay_2",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"springfield-network:DistanceRelay_2",
+		 "target":"paris-network:SEL_421_3",
+		 "relation":"cptlc:hasLink"},
+
 		{"source":"springfield-network:DistanceRelay_3",
 		 "target":"springfield-network:OvercurrentRelay_5",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"springfield-network:DistanceRelay_3",
+		 "target":"haverbrook-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"springfield-network:ReversePowerRelay_1",

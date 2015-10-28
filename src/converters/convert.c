@@ -243,8 +243,14 @@ StatusCode output_json_node_link_substation_network_view(View *view, FILE* outpu
       exit(NO_INTERPRETATION_ERROR);
     }
     fprintf(output_file, "\t\t{\"name\":\"%s\",\n", v_attributes->name);
-    fprintf(output_file, "\t\t \"rdfs:type\":\"%s\"}", v_attributes->rdfs_type);
 
+    if ( strncmp( v_attributes->enet_has_ip_value, "", STRING_SIZE ) ) {
+      fprintf(output_file, "\t\t \"rdfs:type\":\"%s\", \n", v_attributes->rdfs_type);      
+      fprintf(output_file, "\t\t \"enet:hasIPValue\":\"%s\"}", v_attributes->enet_has_ip_value);
+    } else {
+      fprintf(output_file, "\t\t \"rdfs:type\":\"%s\"}", v_attributes->rdfs_type);     
+    }
+    
     if (i != num_vertices - 1) {
       fprintf(output_file, ",\n");
     }
@@ -995,6 +1001,47 @@ StatusCode json_node_link_substation_network_view_initializer(View *view,
 }
 
 
+StatusCode substation_network_view_vertex_add(View *view,
+					      string name,
+					      string rdfs_type,
+					      string enet_has_ip_value) {
+  StatusCode status = OK;
+
+  int vertex_id;
+  vertex_id = view->vertex_count;
+
+  struct v_attribute_entry *v_attr_entry;
+  struct v_attribute_entry *v_inverse_attr_entry;
+
+  v_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
+  v_inverse_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
+  
+  v_attr_entry->id = view->vertex_count;
+  v_inverse_attr_entry->id = view->vertex_count;
+
+  strncpy(v_attr_entry->enet_has_ip_value, enet_has_ip_value, STRING_SIZE);
+  strncpy(v_inverse_attr_entry->enet_has_ip_value, enet_has_ip_value, STRING_SIZE);
+  
+  strncpy(v_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
+  strncpy(v_inverse_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
+  
+  strncpy(v_attr_entry->name, name, STRING_SIZE);
+  strncpy(v_inverse_attr_entry->name, name, STRING_SIZE);
+  
+  HASH_ADD_INT( view->v_interpretation, id, v_attr_entry);
+  HASH_ADD_STR( view->v_inverse_interpretation, name, v_inverse_attr_entry);
+  
+  // Initialize the vertex adjacency list
+  struct vertex_adjacency_list *vertex_adjacency_list;
+  vertex_adjacency_list = (struct vertex_adjacency_list*)malloc(sizeof(struct vertex_adjacency_list));
+  vertex_adjacency_list->source_id = vertex_id;
+  vertex_adjacency_list->targets = NULL;
+  HASH_ADD_INT( view->e_interpretation, source_id, vertex_adjacency_list );
+  
+  view->vertex_count = view->vertex_count + 1;  
+  return status;
+}
+
 StatusCode json_node_link_substation_network_view_vertex_initializer(View *view,
 								     mpc_ast_t *a) {
   StatusCode status = OK;
@@ -1004,40 +1051,14 @@ StatusCode json_node_link_substation_network_view_vertex_initializer(View *view,
 
     mpc_ast_t * name_value_node = a->children[3]->children[1];
     mpc_ast_t * rdfs_type_value_node = a->children[7]->children[1];
-
-    string name, rdfs_type;
+    mpc_ast_t * enet_has_ip_value_node = NULL;
+    
+    string name, rdfs_type, enet_has_ip_value;
     strncpy(name, name_value_node->contents, STRING_SIZE);
     strncpy(rdfs_type, rdfs_type_value_node->contents, STRING_SIZE);
-
-    int vertex_id;
-    vertex_id = view->vertex_count;
-
-    struct v_attribute_entry *v_attr_entry;
-    struct v_attribute_entry *v_inverse_attr_entry;
+    strncpy(enet_has_ip_value, "", 1);
     
-    v_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
-    v_inverse_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
-
-    v_attr_entry->id = view->vertex_count;
-    v_inverse_attr_entry->id = view->vertex_count;
-    
-    strncpy(v_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
-    strncpy(v_inverse_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
-    
-    strncpy(v_attr_entry->name, name, STRING_SIZE);
-    strncpy(v_inverse_attr_entry->name, name, STRING_SIZE);
-    
-    HASH_ADD_INT( view->v_interpretation, id, v_attr_entry);
-    HASH_ADD_STR( view->v_inverse_interpretation, name, v_inverse_attr_entry);
-
-    // Initialize the vertex adjacency list
-    struct vertex_adjacency_list *vertex_adjacency_list;
-    vertex_adjacency_list = (struct vertex_adjacency_list*)malloc(sizeof(struct vertex_adjacency_list));
-    vertex_adjacency_list->source_id = vertex_id;
-    vertex_adjacency_list->targets = NULL;
-    HASH_ADD_INT( view->e_interpretation, source_id, vertex_adjacency_list );
-    
-    view->vertex_count = view->vertex_count + 1;
+    status = substation_network_view_vertex_add(view, name, rdfs_type, enet_has_ip_value);
   } 
   return status;  
 }
@@ -1119,39 +1140,18 @@ StatusCode rdf_turtle_substation_network_view_vertex_initializer(View *view,
     mpc_ast_t * name_value_node = a->children[0];
     mpc_ast_t * rdfs_type_value_node = a->children[2];
 
-    string name, rdfs_type;
+    string name, rdfs_type, enet_has_ip_value;
     strncpy(name, name_value_node->contents, STRING_SIZE);
     strncpy(rdfs_type, rdfs_type_value_node->contents, STRING_SIZE);
 
-    int vertex_id;
-    vertex_id = view->vertex_count;
+    if ( !strncmp( a->children[4]->contents, "enet:hasIPValue", STRING_SIZE ) ) {
+      mpc_ast_t * enet_has_ip_value_node = a->children[5];    
+      strncpy(enet_has_ip_value, enet_has_ip_value_node->contents, STRING_SIZE);
+    } else {
+      strncpy( enet_has_ip_value, "", 1);
+    }
     
-    struct v_attribute_entry *v_attr_entry;
-    struct v_attribute_entry *v_inverse_attr_entry;
-
-    v_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
-    v_inverse_attr_entry = (struct v_attribute_entry*)malloc(sizeof(struct v_attribute_entry));
-
-    v_attr_entry->id = view->vertex_count;
-    v_inverse_attr_entry->id = view->vertex_count;
-
-    strncpy(v_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
-    strncpy(v_inverse_attr_entry->rdfs_type, rdfs_type, STRING_SIZE);
-
-    strncpy(v_attr_entry->name, name, STRING_SIZE);
-    strncpy(v_inverse_attr_entry->name, name, STRING_SIZE);
-
-    HASH_ADD_INT( view->v_interpretation, id, v_attr_entry );
-    HASH_ADD_STR( view->v_inverse_interpretation, name, v_inverse_attr_entry);
-
-    // Initialize the vertex adjacency list
-    struct vertex_adjacency_list *vertex_adjacency_list;
-    vertex_adjacency_list = (struct vertex_adjacency_list*)malloc(sizeof(struct vertex_adjacency_list));
-    vertex_adjacency_list->source_id = vertex_id;
-    vertex_adjacency_list->targets = NULL;
-    HASH_ADD_INT( view->e_interpretation, source_id, vertex_adjacency_list );
-
-    view->vertex_count = view->vertex_count + 1;
+    status = substation_network_view_vertex_add(view, name, rdfs_type, enet_has_ip_value);
   }
   return status;
 }
@@ -1198,28 +1198,36 @@ StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view,
 			 target_attr_entry );
 
 	  if ( NULL == target_attr_entry ) {
-	    fprintf( stderr, "Unable to find adjacency list for target: %s\n",
-		     target_name_value_node->contents );
+	    //---- If the target does not exist, then it is interconnect
+	    //       We can add this into the adjacency list representation
+	    string name, rdfs_type, enet_has_ip_value;
+	    strncpy( name, target_name_value_node->contents, STRING_SIZE );
+	    strncpy( rdfs_type, "cptlc:Asset", STRING_SIZE );
+	    strncpy( enet_has_ip_value, "", 1);
+	    substation_network_view_vertex_add( view, name, rdfs_type, enet_has_ip_value );
+	    HASH_FIND_STR( view->v_inverse_interpretation,
+			   target_name_value_node->contents,
+			   target_attr_entry );
+	  }
+	    
+	  //---- loop through all the target vertices
+	  e_attr_entry = vertex_adjacency_list->targets;
+	  if ( NULL == e_attr_entry ) {
+	    e_attr_entry = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+	    e_attr_entry->target_id = target_attr_entry->id;
+	    strncpy(e_attr_entry->rdfs_type, child_target_node->contents, STRING_SIZE);
+	    e_attr_entry->next = NULL;
+	    vertex_adjacency_list->targets = e_attr_entry;
 	  } else {
-	    //---- loop through all the target vertices
-	    e_attr_entry = vertex_adjacency_list->targets;
-	    if ( NULL == e_attr_entry ) {
-	      e_attr_entry = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
-	      e_attr_entry->target_id = target_attr_entry->id;
-	      strncpy(e_attr_entry->rdfs_type, child_target_node->contents, STRING_SIZE);
-	      e_attr_entry->next = NULL;
-	      vertex_adjacency_list->targets = e_attr_entry;
-	    } else {
-	      while ( e_attr_entry->next != NULL ) {
-		e_attr_entry = e_attr_entry->next;
-	      }
-	      e_attr_entry->next = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+	    while ( e_attr_entry->next != NULL ) {
 	      e_attr_entry = e_attr_entry->next;
-	      e_attr_entry->target_id = target_attr_entry->id;
-	      strncpy(e_attr_entry->rdfs_type, child_target_node->contents, STRING_SIZE);
-	      e_attr_entry->next = NULL;
 	    }
-	  } // If an adjacency list entry exists
+	    e_attr_entry->next = (struct e_attribute_entry*)malloc(sizeof(struct e_attribute_entry));
+	    e_attr_entry = e_attr_entry->next;
+	    e_attr_entry->target_id = target_attr_entry->id;
+	    strncpy(e_attr_entry->rdfs_type, child_target_node->contents, STRING_SIZE);
+	    e_attr_entry->next = NULL;
+	  }
 	  
 	} // If the link is of type cptlc:hasLink
       } // If a child is a link
