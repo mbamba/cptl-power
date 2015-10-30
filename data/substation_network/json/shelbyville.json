@@ -44,10 +44,28 @@
 		{"name":"north-haverbrook-network:DistanceRelay_2",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"cyprus-creek-network:SEL_421_4",
+		{"name":"cypress-creek-network:SEL_421_4",
 		 "rdfs:type":"cptlc:Asset"},
 
 		{"name":"paris-network:SEL_421_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville$BRK$2629",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville$BRK$2928",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville$BRK$3132",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville$BRK$3031",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville$BRK$2729",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-yard:Shelbyville$BRK$2931",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
@@ -93,12 +111,36 @@
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"shelbyville-network:SEL_421_2",
-		 "target":"cyprus-creek-network:SEL_421_4",
+		 "target":"cypress-creek-network:SEL_421_4",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"shelbyville-network:SEL_421_3",
 		 "target":"paris-network:SEL_421_1",
-		 "relation":"cptlc:hasLink"}
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"shelbyville-network:SEL_451_1",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2629",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"shelbyville-network:SEL_451_2",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2928",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"shelbyville-network:SEL_451_3",
+		 "target":"shelbyville-yard:Shelbyville$BRK$3132",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"shelbyville-network:SEL_451_4",
+		 "target":"shelbyville-yard:Shelbyville$BRK$3031",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"shelbyville-network:SEL_451_5",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2729",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"shelbyville-network:SEL_451_6",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2931",
+		 "relation":"snet:hasBreakerConnections"}
 
 	   ]
 }

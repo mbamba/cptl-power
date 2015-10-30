@@ -1191,7 +1191,9 @@ StatusCode rdf_turtle_substation_network_view_edge_initializer(View *view,
 	struct v_attribute_entry *target_attr_entry = NULL;
 
 	if ( ! strncmp("cptlc:hasLink", child_target_node->contents, 13) ||
-	     ! strncmp("syard:hasLine", child_target_node->contents, 13) ) {
+	     ! strncmp("syard:hasLine", child_target_node->contents, 13) ||
+	     ! strncmp("snet:hasBreakerConnections", child_target_node->contents, 26) ) {
+
 	  mpc_ast_t *target_name_value_node = a->children[i+1];
 	  HASH_FIND_STR( view->v_inverse_interpretation,
 			 target_name_value_node->contents,

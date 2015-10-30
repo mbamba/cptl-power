@@ -43,10 +43,25 @@
 		{"name":"haverbrook-network:DistanceRelay_3",
 		 "rdfs:type":"cptlc:Asset"},
 
+		{"name":"springfield-yard:Springfield$BRK$4041",
+		 "rdfs:type":"cptlc:Asset"},
+
 		{"name":"paris-network:SEL_421_3",
 		 "rdfs:type":"cptlc:Asset"},
 
+		{"name":"springfield-yard:Springfield$BRK$4142",
+		 "rdfs:type":"cptlc:Asset"},
+
 		{"name":"haverbrook-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"springfield-yard:Springfield$BRK$3941",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"springfield-yard:Springfield$BRK$4341",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"springfield-yard:Springfield$BRK$4441",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
@@ -63,6 +78,10 @@
 		 "target":"haverbrook-network:DistanceRelay_3",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"springfield-network:DistanceRelay_1",
+		 "target":"springfield-yard:Springfield$BRK$4041",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"springfield-network:DistanceRelay_2",
 		 "target":"springfield-network:OvercurrentRelay_2",
 		 "relation":"cptlc:hasLink"},
@@ -70,6 +89,10 @@
 		{"source":"springfield-network:DistanceRelay_2",
 		 "target":"paris-network:SEL_421_3",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"springfield-network:DistanceRelay_2",
+		 "target":"springfield-yard:Springfield$BRK$4142",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"springfield-network:DistanceRelay_3",
 		 "target":"springfield-network:OvercurrentRelay_5",
@@ -79,25 +102,53 @@
 		 "target":"haverbrook-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"springfield-network:DistanceRelay_3",
+		 "target":"springfield-yard:Springfield$BRK$3941",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"springfield-network:ReversePowerRelay_1",
 		 "target":"springfield-network:OvercurrentRelay_3",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"springfield-network:ReversePowerRelay_1",
+		 "target":"springfield-yard:Springfield$BRK$4341",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"springfield-network:OvercurrentRelay_1",
 		 "target":"springfield-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"springfield-network:OvercurrentRelay_1",
+		 "target":"springfield-yard:Springfield$BRK$4041",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"springfield-network:OvercurrentRelay_2",
 		 "target":"springfield-network:ReversePowerRelay_1",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"springfield-network:OvercurrentRelay_2",
+		 "target":"springfield-yard:Springfield$BRK$4142",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"springfield-network:OvercurrentRelay_3",
 		 "target":"springfield-network:OvercurrentRelay_4",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"springfield-network:OvercurrentRelay_3",
+		 "target":"springfield-yard:Springfield$BRK$4341",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"springfield-network:OvercurrentRelay_4",
 		 "target":"springfield-network:DistanceRelay_3",
-		 "relation":"cptlc:hasLink"}
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"springfield-network:OvercurrentRelay_4",
+		 "target":"springfield-yard:Springfield$BRK$4441",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"springfield-network:OvercurrentRelay_5",
+		 "target":"springfield-yard:Springfield$BRK$3941",
+		 "relation":"snet:hasBreakerConnections"}
 
 	   ]
 }

@@ -36,10 +36,22 @@
 		{"name":"shelbyville-network:SEL_421_3",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"cyprus-creek-network:SEL_421_1",
+		{"name":"cypress-creek-network:SEL_421_1",
 		 "rdfs:type":"cptlc:Asset"},
 
 		{"name":"springfield-network:DistanceRelay_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"paris-yard:Paris$BRK$5052",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"paris-yard:Paris$BRK$4950",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"paris-yard:Paris$BRK$4850",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"paris-yard:Paris$BRK$5051",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
@@ -77,12 +89,28 @@
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"paris-network:SEL_421_2",
-		 "target":"cyprus-creek-network:SEL_421_1",
+		 "target":"cypress-creek-network:SEL_421_1",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"paris-network:SEL_421_3",
 		 "target":"springfield-network:DistanceRelay_2",
-		 "relation":"cptlc:hasLink"}
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"paris-network:SEL_451_1",
+		 "target":"paris-yard:Paris$BRK$5052",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"paris-network:SEL_451_2",
+		 "target":"paris-yard:Paris$BRK$4950",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"paris-network:SEL_451_3",
+		 "target":"paris-yard:Paris$BRK$4850",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"paris-network:SEL_451_4",
+		 "target":"paris-yard:Paris$BRK$5051",
+		 "relation":"snet:hasBreakerConnections"}
 
 	   ]
 }

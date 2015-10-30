@@ -7,62 +7,62 @@
 
 springfield-yard:Springfield-UN-Gen5
 	rdfs:type syard:Generator ;
-	syard:hasLine springfield-yard:Springfield-ND-43 ;
+	syard:hasLine springfield-yard:Springfield$ND$43 ;
 	.
 
-springfield-yard:Springfield-ND-43
+springfield-yard:Springfield$ND$43
 	rdfs:type syard:Node ;
-	syard:hasLine springfield-yard:Springfield-BRK-4341 ;
+	syard:hasLine springfield-yard:Springfield$BRK$4341 ;
 	.
 
-springfield-yard:Springfield-BRK-4341
+springfield-yard:Springfield$BRK$4341
 	rdfs:type syard:Breaker ;
-	syard:hasLine springfield-yard:Springfield-ND-41 ;
+	syard:hasLine springfield-yard:Springfield$ND$41 ;
 	.
 
-springfield-yard:Springfield-ND-41 
+springfield-yard:Springfield$ND$41 
         rdfs:type syard:Bus ;
-	syard:hasLine springfield-yard:Springfield-BRK-3941 ;
-	syard:hasLine springfield-yard:Springfield-BRK-4441 ;
-	syard:hasLine springfield-yard:Springfield-BRK-4142 ;
-	syard:hasLine springfield-yard:Springfield-BRK-4041 ;
+	syard:hasLine springfield-yard:Springfield$BRK$3941 ;
+	syard:hasLine springfield-yard:Springfield$BRK$4441 ;
+	syard:hasLine springfield-yard:Springfield$BRK$4142 ;
+	syard:hasLine springfield-yard:Springfield$BRK$4041 ;
 	.
 
-springfield-yard:Springfield-BRK-3941
+springfield-yard:Springfield$BRK$3941
 	rdfs:type syard:Breaker ;
-	syard:hasLine springfield-yard:Springfield-ND-39 ;
+	syard:hasLine springfield-yard:Springfield$ND$39 ;
 	.
 
-springfield-yard:Springfield-ND-39
+springfield-yard:Springfield$ND$39
 	rdfs:type syard:Node ;
-	syard:hasLine haverbrook-yard:Haverbrook-ND-37 ;
+	syard:hasLine haverbrook-yard:Haverbrook$ND$37 ;
 	.
 
-springfield-yard:Springfield-BRK-4441
+springfield-yard:Springfield$BRK$4441
 	rdfs:type syard:Breaker ;
-	syard:hasLine springfield-yard:Springfield-ND-44 ;
+	syard:hasLine springfield-yard:Springfield$ND$44 ;
 	.
 
-springfield-yard:Springfield-ND-44
+springfield-yard:Springfield$ND$44
 	rdfs:type syard:Node ;
 	.
 
-springfield-yard:Springfield-BRK-4142
+springfield-yard:Springfield$BRK$4142
 	rdfs:type syard:Breaker ;
-	syard:hasLine springfield-yard:Springfield-ND-42 ;
+	syard:hasLine springfield-yard:Springfield$ND$42 ;
 	.
 
-springfield-yard:Springfield-ND-42
+springfield-yard:Springfield$ND$42
 	rdfs:type syard:Node ;
-	syard:hasLine paris-yard:Paris-ND-51 ;
+	syard:hasLine paris-yard:Paris$ND$51 ;
 	.
 
-springfield-yard:Springfield-BRK-4041
+springfield-yard:Springfield$BRK$4041
 	rdfs:type syard:Breaker ;
-	syard:hasLine springfield-yard:Springfield-ND-40 ;
+	syard:hasLine springfield-yard:Springfield$ND$40 ;
 	.
 
-springfield-yard:Springfield-ND-40
+springfield-yard:Springfield$ND$40
 	rdfs:type syard:Node ;
-	syard:hasLine haverbrook-yard:Haverbrook-ND-38 ;
+	syard:hasLine haverbrook-yard:Haverbrook$ND$38 ;
 	.

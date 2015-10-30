@@ -1,0 +1,109 @@
+@prefix cptlc:     <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix sel-snet:  <http://cptl-c.org/power/2015/substation_network/sel/> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odgenville-network: <http://arpae-example.org/2014/07/8-substation/odgenville/snet/> .
+@prefix odgenville-yard: <http://arpae-example.org/2014/07/8-substation/odgenville/syard/> .
+@prefix cypress-creek-network: <http://arpae-example.org/2014/07/8-substation/cypress-creek/snet/> .
+@prefix cypress-creek-yard: <http://arpae-example.org/2014/07/8-substation/cypress-creek/syard/> .
+@prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
+@prefix north-haverbrook-network: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/snet/> .
+@prefix shelbyville-network: <http://arpae-example.org/2014/07/8-substation/shelbyville/snet/> .
+@prefix haverbrook-network: <http://arpae-example.org/2014/07/8-substation/haverbrook/snet/> .
+@prefix capital-city-network: <http://arpae-example.org/2014/07/8-substation/capital-city/snet/> .
+
+cypress-creek-network:SEL_3620
+	rdfs:type snet:Switch ;
+	enet:hasIPValue '192.168.1.200' ;	
+	cptlc:hasLink cypress-creek-network:SEL_421_1 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_2 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_3 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_4 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_5 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_6 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_7 ;
+	cptlc:hasLink cypress-creek-network:SEL_451_1 ;
+	cptlc:hasLink cypress-creek-network:SEL_451_2 ;
+	cptlc:hasLink cypress-creek-network:SEL_451_3 ;
+	cptlc:hasLink cypress-creek-network:SEL_451_4 ;
+	cptlc:hasLink cypress-creek-network:SEL_451_5 ;
+	.
+
+cypress-creek-network:SEL_421_1
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.201' ;
+	cptlc:hasLink paris-network:SEL_421_2 ;
+	.
+
+cypress-creek-network:SEL_421_2
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.202' ;
+	.
+
+cypress-creek-network:SEL_421_3
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.203' ;
+	cptlc:hasLink north-haverbrook-network:DistanceRelay_3 ;
+	.
+
+cypress-creek-network:SEL_421_4
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.204' ;
+	cptlc:hasLink shelbyville-network:SEL_421_2 ;
+	.
+
+cypress-creek-network:SEL_421_5
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.205' ;
+	cptlc:hasLink haverbrook-network:DistanceRelay_2 ;
+	.
+
+cypress-creek-network:SEL_421_6
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.206' ;
+	cptlc:hasLink odgenville-network:SEL_421_1 ;
+	.
+
+cypress-creek-network:SEL_421_7
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.31.1.207' ;
+	cptlc:hasLink capital-city-network:DistanceRelay_1 ;
+	.
+
+cypress-creek-network:SEL_451_1
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.101' ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$2425 ;
+	.
+
+cypress-creek-network:SEL_451_2
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.102' ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$1519 ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$1715 ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$1815 ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$1615 ;
+	.
+
+cypress-creek-network:SEL_451_3
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.103' ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$2019 ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$1719 ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$1925 ;
+	.
+
+cypress-creek-network:SEL_451_4
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.104' ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$2325 ;
+	.
+
+cypress-creek-network:SEL_451_5
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.31.1.105' ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$2125 ;
+	snet:hasBreakerConnections cypress-creek-yard:CyprusCreek$BRK$2225 ;
+	.
+	

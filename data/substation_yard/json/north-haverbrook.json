@@ -1,143 +1,143 @@
 {
 	"nodes":
 	   [
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-7",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$7",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-78",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$78",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-8",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$8",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-812",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$812",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-12",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$12",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-1112",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$1112",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-11",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$11",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-1213",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$1213",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-13",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$13",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-1413",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$1413",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$14",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-913",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$913",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-59",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$59",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-89",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$89",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-BRK-910",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$910",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-10",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$10",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"ogdenville-yard:Ogdenville-ND-3",
+		{"name":"odgenville-yard:Ogdenville$ND$3",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"cyprus-creek-yard:CyprusCreek-ND-21",
+		{"name":"cypress-creek-yard:CyprusCreek$ND$21",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-26",
+		{"name":"shelbyville-yard:Shelbyville$ND$26",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-7",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-78",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$7",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$78",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-7",
-		 "target":"ogdenville-yard:Ogdenville-ND-3",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$7",
+		 "target":"odgenville-yard:Ogdenville$ND$3",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-78",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-8",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$78",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$8",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-8",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-812",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$8",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$812",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-8",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-89",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$8",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$89",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-812",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-12",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$812",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$12",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-12",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-1112",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$12",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1112",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-12",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-1213",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$12",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1213",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-1112",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-11",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$1112",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$11",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-11",
-		 "target":"cyprus-creek-yard:CyprusCreek-ND-21",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$11",
+		 "target":"cypress-creek-yard:CyprusCreek$ND$21",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-1213",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-13",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$1213",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$13",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-13",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-913",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$13",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$913",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-13",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-1413",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$13",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1413",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-1413",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$1413",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$14",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-14",
-		 "target":"shelbyville-yard:Shelbyville-ND-26",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$14",
+		 "target":"shelbyville-yard:Shelbyville$ND$26",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-913",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-59",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$913",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$59",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-59",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-89",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$59",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$89",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-ND-59",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-BRK-910",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$ND$59",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$910",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-89",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-8",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$89",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$8",
 		 "relation":"syard:hasLine"},
 
-		{"source":"north-haverbrook-yard:NorthHaverbrook-BRK-910",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-10",
+		{"source":"north-haverbrook-yard:NorthHaverbrook$BRK$910",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$10",
 		 "relation":"syard:hasLine"}
 
 	   ]

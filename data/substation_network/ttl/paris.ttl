@@ -6,7 +6,7 @@
 @prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
 @prefix paris-yard: <http://arpae-example.org/2014/07/8-substation/paris/syard/> .
 @prefix shelbyville-network: <http://arpae-example.org/2014/07/8-substation/shelbyville/snet/> .
-@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+@prefix cypress-creek-network: <http://arpae-example.org/2014/07/8-substation/cypress-creek/snet/> .
 @prefix springfield-network: <http://arpae-example.org/2014/07/8-substation/springfield/snet/> .
 
 paris-network:SEL_3620
@@ -30,7 +30,7 @@ paris-network:SEL_421_1
 paris-network:SEL_421_2
 	rdfs:type snet:DistanceRelay ;
 	enet:hasIPValue '10.35.1.202' ;
-	cptlc:hasLink cyprus-creek-network:SEL_421_1 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_1 ;
 	.
 
 paris-network:SEL_421_3
@@ -42,25 +42,25 @@ paris-network:SEL_421_3
 paris-network:SEL_451_1
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.35.1.101' ;
-	snet:hasBreakerConnections paris-yard:Paris-BRK-5052 ;
+	snet:hasBreakerConnections paris-yard:Paris$BRK$5052 ;
 	.
 
 paris-network:SEL_451_2
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.35.1.102' ;
-	snet:hasBreakerConnections paris-yard:Paris-BRK-4950 ;
+	snet:hasBreakerConnections paris-yard:Paris$BRK$4950 ;
 	.
 
 paris-network:SEL_451_3
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.35.1.103' ;
-	snet:hasBreakerConnections paris-yard:Paris-BRK-4850 ;
+	snet:hasBreakerConnections paris-yard:Paris$BRK$4850 ;
 	.
 
 paris-network:SEL_451_4
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.35.1.104' ;
-	snet:hasBreakerConnections paris-yard:Paris-BRK-5051 ;
+	snet:hasBreakerConnections paris-yard:Paris$BRK$5051 ;
 	.
 
 

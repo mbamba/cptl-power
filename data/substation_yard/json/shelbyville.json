@@ -1,114 +1,114 @@
 {
 	"nodes":
 	   [
-		{"name":"shelbyville-yard:Shelbyville-ND-32",
+		{"name":"shelbyville-yard:Shelbyville$ND$32",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"shelbyville-yard:Shelbyville-BRK-3132",
+		{"name":"shelbyville-yard:Shelbyville$BRK$3132",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-31",
+		{"name":"shelbyville-yard:Shelbyville$ND$31",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"shelbyville-yard:Shelbyville-BRK-3031",
+		{"name":"shelbyville-yard:Shelbyville$BRK$3031",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-30",
+		{"name":"shelbyville-yard:Shelbyville$ND$30",
 		 "rdfs:type":"syard:Node"},
 
 		{"name":"shelbyville-yard:Shelbyville-UN-Gen3",
 		 "rdfs:type":"syard:Generator"},
 
-		{"name":"shelbyville-yard:Shelbyville-BRK-2931",
+		{"name":"shelbyville-yard:Shelbyville$BRK$2931",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-29",
+		{"name":"shelbyville-yard:Shelbyville$ND$29",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"shelbyville-yard:Shelbyville-BRK-2729",
+		{"name":"shelbyville-yard:Shelbyville$BRK$2729",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-27",
+		{"name":"shelbyville-yard:Shelbyville$ND$27",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"shelbyville-yard:Shelbyville-BRK-2629",
+		{"name":"shelbyville-yard:Shelbyville$BRK$2629",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-26",
+		{"name":"shelbyville-yard:Shelbyville$ND$26",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"shelbyville-yard:Shelbyville-BRK-2928",
+		{"name":"shelbyville-yard:Shelbyville$BRK$2928",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"shelbyville-yard:Shelbyville-ND-28",
+		{"name":"shelbyville-yard:Shelbyville$ND$28",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$ND$14",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"cyprus-creek-yard:CyprusCreek-ND-22",
+		{"name":"cypress-creek-yard:CyprusCreek$ND$22",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
-		{"source":"shelbyville-yard:Shelbyville-ND-32",
-		 "target":"shelbyville-yard:Shelbyville-BRK-3132",
+		{"source":"shelbyville-yard:Shelbyville$ND$32",
+		 "target":"shelbyville-yard:Shelbyville$BRK$3132",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-BRK-3132",
-		 "target":"shelbyville-yard:Shelbyville-ND-31",
+		{"source":"shelbyville-yard:Shelbyville$BRK$3132",
+		 "target":"shelbyville-yard:Shelbyville$ND$31",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-31",
-		 "target":"shelbyville-yard:Shelbyville-BRK-2931",
+		{"source":"shelbyville-yard:Shelbyville$ND$31",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2931",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-31",
-		 "target":"shelbyville-yard:Shelbyville-BRK-3031",
+		{"source":"shelbyville-yard:Shelbyville$ND$31",
+		 "target":"shelbyville-yard:Shelbyville$BRK$3031",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-BRK-3031",
-		 "target":"shelbyville-yard:Shelbyville-ND-30",
+		{"source":"shelbyville-yard:Shelbyville$BRK$3031",
+		 "target":"shelbyville-yard:Shelbyville$ND$30",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-30",
+		{"source":"shelbyville-yard:Shelbyville$ND$30",
 		 "target":"shelbyville-yard:Shelbyville-UN-Gen3",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-BRK-2931",
-		 "target":"shelbyville-yard:Shelbyville-ND-29",
+		{"source":"shelbyville-yard:Shelbyville$BRK$2931",
+		 "target":"shelbyville-yard:Shelbyville$ND$29",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-29",
-		 "target":"shelbyville-yard:Shelbyville-BRK-2729",
+		{"source":"shelbyville-yard:Shelbyville$ND$29",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2729",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-29",
-		 "target":"shelbyville-yard:Shelbyville-BRK-2629",
+		{"source":"shelbyville-yard:Shelbyville$ND$29",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2629",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-29",
-		 "target":"shelbyville-yard:Shelbyville-BRK-2928",
+		{"source":"shelbyville-yard:Shelbyville$ND$29",
+		 "target":"shelbyville-yard:Shelbyville$BRK$2928",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-BRK-2729",
-		 "target":"shelbyville-yard:Shelbyville-ND-27",
+		{"source":"shelbyville-yard:Shelbyville$BRK$2729",
+		 "target":"shelbyville-yard:Shelbyville$ND$27",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-BRK-2629",
-		 "target":"shelbyville-yard:Shelbyville-ND-26",
+		{"source":"shelbyville-yard:Shelbyville$BRK$2629",
+		 "target":"shelbyville-yard:Shelbyville$ND$26",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-26",
-		 "target":"north-haverbrook-yard:NorthHaverbrook-ND-14",
+		{"source":"shelbyville-yard:Shelbyville$ND$26",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$ND$14",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-BRK-2928",
-		 "target":"shelbyville-yard:Shelbyville-ND-28",
+		{"source":"shelbyville-yard:Shelbyville$BRK$2928",
+		 "target":"shelbyville-yard:Shelbyville$ND$28",
 		 "relation":"syard:hasLine"},
 
-		{"source":"shelbyville-yard:Shelbyville-ND-28",
-		 "target":"cyprus-creek-yard:CyprusCreek-ND-22",
+		{"source":"shelbyville-yard:Shelbyville$ND$28",
+		 "target":"cypress-creek-yard:CyprusCreek$ND$22",
 		 "relation":"syard:hasLine"}
 
 	   ]

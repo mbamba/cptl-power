@@ -1,0 +1,87 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix syard:  <http://cptl-c.org/power/2015/07/substation_yard/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odgenville-yard: <http://arpae-example.org/2014/07/8-substation/odgenville/syard/> .
+@prefix cypress-creek-yard: <http://arpae-example.org/2014/07/8-substation/cypress-creek/syard/> .
+@prefix north-haverbrook-yard: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/syard/> .
+
+odgenville-yard:Ogdenville-UN-Gen1
+	rdfs:type syard:Generator ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$1 ;
+	.
+
+odgenville-yard:Ogdenville$ND$1
+	rdfs:type syard:Node ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$12 ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$14 ;
+	.
+
+odgenville-yard:Ogdenville$BRK$14
+	rdfs:type syard:Breaker ;
+	.
+	
+odgenville-yard:Ogdenville$BRK$12
+	rdfs:type syard:Breaker ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$2 ;
+	.	
+
+odgenville-yard:Ogdenville$ND$2
+	rdfs:type syard:Bus ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$42 ;
+	.
+
+odgenville-yard:Ogdenville$BRK$42
+	rdfs:type syard:Breaker ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$4 ;
+	.
+
+odgenville-yard:Ogdenville$ND$4
+	rdfs:type syard:Bus ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$14 ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$34 ;
+	.	
+
+odgenville-yard:Ogdenville$BRK$34
+	rdfs:type syard:Breaker ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$3 ;
+	.
+
+odgenville-yard:Ogdenville$ND$3
+	rdfs:type syard:Node ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$23 ;
+	.
+
+odgenville-yard:Ogdenville$BRK$23
+	rdfs:type syard:Breaker ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$2 ;
+	.
+
+odgenville-yard:Ogdenville$ND$2
+	rdfs:type syard:Bus ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$25 ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$62 ;
+	.
+
+odgenville-yard:Ogdenville$BRK$25
+	rdfs:type syard:Breaker ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$5 ;
+	.
+
+odgenville-yard:Ogdenville$ND$5
+	rdfs:type syard:Bus ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$56 ;
+	.
+
+odgenville-yard:Ogdenville$BRK$56
+	rdfs:type syard:Breaker ;
+	syard:hasLine odgenville-yard:Ogdenville$ND$6 ;
+	.
+
+odgenville-yard:Ogdenville$ND$6
+	rdfs:type syard:Node ;
+	syard:hasLine odgenville-yard:Ogdenville$BRK$62 ;
+	.
+
+odgenville-yard:Ogdenville$BRK$62
+	rdfs:type syard:Breaker ;
+	.

@@ -1,0 +1,129 @@
+{
+	"nodes":
+	   [
+		{"name":"odgenville-network:SEL_3620",
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.4.200"},
+
+		{"name":"odgenville-network:SEL_421_1",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.34.1.201"},
+
+		{"name":"odgenville-network:SEL_421_2",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.34.1.202"},
+
+		{"name":"odgenville-network:SEL_451_1",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.34.1.101"},
+
+		{"name":"odgenville-network:SEL_451_2",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.34.1.102"},
+
+		{"name":"odgenville-network:SEL_451_3",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.34.1.103"},
+
+		{"name":"cypress-creek-network:SEL_421_6",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$14",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$12",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$42",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$23",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$34",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$25",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$56",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-yard:Ogdenville$BRK$62",
+		 "rdfs:type":"cptlc:Asset"}
+	   ],
+	"links":
+	   [
+		{"source":"odgenville-network:SEL_3620",
+		 "target":"odgenville-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_3620",
+		 "target":"odgenville-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_3620",
+		 "target":"odgenville-network:SEL_451_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_3620",
+		 "target":"odgenville-network:SEL_451_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_3620",
+		 "target":"odgenville-network:SEL_451_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_421_1",
+		 "target":"cypress-creek-network:SEL_421_6",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_421_2",
+		 "target":"north-haverbrook-network:DistanceRelay_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"odgenville-network:SEL_451_1",
+		 "target":"odgenville-yard:Ogdenville$BRK$14",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_1",
+		 "target":"odgenville-yard:Ogdenville$BRK$12",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_2",
+		 "target":"odgenville-yard:Ogdenville$BRK$14",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_2",
+		 "target":"odgenville-yard:Ogdenville$BRK$42",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_2",
+		 "target":"odgenville-yard:Ogdenville$BRK$23",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_2",
+		 "target":"odgenville-yard:Ogdenville$BRK$34",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_2",
+		 "target":"odgenville-yard:Ogdenville$BRK$12",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_3",
+		 "target":"odgenville-yard:Ogdenville$BRK$25",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_3",
+		 "target":"odgenville-yard:Ogdenville$BRK$56",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"odgenville-network:SEL_451_3",
+		 "target":"odgenville-yard:Ogdenville$BRK$62",
+		 "relation":"snet:hasBreakerConnections"}
+
+	   ]
+}

@@ -1,0 +1,226 @@
+{
+	"nodes":
+	   [
+		{"name":"cypress-creek-network:SEL_3620",
+		 "rdfs:type":"snet:Switch", 
+		 "enet:hasIPValue":"192.168.1.200"},
+
+		{"name":"cypress-creek-network:SEL_421_1",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.201"},
+
+		{"name":"cypress-creek-network:SEL_421_2",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.202"},
+
+		{"name":"cypress-creek-network:SEL_421_3",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.203"},
+
+		{"name":"cypress-creek-network:SEL_421_4",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.204"},
+
+		{"name":"cypress-creek-network:SEL_421_5",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.205"},
+
+		{"name":"cypress-creek-network:SEL_421_6",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.206"},
+
+		{"name":"cypress-creek-network:SEL_421_7",
+		 "rdfs:type":"snet:DistanceRelay", 
+		 "enet:hasIPValue":"10.31.1.207"},
+
+		{"name":"cypress-creek-network:SEL_451_1",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.101"},
+
+		{"name":"cypress-creek-network:SEL_451_2",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.102"},
+
+		{"name":"cypress-creek-network:SEL_451_3",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.103"},
+
+		{"name":"cypress-creek-network:SEL_451_4",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.104"},
+
+		{"name":"cypress-creek-network:SEL_451_5",
+		 "rdfs:type":"snet:OvercurrentRelay", 
+		 "enet:hasIPValue":"10.31.1.105"},
+
+		{"name":"paris-network:SEL_421_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-network:DistanceRelay_3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"shelbyville-network:SEL_421_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-network:DistanceRelay_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"odgenville-network:SEL_421_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"capital-city-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$2425",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$1519",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$1715",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$1815",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$1615",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$2019",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$1719",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$1925",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$2325",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$2125",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-yard:CyprusCreek$BRK$2225",
+		 "rdfs:type":"cptlc:Asset"}
+	   ],
+	"links":
+	   [
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_4",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_5",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_6",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_421_7",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_451_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_451_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_451_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_451_4",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_3620",
+		 "target":"cypress-creek-network:SEL_451_5",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_421_1",
+		 "target":"paris-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_421_3",
+		 "target":"north-haverbrook-network:DistanceRelay_3",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_421_4",
+		 "target":"shelbyville-network:SEL_421_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_421_5",
+		 "target":"haverbrook-network:DistanceRelay_2",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_421_6",
+		 "target":"odgenville-network:SEL_421_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_421_7",
+		 "target":"capital-city-network:DistanceRelay_1",
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"cypress-creek-network:SEL_451_1",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$2425",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_2",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$1519",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_2",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$1715",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_2",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$1815",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_2",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$1615",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_3",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$2019",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_3",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$1719",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_3",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$1925",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_4",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$2325",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_5",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$2125",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"cypress-creek-network:SEL_451_5",
+		 "target":"cypress-creek-yard:CyprusCreek$BRK$2225",
+		 "relation":"snet:hasBreakerConnections"}
+
+	   ]
+}

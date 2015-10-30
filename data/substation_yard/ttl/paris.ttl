@@ -2,52 +2,52 @@
 @prefix syard:  <http://cptl-c.org/power/2015/07/substation_yard/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix paris-yard: <http://arpae-example.org/2014/07/8-substation/paris/syard/> .
-@prefix cyprus-creek-yard: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/syard/> .
+@prefix cypress-creek-yard: <http://arpae-example.org/2014/07/8-substation/cypress-creek/syard/> .
 @prefix springfield-yard: <http://arpae-example.org/2014/07/8-substation/springfield/syard/> .
 
-paris-yard:Paris-ND-49
+paris-yard:Paris$ND$49
 	rdfs:type syard:Node ;
-	syard:hasLine paris-yard:Paris-BRK-4950 ;
+	syard:hasLine paris-yard:Paris$BRK$4950 ;
 	.
 
-paris-yard:Paris-BRK-4950
+paris-yard:Paris$BRK$4950
 	rdfs:type syard:Breaker ;
-	syard:hasLine paris-yard:Paris-ND-50 ;
+	syard:hasLine paris-yard:Paris$ND$50 ;
 	.
 
-paris-yard:Paris-ND-50
+paris-yard:Paris$ND$50
 	rdfs:type syard:Bus ;
-	syard:hasLine paris-yard:Paris-BRK-5051 ;
-	syard:hasLine paris-yard:Paris-BRK-4850 ;
-	syard:hasLine paris-yard:Paris-BRK-5052 ;
+	syard:hasLine paris-yard:Paris$BRK$5051 ;
+	syard:hasLine paris-yard:Paris$BRK$4850 ;
+	syard:hasLine paris-yard:Paris$BRK$5052 ;
 	.
 
-paris-yard:Paris-BRK-5051
+paris-yard:Paris$BRK$5051
 	rdfs:type syard:Breaker ;
-	syard:hasLine paris-yard:Paris-ND-51 ;
+	syard:hasLine paris-yard:Paris$ND$51 ;
 	.
 
-paris-yard:Paris-ND-51
+paris-yard:Paris$ND$51
 	rdfs:type syard:Node ;
-	syard:hasLine springfield-yard:Springfield-ND-42 ;
+	syard:hasLine springfield-yard:Springfield$ND$42 ;
 	.
 
-paris-yard:Paris-BRK-4850
+paris-yard:Paris$BRK$4850
 	rdfs:type syard:Breaker ;
-	syard:hasLine paris-yard:Paris-ND-48 ;
+	syard:hasLine paris-yard:Paris$ND$48 ;
 	.
 
-paris-yard:Paris-ND-48
+paris-yard:Paris$ND$48
 	rdfs:type syard:Node ;
-	syard:hasLine cyprus-creek-yard:CyprusCreek-ND-24 ;
+	syard:hasLine cypress-creek-yard:CyprusCreek$ND$24 ;
 	.
 
-paris-yard:Paris-BRK-5052
+paris-yard:Paris$BRK$5052
 	rdfs:type syard:Breaker ;
-	syard:hasLine paris-yard:Paris-ND-52 ;
+	syard:hasLine paris-yard:Paris$ND$52 ;
 	.
 
-paris-yard:Paris-ND-52
+paris-yard:Paris$ND$52
 	rdfs:type syard:Node ;
 	.
 

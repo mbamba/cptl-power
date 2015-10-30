@@ -6,7 +6,7 @@
 @prefix shelbyville-network: <http://arpae-example.org/2014/07/8-substation/shelbyville/snet/> .
 @prefix shelbyville-yard: <http://arpae-example.org/2014/07/8-substation/shelbyville/syard/> .
 @prefix north-haverbrook-network: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/snet/> .
-@prefix cyprus-creek-network: <http://arpae-example.org/2014/07/8-substation/cyprus-creek/snet/> .
+@prefix cypress-creek-network: <http://arpae-example.org/2014/07/8-substation/cypress-creek/snet/> .
 @prefix paris-network: <http://arpae-example.org/2014/07/8-substation/paris/snet/> .
 
 shelbyville-network:SEL_3620
@@ -32,7 +32,7 @@ shelbyville-network:SEL_421_1
 shelbyville-network:SEL_421_2
 	rdfs:type snet:DistanceRelay ;
 	enet:hasIPValue '10.36.1.202' ;
-	cptlc:hasLink cyprus-creek-network:SEL_421_4 ;
+	cptlc:hasLink cypress-creek-network:SEL_421_4 ;
 	.
 
 shelbyville-network:SEL_421_3
@@ -44,35 +44,35 @@ shelbyville-network:SEL_421_3
 shelbyville-network:SEL_451_1
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.36.1.101' ;
-	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2629 ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville$BRK$2629 ;
 	.
 
 shelbyville-network:SEL_451_2
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.36.1.102' ;
-	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2928 ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville$BRK$2928 ;
 	.
 
 shelbyville-network:SEL_451_3
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.36.1.103' ;
-	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-3132 ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville$BRK$3132 ;
 	.
 
 shelbyville-network:SEL_451_4
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.36.1.104' ;
-	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-3031 ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville$BRK$3031 ;
 	.
 
 shelbyville-network:SEL_451_5
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.36.1.105' ;
-	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2729 ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville$BRK$2729 ;
 	.
 
 shelbyville-network:SEL_451_6
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.36.1.106' ;
-	snet:hasBreakerConnections shelbyville-yard:Shelbyville-BRK-2931 ;
+	snet:hasBreakerConnections shelbyville-yard:Shelbyville$BRK$2931 ;
 	.

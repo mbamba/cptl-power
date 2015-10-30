@@ -18,7 +18,7 @@ springfield-network:DistanceRelay_1
 	enet:hasIPValue '10.38.1.201' ;
 	cptlc:hasLink springfield-network:DistanceRelay_2 ;
 	cptlc:hasLink haverbrook-network:DistanceRelay_3 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4041 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4041 ;
 	.
 
 springfield-network:DistanceRelay_2
@@ -26,7 +26,7 @@ springfield-network:DistanceRelay_2
 	enet:hasIPValue '10.38.1.202' ;
 	cptlc:hasLink springfield-network:OvercurrentRelay_2 ;
 	cptlc:hasLink paris-network:SEL_421_3 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4142 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4142 ;
 	.
 
 springfield-network:DistanceRelay_3
@@ -34,45 +34,45 @@ springfield-network:DistanceRelay_3
 	enet:hasIPValue '10.38.1.203' ;
 	cptlc:hasLink springfield-network:OvercurrentRelay_5 ;
 	cptlc:hasLink haverbrook-network:DistanceRelay_1 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-3941 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$3941 ;
 	.
 
 springfield-network:ReversePowerRelay_1
 	rdfs:type snet:ReversePowerRelay ;
 	cptlc:hasLink springfield-network:OvercurrentRelay_3 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4341 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4341 ;
 	.
 
 springfield-network:OvercurrentRelay_1
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.38.1.101' ;
 	cptlc:hasLink springfield-network:DistanceRelay_1 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4041 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4041 ;
 	.
 
 springfield-network:OvercurrentRelay_2
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.38.1.102' ;
 	cptlc:hasLink springfield-network:ReversePowerRelay_1 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4142 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4142 ;
 	.
 
 springfield-network:OvercurrentRelay_3
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.38.1.103' ;
 	cptlc:hasLink springfield-network:OvercurrentRelay_4 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4341 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4341 ;
 	.
 
 springfield-network:OvercurrentRelay_4
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.38.1.104' ;
 	cptlc:hasLink springfield-network:DistanceRelay_3 ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-4441 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$4441 ;
 	.
 
 springfield-network:OvercurrentRelay_5
 	rdfs:type snet:OvercurrentRelay ;
 	enet:hasIPValue '10.38.1.105' ;
-	snet:hasBreakerConnections springfield-yard:Springfield-BRK-3941 ;
+	snet:hasBreakerConnections springfield-yard:Springfield$BRK$3941 ;
 	.

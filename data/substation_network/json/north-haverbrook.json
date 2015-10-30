@@ -45,13 +45,34 @@
 		 "rdfs:type":"snet:OvercurrentRelay", 
 		 "enet:hasIPValue":"10.33.1.107"},
 
-		{"name":"ogdenville-network:SEL_421_2",
+		{"name":"odgenville-network:SEL_421_2",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$78",
 		 "rdfs:type":"cptlc:Asset"},
 
 		{"name":"shelbyville-network:SEL_421_1",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"cyprus-creek-network:SEL_421_3",
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$1413",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-network:SEL_421_3",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$1112",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$910",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$913",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$89",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"north-haverbrook-yard:NorthHaverbrook$BRK$812",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
@@ -65,8 +86,12 @@
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"north-haverbrook-network:DistanceRelay_1",
-		 "target":"ogdenville-network:SEL_421_2",
+		 "target":"odgenville-network:SEL_421_2",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:DistanceRelay_1",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$78",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"north-haverbrook-network:DistanceRelay_2",
 		 "target":"north-haverbrook-network:OvercurrentRelay_7",
@@ -76,37 +101,73 @@
 		 "target":"shelbyville-network:SEL_421_1",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"north-haverbrook-network:DistanceRelay_2",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1413",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"north-haverbrook-network:DistanceRelay_3",
-		 "target":"cyprus-creek-network:SEL_421_3",
+		 "target":"cypress-creek-network:SEL_421_3",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:DistanceRelay_3",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1112",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"north-haverbrook-network:OvercurrentRelay_1",
 		 "target":"north-haverbrook-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"north-haverbrook-network:OvercurrentRelay_1",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$78",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"north-haverbrook-network:OvercurrentRelay_2",
 		 "target":"north-haverbrook-network:OvercurrentRelay_3",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:OvercurrentRelay_2",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$910",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"north-haverbrook-network:OvercurrentRelay_3",
 		 "target":"north-haverbrook-network:OvercurrentRelay_4",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"north-haverbrook-network:OvercurrentRelay_3",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$913",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"north-haverbrook-network:OvercurrentRelay_4",
 		 "target":"north-haverbrook-network:OvercurrentRelay_5",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:OvercurrentRelay_4",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$89",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"north-haverbrook-network:OvercurrentRelay_5",
 		 "target":"north-haverbrook-network:OvercurrentRelay_6",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"north-haverbrook-network:OvercurrentRelay_5",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$812",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"north-haverbrook-network:OvercurrentRelay_6",
 		 "target":"north-haverbrook-network:DistanceRelay_2",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"north-haverbrook-network:OvercurrentRelay_6",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1413",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"north-haverbrook-network:OvercurrentRelay_7",
 		 "target":"north-haverbrook-network:DistanceRelay_3",
-		 "relation":"cptlc:hasLink"}
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"north-haverbrook-network:OvercurrentRelay_7",
+		 "target":"north-haverbrook-yard:NorthHaverbrook$BRK$1112",
+		 "relation":"snet:hasBreakerConnections"}
 
 	   ]
 }

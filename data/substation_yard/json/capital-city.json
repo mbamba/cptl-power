@@ -1,44 +1,44 @@
 {
 	"nodes":
 	   [
-		{"name":"capital-city-yard:CapitalCity-ND-45",
+		{"name":"capital-city-yard:CapitalCity$ND$45",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"capital-city-yard:CapitalCity-BRK-4546",
+		{"name":"capital-city-yard:CapitalCity$BRK$4546",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"capital-city-yard:CapitalCity-ND-46",
+		{"name":"capital-city-yard:CapitalCity$ND$46",
 		 "rdfs:type":"syard:Bus"},
 
-		{"name":"capital-city-yard:CapitalCity-BRK-4647",
+		{"name":"capital-city-yard:CapitalCity$BRK$4647",
 		 "rdfs:type":"syard:Breaker"},
 
-		{"name":"capital-city-yard:CapitalCity-ND-47",
+		{"name":"capital-city-yard:CapitalCity$ND$47",
 		 "rdfs:type":"syard:Node"},
 
-		{"name":"cyprus-creek-yard:CyprusCreek-TX-4545",
+		{"name":"cypress-creek-yard:CyprusCreek$TX$4545",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
 	   [
-		{"source":"capital-city-yard:CapitalCity-ND-45",
-		 "target":"capital-city-yard:CapitalCity-BRK-4546",
+		{"source":"capital-city-yard:CapitalCity$ND$45",
+		 "target":"capital-city-yard:CapitalCity$BRK$4546",
 		 "relation":"syard:hasLine"},
 
-		{"source":"capital-city-yard:CapitalCity-ND-45",
-		 "target":"cyprus-creek-yard:CyprusCreek-TX-4545",
+		{"source":"capital-city-yard:CapitalCity$ND$45",
+		 "target":"cypress-creek-yard:CyprusCreek$TX$4545",
 		 "relation":"syard:hasLine"},
 
-		{"source":"capital-city-yard:CapitalCity-BRK-4546",
-		 "target":"capital-city-yard:CapitalCity-ND-46",
+		{"source":"capital-city-yard:CapitalCity$BRK$4546",
+		 "target":"capital-city-yard:CapitalCity$ND$46",
 		 "relation":"syard:hasLine"},
 
-		{"source":"capital-city-yard:CapitalCity-ND-46",
-		 "target":"capital-city-yard:CapitalCity-BRK-4647",
+		{"source":"capital-city-yard:CapitalCity$ND$46",
+		 "target":"capital-city-yard:CapitalCity$BRK$4647",
 		 "relation":"syard:hasLine"},
 
-		{"source":"capital-city-yard:CapitalCity-BRK-4647",
-		 "target":"capital-city-yard:CapitalCity-ND-47",
+		{"source":"capital-city-yard:CapitalCity$BRK$4647",
+		 "target":"capital-city-yard:CapitalCity$ND$47",
 		 "relation":"syard:hasLine"}
 
 	   ]

@@ -36,10 +36,25 @@
 		{"name":"springfield-network:DistanceRelay_3",
 		 "rdfs:type":"cptlc:Asset"},
 
-		{"name":"cyprus-creek-network:SEL_421_5",
+		{"name":"haverbrook-yard:Haverbrook$BRK$3735",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"cypress-creek-network:SEL_421_5",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-yard:Haverbrook$BRK$3635",
 		 "rdfs:type":"cptlc:Asset"},
 
 		{"name":"springfield-network:DistanceRelay_1",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-yard:Haverbrook$BRK$3835",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-yard:Haverbrook$BRK$3335",
+		 "rdfs:type":"cptlc:Asset"},
+
+		{"name":"haverbrook-yard:Haverbrook$BRK$3435",
 		 "rdfs:type":"cptlc:Asset"}
 	   ],
 	"links":
@@ -52,17 +67,25 @@
 		 "target":"springfield-network:DistanceRelay_3",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"haverbrook-network:DistanceRelay_1",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3735",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"haverbrook-network:DistanceRelay_2",
 		 "target":"haverbrook-network:OvercurrentRelay_3",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"haverbrook-network:DistanceRelay_2",
-		 "target":"cyprus-creek-network:SEL_421_5",
+		 "target":"cypress-creek-network:SEL_421_5",
 		 "relation":"cptlc:hasLink"},
 
 		{"source":"haverbrook-network:DistanceRelay_2",
 		 "target":"springfield-network:DistanceRelay_3",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:DistanceRelay_2",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3635",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"haverbrook-network:DistanceRelay_3",
 		 "target":"haverbrook-network:OvercurrentRelay_4",
@@ -76,25 +99,53 @@
 		 "target":"springfield-network:DistanceRelay_1",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"haverbrook-network:DistanceRelay_3",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3835",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"haverbrook-network:ReversePowerRelay_1",
 		 "target":"haverbrook-network:OvercurrentRelay_2",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:ReversePowerRelay_1",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3335",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"haverbrook-network:OvercurrentRelay_1",
 		 "target":"haverbrook-network:OvercurrentRelay_4",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"haverbrook-network:OvercurrentRelay_1",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3335",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"haverbrook-network:OvercurrentRelay_2",
 		 "target":"haverbrook-network:DistanceRelay_2",
 		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:OvercurrentRelay_2",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3435",
+		 "relation":"snet:hasBreakerConnections"},
+
+		{"source":"haverbrook-network:OvercurrentRelay_3",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3635",
+		 "relation":"snet:hasBreakerConnections"},
 
 		{"source":"haverbrook-network:OvercurrentRelay_4",
 		 "target":"haverbrook-network:OvercurrentRelay_5",
 		 "relation":"cptlc:hasLink"},
 
+		{"source":"haverbrook-network:OvercurrentRelay_4",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3735",
+		 "relation":"snet:hasBreakerConnections"},
+
 		{"source":"haverbrook-network:OvercurrentRelay_5",
 		 "target":"haverbrook-network:DistanceRelay_3",
-		 "relation":"cptlc:hasLink"}
+		 "relation":"cptlc:hasLink"},
+
+		{"source":"haverbrook-network:OvercurrentRelay_5",
+		 "target":"haverbrook-yard:Haverbrook$BRK$3835",
+		 "relation":"snet:hasBreakerConnections"}
 
 	   ]
 }

@@ -1,0 +1,58 @@
+@prefix cptlc:  <http://cptl-c.org/core/2014/07/core/> .
+@prefix enet:      <http://cptl-c.org/enterprise/2015/07/enterprise_network/> .
+@prefix snet:      <http://cptl-c.org/power/2015/07/substation_network/> .
+@prefix sel-snet:  <http://cptl-c.org/power/2015/substation_network/sel/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odgenville-network: <http://arpae-example.org/2014/07/8-substation/odgenville/snet/> .
+@prefix odgenville-yard: <http://arpae-example.org/2014/07/8-substation/odgenville/syard/> .
+@prefix cypress-creek-network: <http://arpae-example.org/2014/07/8-substation/cypress-creek/snet/> .
+@prefix cypress-creek-yard: <http://arpae-example.org/2014/07/8-substation/cypress-creek/syard/> .
+@prefix north-haverbrook-network: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/snet/> .
+@prefix north-haverbrook-yard: <http://arpae-example.org/2014/07/8-substation/north-haverbrook/syard/> .
+
+odgenville-network:SEL_3620
+	rdfs:type snet:Switch ;
+	enet:hasIPValue '192.168.4.200' ;	
+	cptlc:hasLink odgenville-network:SEL_421_1 ;
+	cptlc:hasLink odgenville-network:SEL_421_2 ;
+	cptlc:hasLink odgenville-network:SEL_451_1 ;
+	cptlc:hasLink odgenville-network:SEL_451_2 ;
+	cptlc:hasLink odgenville-network:SEL_451_3 ;
+	.
+
+odgenville-network:SEL_421_1 
+	rdfs:type snet:DistanceRelay ;
+	enet:hasIPValue '10.34.1.201' ;		    
+	cptlc:hasLink cypress-creek-network:SEL_421_6 ;
+        .
+
+odgenville-network:SEL_421_2
+	rdfs:type snet:DistanceRelay ; 
+	enet:hasIPValue '10.34.1.202' ;
+	cptlc:hasLink north-haverbrook-network:DistanceRelay_1 ;
+        .
+
+odgenville-network:SEL_451_1
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.34.1.101' ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$14 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$12 ;
+        .
+
+odgenville-network:SEL_451_2
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.34.1.102' ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$14 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$42 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$23 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$34 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$12 ;
+        .
+
+odgenville-network:SEL_451_3
+	rdfs:type snet:OvercurrentRelay ;
+	enet:hasIPValue '10.34.1.103' ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$25 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$56 ;
+	snet:hasBreakerConnections odgenville-yard:Ogdenville$BRK$62 ;
+        .
